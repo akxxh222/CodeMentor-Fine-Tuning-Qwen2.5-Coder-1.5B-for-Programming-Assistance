@@ -1,0 +1,36 @@
+{
+  "method": "conservative local syntax/compile validation; semantic correctness not guaranteed",
+  "source_train": 6000,
+  "accepted_candidates": 3240,
+  "selected": 1000,
+  "limit": 1000,
+  "seed": 3407,
+  "available_languages": [
+    "bash",
+    "c#",
+    "go",
+    "java",
+    "javascript",
+    "python"
+  ],
+  "language_counts": {
+    "go": 1,
+    "java": 111,
+    "javascript": 388,
+    "python": 500
+  },
+  "rejection_reasons": {
+    "incomplete_output": 18,
+    "not_code_generation": 474,
+    "output_length": 3,
+    "syntax_failed": 504,
+    "validator_unavailable": 1922
+  },
+  "validation_selected": 100,
+  "validation_rejection_reasons": {
+    "not_code_generation": 44,
+    "output_length": 1,
+    "syntax_failed": 41,
+    "validator_unavailable": 160
+  }
+}

@@ -1,0 +1,7 @@
+{"id": "bad-binary", "source_index": 185, "verdict": "PASS", "pass_probability": 0.754915, "fail_probability": 0.24508502, "method": "qwen_next_token_pairwise"}
+{"id": "bad-prime", "source_index": 187, "verdict": "PASS", "pass_probability": 0.71859437, "fail_probability": 0.2814056, "method": "qwen_next_token_pairwise"}
+{"id": "bad-python", "source_index": -3, "verdict": "PASS", "pass_probability": 0.77729988, "fail_probability": 0.22270015, "method": "qwen_next_token_pairwise"}
+{"id": "bad-random", "source_index": 58, "verdict": "PASS", "pass_probability": 0.76629364, "fail_probability": 0.23370634, "method": "qwen_next_token_pairwise"}
+{"id": "good-binary", "source_index": -1, "verdict": "PASS", "pass_probability": 0.754915, "fail_probability": 0.24508502, "method": "qwen_next_token_pairwise"}
+{"id": "good-prime", "source_index": -2, "verdict": "PASS", "pass_probability": 0.70578504, "fail_probability": 0.29421496, "method": "qwen_next_token_pairwise"}
+{"id": "good-python", "source_index": -4, "verdict": "PASS", "pass_probability": 0.76629364, "fail_probability": 0.23370634, "method": "qwen_next_token_pairwise"}

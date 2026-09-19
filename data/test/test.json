@@ -1,0 +1,2504 @@
+{
+  "test": [
+    {
+      "instruction": "How would you create a class in Java and add a field, constructor and method?",
+      "input": "",
+      "output": "public class MyClass {\n    private String field;\n    \n    public MyClass(String field) {\n        this.field = field;\n    }\n    \n    public void sayHello() {\n        System.out.println(\"Hello, \" + field + \"!\");\n    }\n}"
+    },
+    {
+      "instruction": "Design an algorithm in JavaScript to check if a given string consists of only unique characters.",
+      "input": "Hello",
+      "output": "function isUnique(str) {\n    for(let i = 0; i<str.length; i++){\n        for(let j = i+1; j<str.length; j++){\n            if(str.charAt(i) === str.charAt(j)){\n                return false;\n            }\n        }\n    }\n    return true;\n}\n\nlet str = 'Hello';\nlet result = isUnique(str);\nconsole.log(result);"
+    },
+    {
+      "instruction": "Create an Oracle SQL statement for finding the average cost of a product.",
+      "input": "",
+      "output": "SELECT AVG(cost)\nFROM product;"
+    },
+    {
+      "instruction": "Create a function 'double_up()' in JavaScript that takes an array of integers as input and returns an array with each of the elements doubled.",
+      "input": "[2, 4, 6]",
+      "output": "function double_up(arr) {\n    // Declare a new array\n    let result = [];\n\n    // Loop through input array\n    for (let i=0; i < arr.length; i++) {\n        result.push(arr[i] * 2);\n    }\n\n    //Return the new array \n    return result;\n}"
+    },
+    {
+      "instruction": "In Python, how can we calculate the mean of a numerical data set?",
+      "input": "",
+      "output": "def mean(data):\n    return sum(data) / len(data)"
+    },
+    {
+      "instruction": "Write a Java program to calculate the sum of the series 1^3+2^3+3^3+.....+n^3",
+      "input": "",
+      "output": "public class SumOfSeries {\n  \n    static int calculateSum(int lastNumber) { \n        int sum = 0; \n  \n        for (int i = 1; i <= lastNumber; i++) {\n            sum = sum + (int)Math.pow(i, 3); \n        }\n  \n        return sum; \n    } \n  \n    public static void main(String[] args) { \n        int lastNumber = 4; \n        System.out.println(calculateSum(lastNumber)); \n    } \n} \n// Output: 100"
+    },
+    {
+      "instruction": "Create a function in Java that changes a given string to uppercase.",
+      "input": "This is a sample string.",
+      "output": "String input = \"This is a sample string\";\n\nString upper = input.toUpperCase();\n\nSystem.out.println(upper);"
+    },
+    {
+      "instruction": "Write an SQL query to find the names of all students who have scored more than 80% marks in their exams.",
+      "input": "",
+      "output": "SELECT name FROM Student\n  WHERE marks > 80;"
+    },
+    {
+      "instruction": "Create a Java program which takes an integer array as a parameter, sorts the array in ascending order, and returns the sorted array.",
+      "input": "[3, 5, 9, 1, 6]",
+      "output": "public int[] SortIntegerArray(int[] nums)\n{\n    Arrays.sort(nums);\n    return nums;\n}"
+    },
+    {
+      "instruction": "Write a C# program to remove all adjacent duplicates from a string.",
+      "input": "string str = \"azxxzy\";",
+      "output": "string removeAdjacentDuplicates(string str) \n{ \n    int l = str.Length; \n    char[] array = str.ToCharArray(); \n  \n    int index = 0; \n    for (int i = 0; i < l; i++) \n    { \n        if (i == 0 || array[i - 1] != array[i]) \n            array[index++] = array[i]; \n        else\n            while (i + 1 < l && array[i + 1] == array[i]) \n                i++; \n    } \n  \n    return new string(array, 0, index); \n}"
+    },
+    {
+      "instruction": "Write a SQL statement to insert a new record into the table.",
+      "input": "[Table Name] \nEmployees",
+      "output": "INSERT INTO Employees (column list) VALUES (value list);"
+    },
+    {
+      "instruction": "Write an HTML program to display a table with a list of names and ages of people.",
+      "input": "names = [\"John\", \"Dylan\", \"Mary\"],  ages = [20, 15, 18]",
+      "output": "<table>\n  <tr>\n    <th>Name</th> \n    <th>Age</th>\n  </tr>\n  <tr>\n    <td>John</td>\n    <td>20</td>\n  </tr>\n  <tr>\n    <td>Dylan</td>\n    <td>15</td>\n  </tr>\n  <tr>\n    <td>Mary</td>\n    <td>18</td>\n  </tr>\n</table>"
+    },
+    {
+      "instruction": "Create a Python script to fetch the weather data of a given city",
+      "input": "Bangalore",
+      "output": "import requests\n\ncity = \"Bangalore\"\nurl = f\"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=your_api_key\"\n\n# Fetching the JSON data\nresponse = requests.get(url)\ndata = response.json()\n \n# Get the main weather data\nweather_data = data[\"main\"]\n \n# Obtain the current temperature \ntemp = weather_data[\"temp\"]\n \nprint(f\"The current temperature in {city} is {temp} degrees Celsius.\")"
+    },
+    {
+      "instruction": "Create a CSS stylesheet and include styles for basic elements such as headings, paragraphs, and links.",
+      "input": "",
+      "output": "h1 { \n  font-size: 2em; \n  color: #444; \n} \np { \n  font-size: 1em; \n  color: #666; \n} \n\na { \n  color: #069; \n  text-decoration: none; \n}"
+    },
+    {
+      "instruction": "Write a function that given a positive number, returns the sum of all positive numbers from 1 to the given number.",
+      "input": "number = 10",
+      "output": "def sum_numbers(number):\n    # Initialize sum\n    total = 0\n    # Iterate through 1 to number\n    for i in range(1, number + 1):\n        total += i\n    return total\n\nsum_result = sum_numbers(10)\nprint('Total sum: {}'.format(sum_result))"
+    },
+    {
+      "instruction": "Generate a correct C++ code to delete the second item from an array.",
+      "input": "Delete the second item from the array [5, 3, 10, 8]",
+      "output": "int array[4] = {5, 3, 10, 8};\n\nfor(int i = 1; i < 4; i++)\n    array[i] = array[i+1];\n \n//Decrement the size of array  \nint n = sizeof(array)/sizeof(array[0]);\nn = n - 1;"
+    },
+    {
+      "instruction": "Create a C program to read two numbers and display the minimum of them.",
+      "input": "num1 = 13, num2 = 23",
+      "output": "#include<stdio.h>\n \nint main()\n{\n\tint num1, num2;\n\t\n\tprintf(\"Enter two numbers: \\n\");\n\tscanf(\"%d %d\", &num1, &num2);\n\t\n\tif (num1 < num2)\n\t    printf(\"Minimum is: %d\", num1);\n\telse\n\t    printf(\"Minimum is: %d\", num2);\n\t  \n\treturn 0;\n}"
+    },
+    {
+      "instruction": "Create an SQL query that finds the most expensive products in a given product table.",
+      "input": "",
+      "output": "SELECT *\nFROM product \nORDER BY price DESC\nLIMIT 1;"
+    },
+    {
+      "instruction": "Create a program that adds up 11 numbers.",
+      "input": "11 numbers: 3, 6, 8, 12, 4, 19, 23, 12, 15, 10, 20",
+      "output": "# defining a function  \ndef add_ele(numbers): \n  \n    # Initialize result \n    result = 0\n    i = 0\n  \n    # Iterating elements in list  \n    for i in range(len(numbers)): \n        result += numbers[i] \n    return result \n  \n# Driver code \nnumbers = [3, 6, 8, 12, 4, 19, 23, 12, 15, 10, 20]\nprint(add_ele(numbers))"
+    },
+    {
+      "instruction": "Sort the strings alphabetically using C++.",
+      "input": "string arr[] = {\"Geeks\", \"for\", \"Geeks\"};",
+      "output": "// Sort the strings alphabetically \nsort(arr, arr+3);"
+    },
+    {
+      "instruction": "Create a class in Java called 'Student' which has the following attributes: firstname, lastname, age, gender.",
+      "input": "",
+      "output": "public class Student { \n   \n  private String firstname; \n  private String lastname; \n  private int age; \n  private String gender; \n   \n  public Student(String firstname, String lastname, int age, String gender) { \n    this.firstname = firstname; \n    this.lastname = lastname; \n    this.age = age; \n    this.gender = gender; \n  } \n   \n  // getters and setters \n}"
+    },
+    {
+      "instruction": "Using list comprehension, write a Python code to get a list of all possible subsets of the list [1, 2, 3]",
+      "input": "[1, 2, 3]",
+      "output": "subsets = [[x for x in [1, 2, 3]] for y in range(0, 2**len([1, 2, 3]))]"
+    },
+    {
+      "instruction": "Write a CSS code to style a table such that each row is a different color.",
+      "input": "",
+      "output": "table tr:nth-child(odd) {\n    background-color: #f0f0f0;\n}\ntable tr:nth-child(even) {\n    background-color: #cccccc;\n}"
+    },
+    {
+      "instruction": "Parse the following JSON string in Python.",
+      "input": "{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}",
+      "output": "import json\n\ndata = '{\"name\":\"John\", \"age\":30, \"city\":\"New York\"}'\n\n# parse the JSON string\nparsed_string = json.loads(data) \n\n# print the individual elements\nname = parsed_string[\"name\"]\nage = parsed_string[\"age\"]\ncity = parsed_string[\"city\"]\n\nprint(name)\nprint(age)\nprint(city)"
+    },
+    {
+      "instruction": "Write a C++ program to print out the sum of the first 100 integers.",
+      "input": "",
+      "output": "#include <iostream> \nusing namespace std; \n  \nint main() \n{ \n    int i, sum = 0; \n      \n    //Computes the sum \n    for (i = 1; i <= 100; i++) \n    { \n        sum += i; \n    } \n      \n    cout << \"Sum of first 100 natural numbers = \"\n         << sum << endl; \n  \n    return 0; \n}"
+    },
+    {
+      "instruction": "Write an SQL query to display the maximum and minimum values of the \"amount\" column from the following table.",
+      "input": "transactions\ncolumns: id, user_id, amount",
+      "output": "SELECT MAX(amount) AS max_amount, MIN(amount) AS min_amount FROM transactions;"
+    },
+    {
+      "instruction": "Add a parameter to the function to calculate the area of a triangle.",
+      "input": "def calculate_area(length, width):\n return length * width",
+      "output": "def calculate_area(length, width, height):\n return 0.5 * (length * width + length * height + width * height)"
+    },
+    {
+      "instruction": "Given an array of integers and a target value, write a Java program to determine whether this array contains two elements with the given target sum.",
+      "input": "arr = [2, 4, 6, 8, 10], target = 8",
+      "output": "boolean containsTargetSum(int[] arr, int target){\n  for (int i = 0; i < arr.length; i++){\n    for (int j = 1; j < arr.length; j++){\n      if (arr[i] + arr[j] == target)\n        return true;\n    }\n  }\n  return false;\n}"
+    },
+    {
+      "instruction": "Given an array of integers, find the maximum difference between two elements in the array such that the larger element appears after the smaller element in the array.",
+      "input": "[5, 2, 4, 7, 15]",
+      "output": "def maxDifference(arr):\n  # Initialize max difference\n  max_difference = 0\n\n  # Traverse the array\n  for i in range(len(arr) - 1):\n    for j in range(i + 1, len(arr)):\n      # Find the difference between two elements\n      diff = arr[j] - arr[i]\n\n      # Check if the difference is the maximum\n      if diff > max_difference:\n        max_difference = diff\n\n  return max_difference\n\n# Output\nmaxDifference([5, 2, 4, 7, 15]) # 13"
+    },
+    {
+      "instruction": "Print all the odd numbers between a given range in Python.",
+      "input": "start = 5 \nend = 20",
+      "output": "start = 5\nend = 20\n\nfor num in range(start, end+1): \n    if num % 2 != 0: \n        print(num, end = ' ')\n\n# Outputs 5 7 9 11 13 15 17 19"
+    },
+    {
+      "instruction": "Create a function in C to edit a string. The function should correct all occurrences of two or more consecutive spacets with a single space.",
+      "input": "char str[] = \"Hi   everyone   \"",
+      "output": "void trimSpace(char *str) \n{ \n    int i = 0, j = 0; \n    while (str[i]) \n    { \n        if (str[i] != ' ') \n            str[j++] = str[i]; \n        else if (str[i-1] != ' ') \n            str[j++] = str[i];  \n        i++; \n    } \n    str[j] = '\\0';  \n} \n\ntrimSpace(str); // str will become \"Hi everyone \""
+    },
+    {
+      "instruction": "Write a Java code to generate a Fibonacci number at a given index.",
+      "input": "",
+      "output": "public class Fibonacci {\n\n  public static int getFibonacciNumber(int index) {\n    // base cases\n    if (index == 0) {\n      return 0;\n    }\n    if (index == 1 || index == 2) {\n      return 1;\n    }\n    // recursive case\n    return getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);\n  }\n}"
+    },
+    {
+      "instruction": "Create an API using Python which returns the number of words in a given string.",
+      "input": "",
+      "output": "from flask import Flask, request, jsonify\n\napp = Flask(__name__)\n\n@app.route(\"/get_words_count\", methods=[\"GET\"])\ndef get_words_count():\n    sentence = request.args.get(\"sentence\")\n    words = sentence.split(\" \")\n    return jsonify({\"words_count\": len(words)})\n\nif __name__ == \"__main__\":\n    app.run()"
+    },
+    {
+      "instruction": "Write a C++ program to print the following sequence: 1, 2, 4, 8, 16, 32, ......",
+      "input": "",
+      "output": "#include <iostream>\nusing namespace std;\n\nint main()\n{\n    int i, n;\n    for (i = 1; i <= 32; i *= 2)\n    {\n        cout << i << \" \";\n    }\n\n    return 0;\n}"
+    },
+    {
+      "instruction": "Code a JavaScript function to calculate the area of a rectangle, given its length and width.",
+      "input": "length:  5\nwidth:  10",
+      "output": "function calculateArea(length, width) {\n  return length * width;\n}\nconsole.log(calculateArea(5, 10));  // Output: 50"
+    },
+    {
+      "instruction": "Create a bash script that generates a random 3 letter string with no duplicates in it.",
+      "input": "",
+      "output": "#!/bin/bash\nTMP_STR=\"\"\n\nfor i in {1..3}\ndo\n  RANDOM_NUM=$((RANDOM % 26 + 65))\n  CHAR=$(printf \"\\x$(printf %x $RANDOM_NUM)\")\n  while [[ $TMP_STR =~ $CHAR ]]\n  do\n    RANDOM_NUM=$((RANDOM % 26 + 65))\n    CHAR=$(printf \"\\x$(printf %x $RANDOM_NUM)\")\n  done\n  TMP_STR+=$CHAR\ndone\necho $TMP_STR"
+    },
+    {
+      "instruction": "Create a function that takes two parameters, a string and an integer, and prints the string the given number of times.",
+      "input": "string = \"Hello\"\nnumber = 3",
+      "output": "def printString(string, number):\n    for i in range(number):\n        print(string)\n\nprintString(string, number)"
+    },
+    {
+      "instruction": "Create a class called “Car” in Java with the following attributes and methods.",
+      "input": "",
+      "output": "public class Car {\n  private String make;\n  private String model;\n  private int year;\n \n  public Car(String make, String model, int year) {\n    this.make = make;\n    this.model = model;\n    this.year = year;\n  }\n \n  public String getMake() {\n    return make;\n  }\n \n  public void setMake(String make) {\n    this.make = make;\n  }\n \n  public String getModel() {\n    return model;\n  }\n \n  public void setModel(String model) {\n    this.model = model;\n  }\n \n  public int getYear() {\n    return year;\n  }\n \n  public void setYear(int year) {\n    this.year = year;\n  }\n \n  public String toString() {\n    return String.format(\"Make: %s, Model: %s, Year: %d\", make, model, year);\n  }\n}"
+    },
+    {
+      "instruction": "Write a code to determine if a given list contains a particular element",
+      "input": "nums=[1,2,3,4]",
+      "output": "def contains(nums, element):\n return element in nums"
+    },
+    {
+      "instruction": "Write a JavaScript function to check if an array contains a specific element.",
+      "input": "var arr = [1,2,3,4];",
+      "output": "function contains(arr, element) {\n  return arr.indexOf(element) > -1;\n}\n\nconsole.log(contains(arr, 2)); //true"
+    },
+    {
+      "instruction": "Write an SQL query to update the data of a specific row.",
+      "input": "Table name: employee_table\nFields: id, name, age\nUpdate name to:\"John\" and Age to 25 where id = 4",
+      "output": "UPDATE employee_table SET name = \"John\", age = 25  WHERE id = 4;"
+    },
+    {
+      "instruction": "Design a PHP code for displaying the current URL.",
+      "input": "",
+      "output": "<?php\n \n$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];\n \necho $url;\n?>"
+    },
+    {
+      "instruction": "Write a C++ program to calculate the difference between two dates using the following function.",
+      "input": "",
+      "output": "#include <iostream>\n#include <ctime>\n\nusing namespace std;\n\nint diffDates(time_t date1, time_t date2){\n  return difftime(date1, date2) / (60 *60 *24); // in days\n}\n\nint main(){\n  // example dates\n  time_t date1 = 0;\n  time_t date2 = time(0);\n  \n  cout << diffDates(date1, date2) << endl;\n  return 0;\n}"
+    },
+    {
+      "instruction": "Given a list of words, write a Python function to print the frequency of occurrence of each word in the list.",
+      "input": "['foo', 'bar', 'foo', 'baz', 'bar']",
+      "output": "def word_frequency(words):\n    freq = {}\n    for word in words:\n        if word not in freq:\n            freq[word] = 0\n        freq[word] += 1    \n    for word, count in freq.items():\n        print('{}: {}'.format(word, count))\n        \nword_frequency(['foo', 'bar', 'foo', 'baz', 'bar'])"
+    },
+    {
+      "instruction": "Create a JavaScript function to check if an integer n is a perfect square.",
+      "input": "",
+      "output": "function isPerfectSquare(n) {\n for (int i = 0; i <= n; i++) {\n  if (i * i == n) {\n   return true;\n  }\n }\n return false;\n}"
+    },
+    {
+      "instruction": "Create a SQL query that returns the average number of orders per month for customers in California.",
+      "input": "",
+      "output": "SELECT AVG(NumOrders) FROM \n (SELECT COUNT(OrderId) AS NumOrders \n  FROM Orders \n  WHERE State = 'CA' \n  GROUP BY MONTH(OrderDate)) AS TotalOrders;"
+    },
+    {
+      "instruction": "Write a script in JavaScript to calculate the average temperature from a given array of temperatures.",
+      "input": "",
+      "output": "function calculateAverage(temps) {\n    let total = 0;\n    temps.forEach(temp => {\n        total += temp;\n    });\n    return total / temps.length;\n}"
+    },
+    {
+      "instruction": "In Python, write a function to print out a sequence of numbers from 1 to 10.",
+      "input": "",
+      "output": "def print_sequence():\n  for i in range(1, 11):\n    print(i)\n\nprint_sequence() # Output: 1 2 3 4 5 6 7 8 9 10"
+    },
+    {
+      "instruction": "Design a python class for a dog to print its name and age when given.",
+      "input": "Ginger, 3",
+      "output": "class Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\n    def get_name(self):\n        return self.name\n\n    def get_age(self):\n        return self.age\n\ndog = Dog('Ginger', 3)\nprint(dog.get_name())\nprint(dog.get_age())"
+    },
+    {
+      "instruction": "Create a Swift code to find the maximum number from an array of integers.",
+      "input": "",
+      "output": "func maximumNumber(fromArray array:[Int]) -> Int {\n    var max = array[0]\n    for number in array {\n        if number > max {\n            max = number\n        }\n    }\n    return max\n}"
+    },
+    {
+      "instruction": "Write Java code to generate a matrix of size n.",
+      "input": "n = 5",
+      "output": "public static int[][] generateMatrix(int n){\n    int[][] matrix = new int[n][n];\n    \n    for(int i = 0; i < n; i++){\n        for(int j = 0; j < n; j++){\n            matrix[i][j] = i * n + j;\n        }\n    }\n    \n    return matrix;\n}"
+    },
+    {
+      "instruction": "Write a SQL query to find all the entries in a given table that contain a specific“value” in the given column.",
+      "input": "",
+      "output": "SELECT * \nFROM table \nWHERE col LIKE '%{value}%';"
+    },
+    {
+      "instruction": "Write a SQL query to find the number of books published after the year 2000.",
+      "input": "",
+      "output": "SELECT COUNT(*) FROM books WHERE year > 2000;"
+    },
+    {
+      "instruction": "Create an object in C++ that stores the roll number and name of students in an array.",
+      "input": "",
+      "output": "#include <iostream>\n#include <string>\n\nclass Student {\npublic:\n    int rollNumber;\n    std::string name;\n};\n\nStudent students[100];"
+    },
+    {
+      "instruction": "Create a function to solve a quadratic equation in JavaScript.",
+      "input": "",
+      "output": "function quadraticEquation(a, b, c) {\n    let result;\n    let delta = (b * b) - (4 * a * c);\n    if (delta > 0) {\n      result = {\n        root1: (-b + Math.sqrt(delta)) / (2 * a),\n        root2: (-b - Math.sqrt(delta)) / (2 * a)\n      };\n    }\n    else if (delta == 0) {\n      result = {\n        root1: (-b + Math.sqrt(delta)) / (2 * a)\n      };\n    }\n    else {\n      result = {\n        root1: 'cannot calculate the roots'\n      };\n    }\n    return result;\n  }"
+    },
+    {
+      "instruction": "Implement a Java code to print the first 10 multiples of a given number",
+      "input": "",
+      "output": "public class Multiples \n{ \n    public static void main(String[] args) \n    { \n        int number = 5; \n        for (int i = 1; i <= 10; i++)  \n        { \n            System.out.println(number*i); \n        } \n    } \n}"
+    },
+    {
+      "instruction": "Use the provided dataset to create a Corpus of English words in Python.",
+      "input": "https://storage.googleapis.com/download.tensorflow.org/data/grammar_corpus.txt",
+      "output": "f = open('grammar_corpus.txt', 'r')\n\n# Create an empty list to store the corpus\ncorpus = []\n\n# Loop through the file line by line \nfor line in f: \n    # Split the line into words \n    words = line.lower().strip().split()\n    \n    # Check if the word is an english word \n    if words[1].isalpha(): \n        corpus.append(words[1]) \n \nf.close()\nprint(corpus)"
+    },
+    {
+      "instruction": "Write a Python program to find the longest substring in a given string which has no repeating characters.",
+      "input": "",
+      "output": "def longest_substring_without_repeating_characters(str):\n    start, max_len = 0, 0\n    used_char = {}\n\n    for i, char in enumerate(str):\n        if char in used_char and start <= used_char[char]:\n            start = used_char[char] + 1\n        else:\n            max_len = max(max_len, i - start + 1)\n\n        used_char[char] = i\n        \n    return max_len"
+    },
+    {
+      "instruction": "Write an algorithm to reverse a lis",
+      "input": "[1,2,3,4,5]",
+      "output": "def reverse_list(lst):\n    rev_lst = lst[::-1]\n    return rev_lst"
+    },
+    {
+      "instruction": "Find the indices of the two numbers in an array that have the sum of a given number using JavaScript.",
+      "input": "let arr = [2, 5, 11, 15],\n    targetSum = 16;",
+      "output": "function twoNumSum(arr, targetSum) {\n  let hash = {};\n\n  for(let i = 0; i < arr.length; i++){\n    let current = arr[i];\n    \n    if(hash[current] !== undefined) return [hash.current, i];\n    else hash[targetSum - current] = i;\n  }\n\n  return [];\n}"
+    },
+    {
+      "instruction": "Write a Python function to calculate the hypotenuse of a right angled triangle given the length of the two sides.",
+      "input": "side1 = 7\nside2 = 5",
+      "output": "import math\ndef calculate_hypotenuse(side1, side2):\n    hypotenuse = math.sqrt(side1**2 + side2**2)\n    return hypotenuse"
+    },
+    {
+      "instruction": "Create a JavaScript program which takes an array of dates and returns the average date.",
+      "input": "[2018-01-01, 2018-01-05, 2018-01-10]",
+      "output": "function avgDate(dates) {\n  let sum = 0;\n  const dateLen = dates.length;\n\n  for (let i = 0; i < dateLen; i++) {\n    sum += Date.parse(dates[i]);\n  }\n\n  const avgDate = Date();\n  avgDate.setTime(sum / dateLen);\n\n  return avgDate;\n}\n\nconsole.log(avgDate([\"2018-01-01\", \"2018-01-05\", \"2018-01-10\"])); // Output: Mon Jan 07 2019 00:00:00 GMT+0545 (Nepal Time)"
+    },
+    {
+      "instruction": "Rewrite the following python code to an equivalent code using lambda and sorted function.",
+      "input": "def sort_by_length(words):\n    return sorted(words, key=lambda x: len(x))",
+      "output": "sort_by_length = lambda words: sorted(words, key=len)"
+    },
+    {
+      "instruction": "Write an HTML page that displays a red box.",
+      "input": "",
+      "output": "<html>\n    <head>\n        <title>Red Box</title>\n    </head>\n    <body>\n        <div style=\"width: 200px;height: 200px;background-color: red;\"></div>\n    </body>\n</html>"
+    },
+    {
+      "instruction": "Edit the code to fix the following bug: The code doesn't return the expected output.",
+      "input": "def sum(numbers):\n    x = 0\n    for n in numbers:\n        x += n\n    return x",
+      "output": "def sum(numbers):\n    x = 0\n    for n in numbers:\n        x += n\n    return int(x)"
+    },
+    {
+      "instruction": "Write a function in Python that takes two strings as input and returns a sorted version of the first string with all occurrences of the letters in the second string removed.",
+      "input": "firstString = 'hello world'\nsecondString = 'lo'",
+      "output": "def remove_occurrences(first_string, second_string):\n  original_string_list = list(first_string)\n  for char in second_string:\n    if char in original_string_list:\n      original_string_list.remove(char)\n  return ''.join(sorted(original_string_list))\n\n# Usage\nprint(remove_occurrences('hello world', 'lo')) # Output: dehwr"
+    },
+    {
+      "instruction": "Using the code snippet given below, add a class called contactForm to the HTML form.",
+      "input": "<form action=\"/contact.php\" id=\"contactForm\">\n  <input type=\"text\" name=\"name\">\n  <input type=\"email\" name=\"email\">\n  <input type=\"submit\" value=\"Submit\">\n</form>",
+      "output": "<form action=\"/contact.php\" id=\"contactForm\" class=\"contactForm\">\n  <input type=\"text\" name=\"name\">\n  <input type=\"email\" name=\"email\">\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Create a JavaScript code snippet to get the current date.",
+      "input": "",
+      "output": "let currentDate = new Date(); \nconsole.log(currentDate);"
+    },
+    {
+      "instruction": "Create an HTML form that takes the user's name, email, and photo and saves it in a database.",
+      "input": "",
+      "output": "<form method=\"post\" action=\"submit.php\">\n  <input type=\"text\" name=\"name\" placeholder=\"Name\" required>\n  <input type=\"email\" name=\"email\" placeholder=\"Email\" required>\n  <input type=\"file\" name=\"photo\" placeholder=\"Photo\" required>\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Generate a valid HTML form for a login page.",
+      "input": "Username:\nPassword:",
+      "output": "<form action=\"login.php\" method=\"post\">\n    <label for=\"username\">Username:</label><br>\n    <input type=\"text\" name=\"username\" id=\"username\"><br>\n    <label for=\"password\">Password:</label><br>\n    <input type=\"password\" name=\"password\" id=\"password\"><br>\n    <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Write a code snippet to query the following json object using JavaScript.",
+      "input": "const jsonObject = \n            {\n                \"name\": \"John\",\n                \"age\": 30,\n                \"city\": \"New York\"\n            }",
+      "output": "let result = jsonObject.name;\n// result will be 'John'"
+    },
+    {
+      "instruction": "Write a CSS selector to style all buttons with the class 'submit'.",
+      "input": "",
+      "output": ".submit {\n  /* CSS properties here */\n}"
+    },
+    {
+      "instruction": "Create an array of unique values in JavaScript from the given array.",
+      "input": "[1, 2, 3, 1, 2]",
+      "output": "let array = [1, 2, 3, 1, 2];\nlet uniqueArray = [...new Set(array)];\nconsole.log(uniqueArray); // [1, 2, 3]"
+    },
+    {
+      "instruction": "Create a class in C++ that defines a number as a double value.",
+      "input": "",
+      "output": "// C++ Class\nclass Number {\nprivate:\n    double num;\npublic:\n    // Constructor\n    Number(double val) : num(val) { }\n    // Function to get the double value\n    double getValue() {\n        return num;\n    }\n};"
+    },
+    {
+      "instruction": "Suppose you have two dictionaries, A and B. Write a code in Java to find the intersection of A and B.",
+      "input": "A = {1: 'a', 2: 'b'}\nB = {2: 'b', 3: 'c'}",
+      "output": "public static HashMap<Integer, String> intersect(HashMap<Integer, String> A, HashMap<Integer, String> B) {\n    HashMap<Integer, String> result = new HashMap<>();\n    for (Integer key: A.keySet()) {\n        if (B.containsKey(key)) {\n            result.put(key, A.get(key));\n        }\n    }\n    return result;\n}"
+    },
+    {
+      "instruction": "Complete the following HTML code to create a hyperlink.",
+      "input": "<a href=\"",
+      "output": "<a href=\"http://www.example.com\">Link Text</a>"
+    },
+    {
+      "instruction": "Write a Python script to count the number of occurances of each character in a given string.",
+      "input": "string = \"Mississippi\"",
+      "output": "def count_chars(string):\n char_occurrences = {}\n for char in string:\n  if char not in char_occurrences:\n   char_occurrences[char] = 1\n  else:\n   char_occurrences[char] += 1\n return char_occurrences"
+    },
+    {
+      "instruction": "Write a Bash script to print a message when the system time is between 8pm and 8am.",
+      "input": "",
+      "output": "#!/bin/bash\n\ncurr_hour=$(date +'%H')\n\nif [ $curr_hour -ge 20 -o $curr_hour -lt 8 ]\nthen\n    echo \"It's nighttime\"\nfi"
+    },
+    {
+      "instruction": "Create a process to sort an array of numbers from least to greatest.",
+      "input": "arr = [3, 4, 12, 1, 5, 85]",
+      "output": "def sort_array(arr): \n  # Loop through the array, swap each element until it is in order (ascending)\n  for i in range(len(arr) - 1): \n    for j in range(i + 1, len(arr)): \n      if arr[i] > arr[j]: \n        temp = arr[i] \n        arr[i] = arr[j] \n        arr[j] = temp \n  \n  # Return the sorted array \n  return arr\n\nprint(sort_array(arr)) # [1, 3, 4, 5, 12, 85]"
+    },
+    {
+      "instruction": "Create a function to find the total of all elements in the list",
+      "input": "nums = [1, 2, 3, 4, 5]",
+      "output": "def find_total(nums):\n    total = 0\n    for num in nums:\n        total += num\n    return total"
+    },
+    {
+      "instruction": "Write a C++ program to determine the greatest common factor of two numbers.",
+      "input": "14, 63",
+      "output": "#include <iostream>\n \nint gcd(int a, int b) \n{ \n    if (b == 0) {\n        return a; \n    }\n    return gcd(b, a % b); \n} \n  \nint main() \n{ \n    int a = 14;\n    int b = 63;\n  \n    std::cout << \"GCD of \" << a << \" and \" << b << \" is \" << gcd(a, b) << std::endl; \n  \n    return 0; \n}"
+    },
+    {
+      "instruction": "Write a Bash script to print the sum of all even numbers between 0 and 100.",
+      "input": "",
+      "output": "#!/bin/bash\nsum=0\nfor(( i = 0; i <= 100; i+=2 ))\ndo\n   sum=$((sum + i))\ndone\n\necho \"The sum of even numbers between 0 and 100 is $sum\""
+    },
+    {
+      "instruction": "Compute the median of an array of integers in Python.",
+      "input": "[1, 2, 3, 4, 5]",
+      "output": "def median(arr): \n    arr.sort() \n    if (len(arr) % 2 != 0): \n        return arr[len(arr) // 2] \n    else: \n        return (arr[(len(arr) // 2) - 1] + arr[len(arr) // 2]) / 2.0"
+    },
+    {
+      "instruction": "Design a MySQL table of 10 rows to store information about cities.",
+      "input": "",
+      "output": "CREATE TABLE cities (\n    city_id INT AUTO_INCREMENT PRIMARY KEY, \n    city_name VARCHAR(255) NOT NULL, \n    population INT NOT NULL,\n    country VARCHAR(255),\n    area INT \n);"
+    },
+    {
+      "instruction": "Modify the program to take input from the user and create a two-dimensional array in Python.",
+      "input": "",
+      "output": "rows, cols = (int(x) for x in input(\"Enter size of 2D array: \").split())\narr = [[None for x in range(cols)] for y in range(rows)]\nfor i in range(rows):\n    for j in range(cols):\n        arr[i][j] = int(input(\"Enter element: \"))"
+    },
+    {
+      "instruction": "Reverse this array in-place using Python.",
+      "input": "arr = [4, 2, 8, 6]",
+      "output": "arr.reverse() # arr is now [6, 8, 2, 4]"
+    },
+    {
+      "instruction": "Design a C code to accept two integers from the user and find the greatest among them.",
+      "input": "",
+      "output": "#include < stdio.h> \n  \nint main() \n{ \n    int a, b, great; \n  \n    printf(\"Enter two integers: \"); \n    scanf(\"%d %d\", &a, &b); \n  \n    if (a > b) \n        great = a; \n    else\n        great = b; \n  \n    printf(\"Greatest among two numbers is %d\", great); \n}"
+    },
+    {
+      "instruction": "Add comments to this C++ code segment to explain what it does:",
+      "input": "int x = 5;\nwhile x > 0\nx--;",
+      "output": "// This code segment sets the value of the variable x to 5, \n// and then decrements it until it becomes 0.\nint x = 5;\nwhile (x > 0) { // loop runs until x is 0\n     x--;       // decrement x\n}"
+    },
+    {
+      "instruction": "Write an algorithm in Python which reads a string and reorders it alphabetically.",
+      "input": "string s = 'dcba'",
+      "output": "def reorder_string(s):\n    s = sorted(s)\n    return ''.join(s)\n\nprint(reorder_string('dcba'))"
+    },
+    {
+      "instruction": "Create a function that removes duplicates from an array and returns an array of the unique values.",
+      "input": "array = [5,5,5,10,10,15]",
+      "output": "def remove_duplicates(array):\n \n  new_array = []\n  for number in array:\n    if number not in new_array:\n      new_array.append(number)\n \n  return new_array\n\nprint(remove_duplicates([5,5,5,10,10,15]))"
+    },
+    {
+      "instruction": "Write a SQL query to list the salary of all employees as a percentage of the salary of the highest paid employee.",
+      "input": "",
+      "output": "SELECT name, (salary / (SELECT MAX(salary) FROM employee)) * 100 AS salary_percentage\nFROM employee;"
+    },
+    {
+      "instruction": "Create a PHP script to log user activity.",
+      "input": "",
+      "output": "<?php\n// create a new file\n$log_file = fopen(\"log.txt\", \"a\") or die(\"Unable to open file!\");\n\n// write the data to the log file\n$data = time() . \" : User activity logged \\n\";\nfwrite($log_file, $data);\n\n// close the log file\nfclose($log_file);\n?>"
+    },
+    {
+      "instruction": "Write a class in C++ to represent a person with their name and age.",
+      "input": "",
+      "output": "class Person {\n    private:\n        string name;\n        int age;\n    public:\n        Person(string n, int a) {\n            name = n;\n            age = a;\n        }\n        string getName() {\n            return name;\n        }\n        int getAge() {\n            return age;\n        }\n};"
+    },
+    {
+      "instruction": "Write a JavaScript statement to determine whether a given string is empty or not.",
+      "input": "",
+      "output": "// given string\nlet str = \"\";\n\nif (str == \"\") {\n    console.log('String is empty');\n}"
+    },
+    {
+      "instruction": "Write an HTML page containing a heading with the text \"Welcome\".",
+      "input": "",
+      "output": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Welcome</title>\n</head>\n<body>\n  <h1>Welcome</h1>\n</body>\n</html>"
+    },
+    {
+      "instruction": "Implement a Swift function to filter an array of numbers by a given filter number",
+      "input": "[4, 5, 8, 11, 7], filter_num = 7",
+      "output": "func filter_array(_ numbers: [Int], filter_num: Int) -> [Int] {\n    var resultArr = [Int]()\n    for i in 0..<numbers.count {\n        if numbers[i] < filter_num { \n            resultArr.append(numbers[i])\n        }\n    }\n    return resultArr\n}\n\nfilter_array([4, 5, 8, 11, 7], filter_num: 7) // returns [4, 5]"
+    },
+    {
+      "instruction": "With a PHP script, compare two numerical values and return the largest of the two.",
+      "input": "$x = 9;\n$y = 12;",
+      "output": "if ($x > $y) \n    echo $x;\nelse\n    echo $y;"
+    },
+    {
+      "instruction": "Generate a Ruby statement to iterate through given array and print elements.",
+      "input": "[ 'John', 'Julia', 'JeY', 'Jill' ]",
+      "output": "array = ['John', 'Julia', 'JeY', 'Jill']\narray.each { |element| puts(element) }"
+    },
+    {
+      "instruction": "Use HTML to create a button for opening a new browser window when clicked.",
+      "input": "",
+      "output": "<input type=\"button\" value=\"Open New Window\" onclick=\"window.open('https://example.com/');\" />"
+    },
+    {
+      "instruction": "Write a code to sort an array of integers using the quicksort algorithm.",
+      "input": "array = [2, 4, 5, 1, 9, 0]",
+      "output": "def quicksort(arr):\n    if len(arr) == 0 or len(arr) == 1:\n        return arr\n    else:\n        pivot = arr[0]\n        arr.remove(arr[0])\n        left_arr = []\n        right_arr = []\n        for element in arr:\n            if element <= pivot:\n                left_arr.append(element)\n            else:\n                right_arr.append(element)\n        left_arr = quicksort(left_arr)\n        right_arr = quicksort(right_arr)\n        sorted_arr = left_arr + [pivot] + right_arr\n        return sorted_arr\n\nif __name__ == \"__main__\":\n    array = [2, 4, 5, 1, 9, 0]\n    sorted_arr = quicksort(array)\n    print(sorted_arr)\n\n# Output: [0, 1, 2, 4, 5, 9]"
+    },
+    {
+      "instruction": "Rewrite the following C code as assembly language",
+      "input": "int a=5,b=6, c;\nc = a+b;",
+      "output": "; Initialize variables\nmov ax, 5 ; a = 5\nmov bx, 6 ; b = 6\n\n; Calculate c\nadd ax, bx ; add a and b and store in ax which is c\n\nmov c, ax ; assign result to c"
+    },
+    {
+      "instruction": "Create a function in PHP for summing up all the squares of the numbers between 1 and the given number.",
+      "input": "num = 8",
+      "output": "function sum_of_squares($num) { \n    $sum = 0; \n    for ($i = 1; $i <= $num; $i++) { \n        $sum += $i * $i; \n    } \n    return $sum; \n}"
+    },
+    {
+      "instruction": "Create a thread-safe Java method that increments a given counter.",
+      "input": "",
+      "output": "public static synchronized void incrementCounter(int counter) {\n  counter += 1;\n}"
+    },
+    {
+      "instruction": "Implement an algorithm to find the number of occurrences of a substring in a string.",
+      "input": "string = \"This is a test\"\nsubstring = \"is\"",
+      "output": "def count_substring(string, substring):\n    count = 0\n    for i in range(len(string) - len(substring) + 1):\n        if string[i:i + len(substring)] == substring:\n            count += 1\n\n    return count\n\nresult = count_substring(string, substring)\nprint(result)\n\n# Output: 2"
+    },
+    {
+      "instruction": "How could you write a PHP statement to make a string uppercase?",
+      "input": "",
+      "output": "$string = strtoupper($string);"
+    },
+    {
+      "instruction": "Design a GUI using JavaScript for a calculator application.",
+      "input": "",
+      "output": "<div class=\"calculator\"> \n  <input type=\"text\" placeholder=\"0\" readonly>\n  \n  <div class=\"buttons\">\n    <button>1</button>\n    <button>2</button>\n    <button>3</button>\n    <button>4</button>\n    <button>5</button>\n    <button>6</button>\n    <button>7</button>\n    <button>8</button>\n    <button>9</button>\n    <button>0</button>\n    <button>+</button>\n    <button>-</button>\n    <button>*</button>\n    <button>/</button>\n    <button>C</button>\n    <button>=</button>\n  </div>\n</div>"
+    },
+    {
+      "instruction": "Write an SQL query with an inner join clause.",
+      "input": "Table 1: users (user_id, name, age)\nTable 2: orders (user_id, order_date)",
+      "output": "SELECT users.name, users.age, orders.order_date\nFROM users\nINNER JOIN orders ON users.user_id = orders.user_id"
+    },
+    {
+      "instruction": "Create a PHP script for performing basic calculations such as addition, subtraction, multiplication and division.",
+      "input": "",
+      "output": "<?php\nfunction calculate($op, $a, $b) {\n    switch($op) {\n        case '+':\n            return $a + $b;\n        case '-':\n            return $a - $b;\n        case '*':\n            return $a * $b;\n        case '/':\n            return $a / $b;\n    }\n}\n?>"
+    },
+    {
+      "instruction": "How to decode a Base64 string to its corresponding string representation in Python?",
+      "input": "base64_string = \"SGVsbG8gV29ybGQ=\"",
+      "output": "import base64\nstring = base64.b64decode(base64_string).decode(\"utf-8\")"
+    },
+    {
+      "instruction": "Generate a Python code to add two numbers using a lambda expression.",
+      "input": "num1 = 10\nnum2 = 25",
+      "output": "add = lambda num1, num2: num1 + num2\n\nprint(add(num1, num2))  # Output: 35"
+    },
+    {
+      "instruction": "Write a class that has a method to return the smallest element in a given list of integers.",
+      "input": "[12, 24, 72, 1, 4]",
+      "output": "class MinValue:\n    def getMin(self, numList):\n        minVal = numList[0]\n        for i in numList:\n            if i < minVal:\n                minVal = i\n        return minVal\n\nif __name__ == \"__main__\":\n    obj = MinValue()\n    numList = [12, 24, 72, 1, 4]\n    print(obj.getMin(numList))"
+    },
+    {
+      "instruction": "Given a list of string objects, write an SQL query to concatenate all the strings into a single string",
+      "input": "['Hello', 'World', '!']",
+      "output": "SELECT CONCAT('Hello', 'World', '!') AS concat_string;"
+    },
+    {
+      "instruction": "Create a recursive SQL query to find the level of each node in a tree structure.",
+      "input": "WITH RECURSIVE tree_levels (node, parent, level)\nAS\n(\n    SELECT node, parent, 0\n    FROM root_table\n    WHERE parent IS NULL\n    UNION ALL\n    SELECT child.node, child.parent, tree_levels.level + 1\n    FROM root_table AS child\n    JOIN tree_levels\n    ON child.parent = tree_levels.node\n)",
+      "output": "SELECT tree_levels.node, tree_levels.level\nFROM tree_levels\nORDER BY tree_levels.node;"
+    },
+    {
+      "instruction": "Design an algorithm in JavaScript to find maximum element within an array.",
+      "input": "[4,7,2,1,0,6,5]",
+      "output": "function findMax(arr) { \n\n    let max = arr[0]; \n \n    // Loop through array elements \n    // and compare with max \n    for (let i = 1; i < arr.length; i++) \n        if (arr[i] > max) \n            max = arr[i]; \n  \n    // return max element \n    return max; \n} \n\n// let arr = [4,7,2,1,0,6,5]\n// console.log(findMax(arr)) # returns 7"
+    },
+    {
+      "instruction": "Design a JavaScript program to find the factorial of an integer.",
+      "input": "5",
+      "output": "function factorial(num) { \n    // If the number is less than 0, reject it. \n    if (num < 0) {\n        return -1;\n    }\n    // If the number is 0, its factorial is 1.\n    else if (num == 0) {\n        return 1;\n    }\n    // Otherwise, call the recursive procedure. \n    else { \n        return (num * factorial(num - 1)); \n    } \n} \n\nconst num = 5;\nconst result = factorial(num);\n\nconsole.log(`The factorial of ${num} is ${result}.`);"
+    },
+    {
+      "instruction": "Write a function to encode a given string using ROT13 cipher.",
+      "input": "String: Hello world",
+      "output": "def rot13(string):\n    encoded = \"\"\n    for char in string:\n        if char.isalpha():\n            ascii_val = ord(char)\n            ascii_val += 13\n            if ascii_val > ord('z'):\n                ascii_val -= 26\n            encoded += chr(ascii_val)\n        else:\n            encoded += char\n    return encoded"
+    },
+    {
+      "instruction": "Write a Javascript code to add four numbers and print the result.",
+      "input": "numbers = [1, 2, 3, 4]",
+      "output": "let numbers = [1, 2, 3, 4];\nlet result = numbers.reduce((a, b) => a + b);\nconsole.log(\"Result: \" + result);"
+    },
+    {
+      "instruction": "Design a function in Python to calculate the Fibonacci sequence up to a particular number.",
+      "input": "",
+      "output": "def fibonacci(n):\n    if n <= 1:\n        return n\n    else:\n        return fibonacci(n-1) + fibonacci(n-2)\n\nfor i in range(1, n+1):\n    print(fibonacci(i))"
+    },
+    {
+      "instruction": "Create a recursive algorithm to sum the numbers between 1 and n (inclusive).",
+      "input": "n = 5",
+      "output": "function recSum(n) {\n  if (n === 1) return 1;\n  return n + recSum(n-1);\n}\n\n// Usage\nconsole.log(recSum(5)); // 15"
+    },
+    {
+      "instruction": "Write a SQL statement to select all the authors whose age is greater than 18.",
+      "input": "",
+      "output": "SELECT * \nFROM authors\nWHERE age > 18"
+    },
+    {
+      "instruction": "Convert this code to a function which takes a dictionary as an argument and adds the given key value pair to it.",
+      "input": "my_dict = {'name': 'John'}\nkey = 'age'\nvalue = 18",
+      "output": "def add_key_value_pair(my_dict, key, value):\n    \"\"\"Adds the given key value pair to the dictionary\"\"\"\n    if key not in my_dict:\n        my_dict[key] = value\n    return my_dict\n\nmy_dict = {'name': 'John'}\nkey = 'age'\nvalue = 18\n\nupdated_dict = add_key_value_pair(my_dict, key, value)\nprint(updated_dict) # {'name': 'John', 'age': 18}"
+    },
+    {
+      "instruction": "Create a SQL table with the following schema: id (integer), name (string), city (string).",
+      "input": "",
+      "output": "CREATE TABLE myTable (\n  id INTEGER, \n  name VARCHAR(255), \n  city VARCHAR(255)\n);"
+    },
+    {
+      "instruction": "Implement a version of your own version of quicksort in Python",
+      "input": "",
+      "output": "def quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n\n    pivot = arr[0]\n    left = []\n    right = []\n\n    for num in arr[1:]:\n        if num < pivot:\n            left.append(num)\n        else:\n            right.append(num)\n\n    return quicksort(left) + [pivot] + quicksort(right)\n\nif __name__ == '__main__':\n    arr = [7, 3, 1, 9, 0]\n    print(quicksort(arr))"
+    },
+    {
+      "instruction": "Using HTML, create a navigation bar with 3 links \"Home\", \"About\", and \"Contact\".",
+      "input": "",
+      "output": "<nav>\n  <a href=\"home.html\">Home</a> -\n  <a href=\"about.html\">About</a> -\n  <a href=\"contact.html\">Contact</a>\n</nav>"
+    },
+    {
+      "instruction": "Write an HTML code snippet to create an unordered list with three list items.",
+      "input": "",
+      "output": "<ul>\n  <li>List item 1</li>\n  <li>List item 2</li>\n  <li>List item 3</li>\n</ul>"
+    },
+    {
+      "instruction": "Create a Java program to print the value of the mathematical expression sin(60)",
+      "input": "",
+      "output": "public class PrintSinValue {\n    public static void main(String[] args) {\n      double angleInDegrees = 60;\n      double result = Math.sin(Math.toRadians(angleInDegrees));\n      System.out.println(result);\n    }\n}"
+    },
+    {
+      "instruction": "Write a MySQL statement to sort the table results by the column \"id\" in ascending order.",
+      "input": "SELECT * FROM table_name",
+      "output": "SELECT * FROM table_name \nORDER BY id ASC"
+    },
+    {
+      "instruction": "Suggest a complete snippet of HTML code to create a simple form.",
+      "input": "",
+      "output": "<form>\n  <label>Name:</label><br>\n  <input type=\"text\" name=\"name\"><br>\n  <label>Email:</label><br>\n  <input type=\"email\" name=\"email\"><br><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Develop a JavaScript object for storing the name and occupation of an employee.",
+      "input": "name = 'John Doe', occupation = 'Programmer'",
+      "output": "const employee = {\n    name: 'John Doe',\n    occupation: 'Programmer'\n}"
+    },
+    {
+      "instruction": "Using the input provided, write a code in Python to print the elements of a given dictionary along with the corresponding keys.",
+      "input": "my_dict = {'one':1, 'two':2, 'three':3}",
+      "output": "for key, value in my_dict.items():\n    print(key + ':', value)"
+    },
+    {
+      "instruction": "Add a method in JavaScript for an object to find the sum of all its elements.",
+      "input": "class MyObject {\n    constructor(elements) {\n      this.elements = elements;\n    }\n}",
+      "output": "class MyObject {\n    constructor(elements) {\n      this.elements = elements;\n    }\n    \n    sumElements() {\n        let sum = 0;\n        this.elements.forEach(element => {\n            sum += element;\n        });\n        return sum;\n    }\n}"
+    },
+    {
+      "instruction": "Create a function in Python to break down the number into its digits",
+      "input": "",
+      "output": "def break_down(n):\n    digit_list = [int(x) for x in str(n)]\n    return digit_list"
+    },
+    {
+      "instruction": "Using the Python requests library, implement a call to the given URL and print the response.",
+      "input": "URL: http://example.com",
+      "output": "import requests\n\nresp = requests.get('http://example.com')\nprint(resp.text)"
+    },
+    {
+      "instruction": "Create a SQL statement to select the five longest-serving employees.",
+      "input": "",
+      "output": "SELECT name, length_of_service \n FROM employees \n ORDER BY length_of_service DESC \n LIMIT 5;"
+    },
+    {
+      "instruction": "Write a python program that takes a string as a parameter and prints the character at index 4 if the length of the string is greater than 4.",
+      "input": "astring = \"Python\"",
+      "output": "def character_at_index(astring):\n    if len(astring) > 4:\n        print(astring[4])"
+    },
+    {
+      "instruction": "Design a function in JavaScript to find the sum of the first n numbers.",
+      "input": "",
+      "output": "function sum(n) \n{ \n    s = 0; \n  \n    // Iterate though natural \n    // numbers using loop \n    for (i = 1; i <= n; i++) \n        s += i; \n  \n    return s; \n}"
+    },
+    {
+      "instruction": "Write a PHP program to flatten a multi-dimensional array.",
+      "input": "",
+      "output": "function flattenArray($array) {\n $flattenedArray = array();\n array_walk_recursive($array, function ($v) use (&$flattenedArray) {\n  $flattenedArray[] = $v;\n });\n return $flattenedArray;\n}"
+    },
+    {
+      "instruction": "Write a basic CSS structure to style a div element with the background colour of 'red'.",
+      "input": "",
+      "output": "div {\n   background-color: red;\n}"
+    },
+    {
+      "instruction": "Make an SQL query for calculating the average salary of employees.",
+      "input": "Employee table with the column \"salary\"",
+      "output": "SELECT AVG(salary) FROM Employee;"
+    },
+    {
+      "instruction": "Create an HTML radio button that allows users to select between two options.",
+      "input": "",
+      "output": "<input type=\"radio\" name=\"selection\" value=\"option1\"> Option 1\n<input type=\"radio\" name=\"selection\" value=\"option2\"> Option 2"
+    },
+    {
+      "instruction": "Create a script that filters the list of strings and returns only the strings that contain the specific, user-specified character.",
+      "input": "User Character: 'a'\nList: ['apple','peach','pear','tangerine','plum','grape','banana']",
+      "output": "def filter_string(strings, char):\n  result = []\n  for string in strings:\n    if char in string:\n      result.append(string)\n  return result\n\nprint(filter_string(['apple','peach','pear','tangerine','plum','grape','banana'], 'a'))"
+    },
+    {
+      "instruction": "Design a Bash script to replace all the characters in a string.",
+      "input": "String to be changed: My name is Jane\nCharacters to be replaced: a->A, e->E",
+      "output": "#!/bin/bash\n\nstring=\"My name is Jane\"\nstring=\"${string//a/A}\"\nstring=\"${string//e/E}\"\necho $string"
+    },
+    {
+      "instruction": "Write a SQL query to print the name and total orders of each customer",
+      "input": "",
+      "output": "SELECT customer_name, COUNT(*)\nFROM orders\nGROUP BY customer_name;"
+    },
+    {
+      "instruction": "Create a class in Python for performing basic math calculations",
+      "input": "",
+      "output": "class MathCalculations:\n    \"\"\"\n    Class to perform math calculations \n    \"\"\"\n\n    def __init__(self):\n        pass\n\n    def add(self, num1, num2):\n        \"\"\"\n        Add two numbers\n        \"\"\"\n        return num1 + num2\n\n    def subtract(self, num1, num2):\n        \"\"\"\n        Subtract two numbers\n        \"\"\"\n        return num1 - num2\n\n    def multiply(self, num1, num2):\n        \"\"\"\n        Multiply two numbers\n        \"\"\"\n        return num1 * num2\n\n    def divide(self, num1, num2):\n        \"\"\"\n        Divide two numbers\n        \"\"\"\n        return num1 / num2"
+    },
+    {
+      "instruction": "How can we debug our JavaScript code?",
+      "input": "",
+      "output": "We can debug our JavaScript code by using the console.log() method to log values and events to the console. We can also use the JavaScript debugger statement to pause the execution at a particular point in the code, and step through the code line by line. We can also add breakpoints and inspect variables at different stages of the program."
+    },
+    {
+      "instruction": "Define a C++ function to calculate the volume of a sphere.",
+      "input": "",
+      "output": "double sphereVolume(double radius)\n{\n  return (4.0/3.0) * 3.14159 * radius * radius * radius;\n}"
+    },
+    {
+      "instruction": "Write a SQL query to sort records in a table alphabetically by a column 'name'.",
+      "input": "",
+      "output": "SELECT * FROM table_name ORDER BY name ASC;"
+    },
+    {
+      "instruction": "Write an array sorting function that sorts the array in ascending order.",
+      "input": "[3, 1, 9, 5, 4]",
+      "output": "def array_sort(arr): \n    arr.sort() \n    return arr\narray_sort([3, 1, 9, 5, 4])"
+    },
+    {
+      "instruction": "Write a code snippet in JavaScript to get the date and time of the last day of the current month.",
+      "input": "",
+      "output": "var today = new Date();\nvar lastDayOfMonth = new Date(today.getFullYear(), today.getMonth()+1, 0);\nvar lastDayOfMonthTime = lastDayOfMonth.toLocaleString();\nconsole.log(lastDayofMonthTime);"
+    },
+    {
+      "instruction": "Write a Python code to calculate the number of unique combinations of three digits from 0 to 9.",
+      "input": "",
+      "output": "def combinations(n, k):\n    from itertools import combinations\n    return len(list(combinations(range(n), k)))\n \ncomb = combinations(10, 3)\nprint(comb)"
+    },
+    {
+      "instruction": "Create a function that returns the longest word in a sentence.",
+      "input": "sentence = \"This is a sentence with lots of words.\"",
+      "output": "def get_longest_word(sentence):\n    words = sentence.split()\n    longest_word = \"\"\n    for word in words:\n        if len(word) > len(longest_word):\n            longest_word = word\n    return longest_word"
+    },
+    {
+      "instruction": "Write a Java code to create an arraylist.",
+      "input": "",
+      "output": "// Code to create an ArrayList in Java\nimport java.util.ArrayList;\n\npublic class Demo {\n    public static void main(String[] args) {\n        // create an arraylist\n        ArrayList<String> list = new ArrayList<>();\n        list.add(\"Java\");\n        list.add(\"C++\");\n        list.add(\"Python\");\n        System.out.println(list);\n\n        // print the size of the list\n        System.out.println(\"The size of the list is: \"+list.size());\n    }\n}"
+    },
+    {
+      "instruction": "We have a list of integers, write a function in Python to find the second smallest element in the list.",
+      "input": "[2, 4, 7, 10, 8]",
+      "output": "def find_second_smallest(list_nums):\n    sorted_list = sorted(list_nums)\n    return sorted_list[1]\n\nfind_second_smallest([2, 4, 7, 10, 8])"
+    },
+    {
+      "instruction": "Given an integer n, write a Python program to print a pattern.",
+      "input": "n = 5",
+      "output": "for i in range(1, n+1): \n  for j in range(1,i+1): \n    print(\"* \", end=\"\")  \n  print(\"\\r\")"
+    },
+    {
+      "instruction": "Create a HTML code to generate a three-column table from a given JSON object.",
+      "input": "json = {\n \"name\": \"John\",\n \"age\": \"30\",\n \"city\": \"New York\"\n}",
+      "output": "<table>\n  <tr>\n    <th>Name</th>\n    <th>Age</th>\n    <th>City</th>\n  </tr>\n  <tr>\n    <td>John</td>\n    <td>30</td>\n    <td>New York</td>\n  </tr>\n</table>"
+    },
+    {
+      "instruction": "Create an SQL query to find the number of employees whose age is between 30 and 40",
+      "input": "",
+      "output": "SELECT COUNT(*) FROM employees WHERE age BETWEEN 30 AND 40;"
+    },
+    {
+      "instruction": "Create a SQL query for finding the number of orders made each day in a given month.",
+      "input": "orders_table = 'orders'\nmonth = '05'\nyear = '2021'",
+      "output": "SELECT COUNT(order_id) AS orders, DAY(date) AS `day`\nFROM orders_table \nWHERE MONTH(date) = '05' \n        AND YEAR(date) = '2021'\nGROUP BY DAY(date);"
+    },
+    {
+      "instruction": "Write an algorithm in C that prints a string in reverse.",
+      "input": "Hello",
+      "output": "char str[] = \"Hello\";\nint len = strlen(str);\n\nfor (int i = len-1; i >= 0; i--) {\n  printf(\"%c\", str[i]);\n}"
+    },
+    {
+      "instruction": "Write a function which takes a number and returns the Fibonacci sequence up to that number.",
+      "input": "n = 10",
+      "output": "def fibonacci(n):\n    fib_list = [1]\n    if n == 1:\n        return fib_list\n    else:\n        fib_list.append(1)\n        while len(fib_list) < n:\n            fib_list.append(fib_list[-1] + fib_list[-2])\n        return fib_list"
+    },
+    {
+      "instruction": "Write a Python function to check if a given number is a prime number or not. A prime number is an integer greater than 1 which is not divisible by any other numbers.",
+      "input": "11",
+      "output": "def is_prime(n):\n  #Check if n islarger than one \n  if n > 1:\n    # Check if n is divisible by any number between2 and n\n    for i in range(2,n):\n      if (n % i) == 0:\n        return False\n    else:\n      return True\n  else:\n    return False"
+    },
+    {
+      "instruction": "Write an R function to calculate the binomial coefficient of n and k",
+      "input": "",
+      "output": "binomial_coeff <- function(n, k) {\n   if((k == 0) | (k == n))  \n   return(1)\n   else return(binomial_coeff(n-1, k-1) + binomial_coeff(n-1,k))  \n}"
+    },
+    {
+      "instruction": "Take an array of integers and return true if there is a triplet whose sum is equals to the given target.",
+      "input": "arr = [1, 4, 45, 6, 10, -8], target = 16",
+      "output": "def find_triplet_sum(arr, target):\n    arr.sort()\n    for i in range(0, len(arr)-2):\n        left = i + 1\n        right = len(arr) - 1\n        while left < right:\n            curr_sum = arr[i] + arr[left] + arr[right]\n\n            if curr_sum == target:\n                return True \n            elif curr_sum < target:\n                left += 1\n            else:\n                right -= 1\n    return False"
+    },
+    {
+      "instruction": "Using PHP, write a code to print out the current date and time in the following format: Thursday, December 18 at 4:30 PM",
+      "input": "",
+      "output": "echo date('l, F j \\a\\\\t g:i A');"
+    },
+    {
+      "instruction": "Write a JavaScript code to set a cookie with the name \"username\" and value \"JohnDoe\".",
+      "input": "",
+      "output": "document.cookie = \"username=JohnDoe\";"
+    },
+    {
+      "instruction": "Write a simple script in JavaScript to reverse a string.",
+      "input": "text = “hello world”",
+      "output": "function reverseString(text) {\n return text.split(\"\").reverse().join(\"\");\n}\n\nconsole.log(reverseString(text));"
+    },
+    {
+      "instruction": "How will you modify the following Ruby code to convert a given number to its corresponding alphabetical letter?",
+      "input": "num = 56",
+      "output": "num += 64\nletter = num.chr\nputs letter\n# Output: '8'"
+    },
+    {
+      "instruction": "Complete the following bash script with conditional statements.",
+      "input": "#!/bin/bash\necho \" Enter an integer \" \nread num",
+      "output": "#!/bin/bash\necho \"Enter an integer\" \nread num\n\nif (( num > 0 )); then\n    echo \"The number is positive\"\nelif (( num < 0 )); then\n    echo \"The number is negative\"\nelse\n    echo \"The number is zero\"\nfi"
+    },
+    {
+      "instruction": "Implement a simple search engine using recursion.",
+      "input": "query = \"computer\"\ndata = [\"mobile\",\"computer\",\"laptop\",\"tablet\"]",
+      "output": "def search(query, data):\n  # base case\n  if len(data) == 0:\n    return False\n  # recursive step\n  else:\n    if data[0] == query:\n      return True\n    else:\n      return search(query, data[1:])\n\nquery = \"computer\"\ndata = [\"mobile\",\"computer\",\"laptop\",\"tablet\"]\n\nprint(search(query, data))"
+    },
+    {
+      "instruction": "Create a function to calculate the following expression and output the result.",
+      "input": "2^2 + 4 - 3*6",
+      "output": "def expression_result(expression):\n    result = eval(expression) \n    return result\n\nprint(expression_result(\"2**2 + 4 - 3*6\")) \n\n# Output: -6"
+    },
+    {
+      "instruction": "Implement the update function in Java for a queue data structure.",
+      "input": "",
+      "output": "public void update(int index, Object newElement) {\n    if(index < 0 || index >= size()) {\n      throw new NoSuchElementException();\n    }\n    Node node = head;\n    for(int i = 0; i < index; i++) {\n      node = node.next;\n    }\n    node.element = newElement;\n}"
+    },
+    {
+      "instruction": "Create a function in Python to find all pairs of integers that sum up to k.",
+      "input": "",
+      "output": "def find_pair(arr,k):\n  pairs = []\n  found_elements = set()\n  for num in arr:\n    diff = k - num\n    if diff in found_elements:\n      pairs.append([min(num,diff), max(num,diff)])\n    found_elements.add(num)\n  return pairs"
+    },
+    {
+      "instruction": "Implement a JavaScript function that takes two strings as parameters and replaces all occurrences of the first string with the second.",
+      "input": "\"test\", \"Data\"",
+      "output": "function replaceString(str1, str2) {\n  return str1.split(' ').map(word => (word === str2) ? str1 : word).join(' ');\n}"
+    },
+    {
+      "instruction": "Write a Bash script that checks if a given directory exists.",
+      "input": "",
+      "output": "if [ -d \"$1\" ]; then\n  echo \"The directory exists.\"\nelse\n  echo \"The directory does not exist.\"\nfi"
+    },
+    {
+      "instruction": "Create a for loop in Java using the given array.",
+      "input": "int[] nums = {2, 4, 8, 16, 32};",
+      "output": "for (int i = 0; i < nums.length; i++) {\n    int num = nums[i];\n    System.out.println(num);\n}"
+    },
+    {
+      "instruction": "Given a list of numbers, create a function that prints the elements of the list that are divisible by 5.",
+      "input": "[1, 20, 30, 15, 60]",
+      "output": "def print_divisible_by_5(input_list):\n    for num in input_list:\n        if num % 5 == 0:\n            print(num)"
+    },
+    {
+      "instruction": "Write an algorithm in Java to reverse the words in a string.",
+      "input": "The quick brown fox",
+      "output": "String[] words = input.split(\"\\\\s\");\nString reversedString = \"\";\n \nfor (int i = words.length - 1; i >= 0; i--) \n{\n   reversedString += words[i] + \" \";\n}\n\nSystem.out.println(reversedString);"
+    },
+    {
+      "instruction": "Write code in Java to generate the Fibonacci sequence up to N numbers.",
+      "input": "N = 10",
+      "output": "public class Fibonacci { \n  \n    public static void FibonacciN(int n) { \n        int i, f=0, s=1; \n  \n        if (n == 1) \n            System.out.print(f+ \" \"); \n  \n        else { \n            System.out.print(f+\" \"+s+\" \"); \n  \n            for (i = 2; i < n; i++) { \n                int next = f + s; \n                System.out.print(next+\" \"); \n                f= s; \n                s = next; \n            } \n        } \n    } \n}"
+    },
+    {
+      "instruction": "Create a Dictionary where the list items are the keys and the square of the items are the values",
+      "input": "myList1 = [1, 2, 3, 4, 5, 6]",
+      "output": "def myDict(myList1):\n    result = {}\n    for i in myList1:\n        result[i] = i**2\n    return result\n\nmyDict = myDict(myList1)\nprint(myDict)"
+    },
+    {
+      "instruction": "Write a JavaScript function to extract the numbers in the given string.",
+      "input": "\"a1b2c3\"",
+      "output": "function extractNumbers(string) {\n  return string.replace(/\\D/g, '');\n}"
+    },
+    {
+      "instruction": "Create a function to group a given set of numbers into a continuous range",
+      "input": "Set of numbers: [1, 3, 4, 6, 7, 8, 10]",
+      "output": "\"\"\"\nFunction group_numbers: Groups a given set of numbers into a continuous range.\n\"\"\"\n\ndef group_numbers(nums):\n    # Initialize left and right pointers\n    l = 0\n    r = 1\n    # Initialize ranges list\n    ranges = []\n    \n    while r < len(nums):\n        # If the end of the range is not same as the \n        # start of the next range, append the current range \n        if nums[r - 1] + 1 != nums[r]:\n            ranges.append(str(nums[l]) + \"->\" + str(nums[r - 1]))\n            l = r\n\n        r += 1\n\n    # Append the last range\n    ranges.append(str(nums[l]) + '->' + str(nums[r - 1]))\n\n    return ranges\n\nif __name__ == '__main__':\n    nums = [1, 3, 4, 6, 7, 8, 10]\n    print(group_numbers(nums))"
+    },
+    {
+      "instruction": "Edit the existing JavaScript code to make it pass Eslint.",
+      "input": "var foo = \"foo\"\nif (foo) {\n    console.log(\"foo is true\")\n}",
+      "output": "var foo = \"foo\";\nif (foo) {\n    console.log(\"foo is true\");\n}"
+    },
+    {
+      "instruction": "Construct a multi-threaded application in Python to read and calculate the sum of a list of numbers.",
+      "input": "List of numbers:[25, 10, 5, 20]",
+      "output": "import threading \n  \n# function to read the numbers \ndef read_sum(list_of_numbers): \n    total = 0\n    for number in list_of_numbers: \n        total += number  \n  \n    print(\"Sum of the list of numbers is: {}\".format(total)) \n  \n# Driver code \nlist_of_numbers = [25, 10, 5, 20] \nstart = 0\nend = len(list_of_numbers) \n  \n# creating thread \nt1 = threading.Thread(target=read_sum, args=(list_of_numbers[start:end],)) \n  \n# starting thread 1 \nt1.start() \n# wait until thread 1 is completely executed \nt1.join() \n  \n# both threads completely executed \nprint(\"Done!\")"
+    },
+    {
+      "instruction": "Write the code for the following sorting algorithm.",
+      "input": "Bubble Sort",
+      "output": "def bubbleSort(arr): \n  \n    # Traverse through all array elements \n    for i in range(len(arr)): \n  \n        # Last i elements are already in place \n        for j in range(0, len(arr)-i-1): \n  \n            # traverse the array from 0 to n-i-1 \n            # Swap if the element found is greater \n            # than the next element \n            if arr[j] > arr[j+1] : \n                arr[j], arr[j+1] = arr[j+1], arr[j] \n  \n# Driver code to test above \narr = [64, 34, 25, 12, 22, 11, 90] \n  \nbubbleSort(arr) \n  \nprint (\"Sorted array is:\") \nfor i in range(len(arr)): \n    print (\"%d\" %arr[i]),"
+    },
+    {
+      "instruction": "Create a dictionary from a list of tuples, where the key is the first element of the tuple and the value is the second element of the tuple.",
+      "input": "list_of_tuples = [('key1', 'val1'), ('key2', 'val2'), ('key3', 'val3')]",
+      "output": "def list_to_dict(list_of_tuples):\n    return dict(list_of_tuples)"
+    },
+    {
+      "instruction": "Compare two JSON objects in Python.",
+      "input": "first_obj = {\n    'name': 'John',\n    'age': 30\n}\nsecond_obj = {\n    'name': 'John',\n    'age': 34\n}",
+      "output": "import json\n\n# Compare two JSON objects and return `True` if equal, `False` if not\ndef compare_json_objects(first_obj, second_obj):\n    first_obj_str = json.dumps(first_obj)\n    second_obj_str = json.dumps(second_obj)\n    if first_obj_str == second_obj_str:\n        return True\n    else:\n        return False\n\nif __name__ == '__main__':\n    first_obj = {\n        'name': 'John',\n        'age': 30\n    }\n    second_obj = {\n        'name': 'John',\n        'age': 34\n    }\n    print(compare_json_objects(first_obj, second_obj))"
+    },
+    {
+      "instruction": "Create an SQL query to search for customer names whose age is greater than 30",
+      "input": "",
+      "output": "SELECT name \nFROM customers \nWHERE age > 30"
+    },
+    {
+      "instruction": "Create a JavaScript function to format a given number with commas.",
+      "input": "num = 1000",
+      "output": "function commaFormatting(num) {\n    return num.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \",\");\n}\n\nconsole.log(commaFormatting(num))  // Output: 1,000"
+    },
+    {
+      "instruction": "Write a MySQL query to select all the records in a table having the same ID.",
+      "input": "Table name: \"customers\"",
+      "output": "SELECT * FROM customers WHERE id = 'ID';"
+    },
+    {
+      "instruction": "Write a Javascript program to convert a given string into all uppercase characters.",
+      "input": "String: \"Welcome to the World !\"",
+      "output": "let str = \"Welcome to the World !\";\nlet upperCaseStr = str.toUpperCase();\nconsole.log(upperCaseStr);\n\n# Output: \"WELCOME TO THE WORLD !\""
+    },
+    {
+      "instruction": "Using list comprehension, create a list of even numbers between 1 and 20 in Python.",
+      "input": "",
+      "output": "even_nums_list = [num for num in range(1, 21) if num % 2 == 0]"
+    },
+    {
+      "instruction": "Convert the following SPARQL query to a SQL query.",
+      "input": "SELECT ?person ?age\nWHERE {\n    ?person rdf:type ex:Person .\n    ?person ex:age ?age\n}",
+      "output": "SELECT person, age\nFROM rdf\nWHERE type = 'ex:Person' \nAND predicate = 'ex:age';"
+    },
+    {
+      "instruction": "Write a function in HTML to display a list of students sorted by their final grade.",
+      "input": "var students = [{\n name: \"Tom\",\n grade: 90\n}, {\n name: \"Karl\",\n grade: 75\n}, {\n name: \"Kofi\",\n grade: 65\n}];",
+      "output": "<html>\n <head>\n  <script>\n   function sortStudents(students) {\n    students.sort((a, b) => (a.grade > b.grade) ? 1 : -1);\n    return students;\n   }\n   var sortedStudents = sortStudents(students);\n   document.write('<ul>');\n   sortedStudents.forEach(student => {\n    document.write('<li>' + student.name + ' - ' + student.grade + '</li>');\n   });\n   document.write('<ul>');\n  </script>\n </head>\n</html>"
+    },
+    {
+      "instruction": "Create an HTML form with one text field and one submit button.",
+      "input": "",
+      "output": "<form>\n  <label for=\"name\">Name:</label>\n  <input type=\"text\" name=\"name\" id=\"name\">\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Write a function in Python that takes two parameters and returns a list containing those two numbers",
+      "input": "",
+      "output": "def make_list(a, b):\n  return [a, b]"
+    },
+    {
+      "instruction": "Given a linked list of integers, write a C program to find the last node of the linked list.",
+      "input": "",
+      "output": "struct Node \n{ \n    int data; \n    struct Node* next; \n};\n\nstruct Node* findLastNode(struct Node* head) \n{ \n    if (head == NULL) \n        return NULL; \n  \n    while (head->next != NULL) \n        head = head->next; \n  \n    return head;\n}"
+    },
+    {
+      "instruction": "Find the sum of all the digits in a given number in Java.",
+      "input": "Number: 1234",
+      "output": "Using a loop and mathematical operators, the sum of all the digits in a given number can be found in Java.\n\nExample:\n\nint number = 1234;\nint sum = 0;\nwhile(number > 0) {\n        int digit = number % 10;\n        sum += digit;\n        number /= 10;\n}\nSystem.out.println(\"The sum of all the digits is \"+sum);\n\n// Output: The sum of all the digits is 10"
+    },
+    {
+      "instruction": "Create a HTML form with name, email address and a submit button.",
+      "input": "",
+      "output": "<form>\n  Name: <input type=\"text\" name=\"name\"><br>\n  Email: <input type=\"email\" name=\"email\"><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Write CSS code to separate the sidebar from the content by a horizontal line.",
+      "input": "",
+      "output": "#sidebar {\n  border-bottom: 1px solid black;\n}\n\n#content {\n  border-top: 1px solid black;\n}"
+    },
+    {
+      "instruction": "Convert this SQL query into MongoDB",
+      "input": "SELECT DISTINCT\n    user_name\nFROM\n    user_login_history\nWHERE\n    user_id >= 1000",
+      "output": "db.user_login_history.distinct(\"user_name\", { \"user_id\" : { $gte : 1000 } })"
+    },
+    {
+      "instruction": "Create a JavaScript object that stores the properties of an employee.",
+      "input": "Name: John Doe\nAge: 25\nPosition: Accountant",
+      "output": "let employee = {\n  name: 'John Doe',\n  age: 25,\n  position: 'Accountant'\n };"
+    },
+    {
+      "instruction": "Write a Bash script to accept two command line arguments (username and password) and echo them out.",
+      "input": "",
+      "output": "#!/bin/bash\n\nusername=$1\npassword=$2\necho \"Username: ${username}\"\necho \"Password: ${password}\""
+    },
+    {
+      "instruction": "Repair the given HTML code to display a ‘div’ element centered on the page with a width of 400px.",
+      "input": "<div style=\"width: 400px; margin: 0 auto;\"></div>",
+      "output": "<div style=\"width: 400px; margin: 0 auto; text-align: center;\"></div>"
+    },
+    {
+      "instruction": "Write a JavaScript code to rotate an array by n position to the left.",
+      "input": "arr = [1, 2, 3, 4, 5]\npos = 2",
+      "output": "function rotateLeft(arr, pos) {\n    for (let i = 0; i < pos; i++) {\n        var remove = arr.shift(); \n        arr.push(remove); \n    } \n    return arr;\n}\n\nconsole.log(rotateLeft(arr, pos));"
+    },
+    {
+      "instruction": "Design a function in Ruby to calculate the exponent of a given base and exponent.",
+      "input": "",
+      "output": "def exponent(base, exp)\n  result = 1\n  exp.times { result *= base }\n  result\nend"
+    },
+    {
+      "instruction": "Create a function that takes a 2D array of numerical values and returns the number of times the maximum value appears.",
+      "input": "my_array = [[1, 2, 4, 1],\n            [2, 3, 3, 2],\n            [3, 4, 3, 3]]",
+      "output": "def count_max(arr):\n    max_val = 0\n    count = 0\n    for row in arr:\n        max_val = max(max_val, max(row))\n\n    for row in arr:\n        if max(row) == max_val:\n            count += 1\n    \n    return count"
+    },
+    {
+      "instruction": "Design a class in Java to represent a student, with their name and grade fields.",
+      "input": "",
+      "output": "public class Student {\n\n    String name;\n    String grade;\n\n    public Student(String name, String grade) {\n        this.name = name;\n        this.grade = grade;\n    }\n\n    public String getName() {\n        return this.name;\n    }\n\n    public String getGrade() {\n        return this.grade;\n    }\n\n}"
+    },
+    {
+      "instruction": "Create an iterator in Python that yields only even numbers.",
+      "input": "",
+      "output": "def even_numbers():\n    i = 0\n    while True:\n        if i % 2 == 0:\n            yield i\n        i += 1"
+    },
+    {
+      "instruction": "Design a function in Python that returns the median of an array of integers.",
+      "input": "",
+      "output": "def median(arr):\n  sortedArr = sorted(arr)\n  length = len(arr)\n  if length % 2 == 0:\n    return ((sortedArr[length//2-1] + sortedArr[length//2])/2)\n  else:\n    return sortedArr[length//2]"
+    },
+    {
+      "instruction": "Create a function in Python that takes a list and returns the first two elements that adds up to 0.",
+      "input": "[1, 5, 2, -7, 3]",
+      "output": "def zero_sum_pair(list):\n    # loop through the list \n    for i in range(len(list)): \n        for j in range(i + 1, len(list)): \n            if list[i] + list[j] == 0: \n                return [list[i], list[j]] \n    return None"
+    },
+    {
+      "instruction": "Compose the html for the following table",
+      "input": "Column 1   |  Column 2\n-------------------\nItem 1     |  Value 1\nItem 2     |  Value 2",
+      "output": "<table>\n    <tr>\n        <th>Column 1</th>\n        <th>Column 2</th>\n    </tr>\n    <tr>\n        <td>Item 1</td>\n        <td>Value 1</td>\n    </tr>\n    <tr>\n        <td>Item 2</td>\n        <td>Value 2</td>\n    </tr>\n</table>"
+    },
+    {
+      "instruction": "Write a SQL query to display unique values from a column called \"id\".",
+      "input": "",
+      "output": "SELECT DISTINCT id\nFROM table;"
+    },
+    {
+      "instruction": "Generate a Python dictionary that contains student information.",
+      "input": "Name: John; Age: 22; Grade: A;",
+      "output": "{\n \"name\": \"John\",\n \"age\": 22,\n \"grade\": \"A\"\n}"
+    },
+    {
+      "instruction": "Generate SQL code to query a database table containing student names and ages.",
+      "input": "SELECT all students who are between 18 and 25 years of age.",
+      "output": "SELECT *\nFROM Students\nWHERE Age BETWEEN 18 and 25;"
+    },
+    {
+      "instruction": "Create a Python code to print out all the common elements in two lists.",
+      "input": "list1 = [1, 2, 3, 4, 5]\nlist2 = [2, 3, 4, 6]",
+      "output": "def get_common_elements(list1, list2):\n    \"\"\"\n    Function to get all the common elements in two lists.\n    \n    Arguments:\n        list1 {list}: The first list.\n        list2 {list}: The second list.\n    \n    Returns:\n        list: A list containing all the common elements in both lists.\n    \"\"\"\n    common_elements = []\n    for element in list1:\n        if element in list2:\n            common_elements.append(element)\n    return common_elements"
+    },
+    {
+      "instruction": "Create a function to transform all strings to capital letters.",
+      "input": "my_string = 'Hello World!'",
+      "output": "def to_upper(string):\n return string.upper()"
+    },
+    {
+      "instruction": "Suggest an improvement to the following C++ for-loop to make it more efficient.",
+      "input": "for(int i = 0; i<arr.length; i++){\n    if(arr[i] == target){\n        return true;\n    }\n}",
+      "output": "for(int i = 0; i<arr.length; i++){\n    if(arr[i] == target){\n        return true;\n    } \n    else if (arr[i] > target){\n        break;\n    }\n}"
+    },
+    {
+      "instruction": "Design a JavaScript function to convert the given number in scientific notation.",
+      "input": "1000.003",
+      "output": "function toScientificNotation(number) {\n    return number.toExponential();\n}"
+    },
+    {
+      "instruction": "Write an SQL query to select the customer names with an age of 25 or more.",
+      "input": "",
+      "output": "SELECT customer_name\nFROM customers\nWHERE age >= 25"
+    },
+    {
+      "instruction": "Create a program that takes in two strings and prints out common words",
+      "input": "str1 = \"The quick brown fox\"\nstr2 = \"The brown rabbit\"",
+      "output": "def common_words(str1, str2):\n    l1 = str1.split()\n    l2 = str2.split()\n    result = list(set(l1) & set(l2))\n    return result"
+    },
+    {
+      "instruction": "Transform the following code into an array of objects in JavaScript.",
+      "input": "var data = [\n    [\"John\", 27], \n    [\"Mark\", 22],\n    [\"David\", 32]\n    ]",
+      "output": "var data = [\n    {name: \"John\", age: 27},\n    {name: \"Mark\", age: 22},\n    {name: \"David\", age: 32}\n];"
+    },
+    {
+      "instruction": "Create a sorting algorithm to sort a given list of numbers from lowest to highest.",
+      "input": "[1, 4, 3, 7, 8, 10]",
+      "output": "def sort_list(arr):\n    for i in range(len(arr) - 1):\n        min_index = i\n        for j in range(i + 1, len(arr)):\n            if arr[j] < arr[min_index]:\n                min_index = j\n        if min_index != i:\n            arr[i], arr[min_index] = arr[min_index], arr[i]\n    return arr"
+    },
+    {
+      "instruction": "Create a list of 20 words ordered alphabetically in HTML.",
+      "input": "",
+      "output": "<ul>\n  <li>Apples</li>\n  <li>Bananas</li>\n  <li>Cherries</li>\n  <li>Dates</li>\n  <li>Eggplants</li>\n  <li>Figs</li>\n  <li>Grapes</li>\n  <li>Honeydews</li>\n  <li>Ice cream</li>\n  <li>Jelly beans</li>\n  <li>Kiwis</li>\n  <li>Lemons</li>\n  <li>Mangoes</li>\n  <li>Nectarine</li>\n  <li>Oranges</li>\n  <li>Pears</li>\n  <li>Quinces</li>\n  <li>Raspberries</li>\n  <li>Strawberries</li>\n  <li>Tangerines</li>\n</ul>"
+    },
+    {
+      "instruction": "Write a Python function to compute the total amount of a given grocery bill after taxes.",
+      "input": "items = [('apple', 1.49), ('banana', 0.99), ('bread', 4.99)]",
+      "output": "def compute_total_after_taxes(items):\n tax = 0.07\n total = 0\n for item in items:\n  price = item[1]\n  tax_amount = price * tax\n  total += price + tax_amount\n return round(total, 2)"
+    },
+    {
+      "instruction": "Generate SQL query to find the average score for each student.",
+      "input": "Table: student_scores\n\n| id  | student_id | score |\n|-----|------------|-------|\n|  1  |   111      |   5   |\n|  2  |   111      |   7   |\n|  3  |   223      |   6   |\n|  4  |   223      |   8   |",
+      "output": "SELECT student_id, AVG(score) AS average_score\nFROM student_scores\nGROUP BY student_id;"
+    },
+    {
+      "instruction": "Create a Java class with an empty constructor and a parameterized constructor",
+      "input": "",
+      "output": "public class TestConstructor {\n \n    public TestConstructor() {\n    }\n \n    public TestConstructor(int n) {\n        // code to run when constructor with parameter is called \n    }\n}"
+    },
+    {
+      "instruction": "Given an array of English words, find any word which is an anagram of another word in the same array.",
+      "input": "[\"listen\", \"pot\", \"part\", \"opt\", \"trap\", \"silent\", \"top\"]",
+      "output": "\"\"\"\nGiven an array of English words, find any word which is an anagram of another word in the same array.\n\"\"\"\n\ndef find_anagrams(words):\n    anagrams = [] \n    for i in range(len(words)): \n        for j in range(i+1, len(words)): \n            if (sorted(words[i]) == sorted(words[j])): \n                anagrams.append((words[i],words[j])) \n    return anagrams\n\nif __name__ == '__main__':\n    words = [\"listen\", \"pot\", \"part\", \"opt\", \"trap\", \"silent\", \"top\"]\n    print(find_anagrams(words))"
+    },
+    {
+      "instruction": "Parse this HTML document and print out the text inside the first <h1> tag.",
+      "input": "html_doc = \"<html><head><title>Sample Website</title></head><body><h1>Hello World!</h1><p>This is a sample website.</p><ul><li>Item 1</li><li>Item 2</li><ul></body></html>\"",
+      "output": "from bs4 import BeautifulSoup\nsoup = BeautifulSoup(html_doc, 'html.parser')\nh1_text = soup.find(\"h1\").text\nprint(h1_text)\n# Output: Hello World!"
+    },
+    {
+      "instruction": "Create an R script that takes the summation of given numbers.",
+      "input": "",
+      "output": "add_numbers <- function(a, b, c){\n  return(a + b + c)\n}"
+    },
+    {
+      "instruction": "Edit the given SQL query to make it efficient.",
+      "input": "SELECT * FROM table1, table2 \nWHERE table1.id = table2.id",
+      "output": "SELECT * FROM table1 \nINNER JOIN table2 \nON table1.id = table2.id\n\nThe suggested modification is to replace the two-table join with an inner join. This will be more efficient as it reduces the number of cartesian products which have to be computed."
+    },
+    {
+      "instruction": "Write a function in Python that accepts an array as an argument and returns the index of the item with the maximum value.",
+      "input": "arr = [2, 5, 9, 4, 10]",
+      "output": "def find_max_index(arr):\n    if len(arr) == 0:\n        return None\n    max_val = arr[0]\n    max_index = 0\n\n    for i in range(1, len(arr)):\n        if arr[i] > max_val:\n            max_val = arr[i]\n            max_index = i\n    return max_index\n\narr = [2, 5, 9, 4, 10]\nmax_index = find_max_index(arr)\nprint(max_index)  # Output 4"
+    },
+    {
+      "instruction": "Given an array, write a program that checks if any two numbers sum to 0.",
+      "input": "arr = [-3, -2, 1, 2, 3]",
+      "output": "def check_if_sum_zero(arr): \n    for i in range(len(arr)): \n        for j in range(i + 1, len(arr)): \n            if (arr[i] + arr[j] == 0): \n                return True\n    return False\n\nprint(check_if_sum_zero([-3, -2, 1, 2, 3]))"
+    },
+    {
+      "instruction": "Write a PHP script to find the 5th element of an array.",
+      "input": "$arr = array(14,32,25,19,14,89,130);",
+      "output": "<?php \n$arr = array(14,32,25,19,14,89,130);\necho $arr[4];\n?>"
+    },
+    {
+      "instruction": "Given the python code below, reverse the order of the lines to form a valid program.",
+      "input": "def myFunc(): \n    print(1) \n    return \nprint(2)",
+      "output": "def myFunc(): \n    print(2) \n    return \nprint(1)"
+    },
+    {
+      "instruction": "Write a JavaScript function that generates the Fibonacci sequence up to a given number.",
+      "input": "",
+      "output": "function fibonacci (num) {\n    let result = [];\n    let a = 1;\n    let b = 0;\n    let temp;\n\n    while (num >= 0) {\n      result.push(b);\n  \n      temp = a;\n      a = a + b;\n      b = temp;\n  \n      num--;\n    }\n  \n    return result;\n  }"
+    },
+    {
+      "instruction": "Sum up an array of numbers to a single number using JavaScript.",
+      "input": "[1, 2, 3, 4]",
+      "output": "function sumArray(arr) {\n    let sum = 0;\n    arr.forEach(function(item){\n        sum += item;\n    });\n    return sum;\n}"
+    },
+    {
+      "instruction": "Create a JavaScript object that stores three pieces of digital contact data, an email address, a phone number, and a website URL.",
+      "input": "",
+      "output": "const contact = {\n email: 'example@example.com',\n phone: '000-000-0000',\n website: 'www.example.com'\n};"
+    },
+    {
+      "instruction": "Create a HTML form to collect the user's email address.",
+      "input": "",
+      "output": "<form>\n  <label for=\"email\">Email:</label><br>\n  <input type=\"email\" id=\"email\" name=\"email\"><br>\n  <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Parse a HTML page and find all text content within the page.",
+      "input": "",
+      "output": "from bs4 import BeautifulSoup\n \nhtml_doc = \"\"\"\n<html><head><title>Page Title</title></head>\n<body>\n<h1>Header Text</h1>\n<p>Paragraph 1</p>\n<p>Paragraph 2</p>\n</body>\n</html>\n\"\"\"\n \nsoup = BeautifulSoup(html_doc, 'html.parser')\ntext_content = soup.find_all(text=True)\n \nfor content in text_content:\n print(content)"
+    },
+    {
+      "instruction": "Create a function that takes in a string and returns an array of the words which are longer than 5 characters.",
+      "input": "\"Welcome to the world of programming\"",
+      "output": "def get_long_words(s):\n    words = s.split(\" \")\n    result = []\n    for word in words:\n        if len(word) > 5:\n            result.append(word)\n    return result"
+    },
+    {
+      "instruction": "Create a function to print the result of a multiplication table.",
+      "input": "Table Size: 5",
+      "output": "def print_multiplication_table(size):\n    for i in range(1, size+1): \n        for j in range(1, size+1): \n            print(str(i*j) + \"\\t\", end=' ') \n        print()"
+    },
+    {
+      "instruction": "Calculate the sum of the first 10 Fibonacci numbers in Java.",
+      "input": "",
+      "output": "class Fibonacci \n{ \n    static int fib(int n) \n    { \n        if (n <= 1) \n            return n; \n        return fib(n-1) + fib(n-2); \n    } \n  \n    public static void main (String args[]) \n    { \n        int num = 10, sum = 0; \n        for (int i = 1; i <= num; i++) \n        { \n            sum += fib(i); \n        } \n        System.out.println(sum); \n    } \n}"
+    },
+    {
+      "instruction": "Implement an efficient algorithm for reversing a sentence in C.",
+      "input": "\"This is a sentence.\"",
+      "output": "#include<stdio.h>\n#include<string.h>\n\nvoid reverse_sentence(char *word) \n{ \n    int k; \n    char *c, s[100]; \n    c = word; \n    k = strlen(word); \n  \n    int i = k - 1, j = 0; \n    while (i >= 0) { \n        while (i >= 0 && c[i] != ' ') { \n           s[j++] = c[i--]; \n        } \n        s[j++] = ' '; \n  \n        while (i >= 0 && c[i] == ' ') \n            i--; \n    } \n  \n    s[j] = '\\0'; \n    printf(\"%s\\n\", s); \n} \n\nint main() \n{ \n   char str[] = \"This is a sentence.\"; \n   reverse_sentence(str); \n   return 0; \n}"
+    },
+    {
+      "instruction": "Write a C program that takes an integer as input and prints the sum of all its digits.",
+      "input": "n = 473",
+      "output": "#include<stdio.h> \n\n//Function to find the sum of digits \nint SumOfDigits(int n) \n{ \n\tint sum = 0; \n\twhile(n>0) \n\t{ \n\t\t//Extracting the last digit of the number \n\t\tint rem = n % 10;  \n\t\tsum = sum + rem; \n\t\t\n\t\t//Removing the last digit from the number \n\t\tn = n / 10; \n\t} \n\treturn sum; \n} \n\n//Test Program\nint main() \n{ \n\tint num = 473; \n\tprintf(\"Sum of Digits of %d = %d\", num, SumOfDigits(num)); \n\n\treturn 0; \n}"
+    },
+    {
+      "instruction": "Create a HTML form with three input fields for taking a user's name, email, and address.",
+      "input": "",
+      "output": "<form action=\"\" method=\"post\">\n    <label for=\"name\">Name: </label><br>\n    <input type=\"text\" name=\"name\" id=\"name\"><br><br>\n\n    <label for=\"email\">Email: </label><br>\n    <input type=\"email\" name=\"email\" id=\"email\"><br><br>\n\n    <label for=\"address\">Address: </label><br>\n    <input type=\"text\" name=\"address\" id=\"address\"><br><br>\n\n    <input type=\"submit\" name=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Write a function in Python that takes a string and a set of characters as inputs and removes all characters in the string that are in the set.",
+      "input": "string = \"Hello, world!\"\ncharset = [\"o\", \"!\"]",
+      "output": "def removeChars(string, charset):\n\tresult = \"\"\n\tfor c in string:\n\t\tif c not in charset:\n\t\t\tresult += c\n\treturn result"
+    },
+    {
+      "instruction": "Create an exponential moving average function in R.",
+      "input": "",
+      "output": "library(zoo)\n\nexponential_moving_average <- function(x, n, beta) {\n  EMA <- 0\n  for (i in 1:length(x)) {\n     if (i == 1) {\n       EMA[i] <- x[i]\n     } else {\n       EMA[i] <- ((beta * x[i]) + ((1 - beta) * EMA[i - 1]))\n     } \n  }\n  \n  ma_x <- as.numeric(rollapply(EMA, n, mean, fill = NA, align = \"right\"))\n  return(ma_x)\n}"
+    },
+    {
+      "instruction": "Write a R program to print the first 5 rows of a given dataset",
+      "input": "“data.csv”",
+      "output": "data <- read.csv(\"data.csv\")\nhead(data, 5)"
+    },
+    {
+      "instruction": "Create a css class for a card component with rounded corners, a light shadow, and a maximum width of 500px.",
+      "input": "",
+      "output": ".card {\n    border-radius: 10px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);\n    max-width: 500px;\n}"
+    },
+    {
+      "instruction": "Design a Java class to store user information.",
+      "input": "",
+      "output": "public class User {\n    private String name;\n    private int age;\n    private String email;\n  \n    // getters and setters\n  \n    public User(String name, int age, String email) {\n        this.name = name;\n        this.age = age;\n        this.email = email;\n    }\n}"
+    },
+    {
+      "instruction": "Write a Java program to find the sum of two arrays of length 10",
+      "input": "",
+      "output": "public static int[] sumArrays(int[] arr1, int[] arr2){\n        int[] result = new int[arr1.length];\n        for(int i=0; i<arr1.length; i++){\n            result[i] = arr1[i] + arr2[i];\n        }\n        return result;\n    }"
+    },
+    {
+      "instruction": "Create a Java class named \"MyClass\" with three methods - getName(), setName(), and displayName().",
+      "input": "",
+      "output": "public class MyClass {\n   private String name;\n \n   // constructor\n   public MyClass(String name) {\n      this.name = name;\n   }\n \n   // getName\n   public String getName() {\n      return this.name;\n   }\n \n   // setName\n   public void setName(String name) {\n      this.name = name;\n   }\n \n   // displayName\n   public void displayName() {\n      System.out.println(\"Name is: \" + this.name);\n   }\n}"
+    },
+    {
+      "instruction": "Write a JavaScript to create a new array containing the squared values of all odd numbers in the range (1, 10)?",
+      "input": "",
+      "output": "let newArray = [];\nfor (let i=1; i<=10; i++) {\n    if (i % 2 !== 0) {\n        newArray.push(i * i);\n    }\n}"
+    },
+    {
+      "instruction": "Write a function in Java to split a string into an array of substrings.",
+      "input": "",
+      "output": "public static String[] splitString(String s, String regex) \n{ \n    return s.split(regex); \n}"
+    },
+    {
+      "instruction": "Using the JavaScript language, write a code snippet to display the current date.",
+      "input": "",
+      "output": "var today = new Date() \nvar date = today.getDate() + \"/\" + (today.getMonth()+1) + \"/\" + today.getFullYear() \nconsole.log(date)"
+    },
+    {
+      "instruction": "Design a class in Java to build a Binary Search Tree.",
+      "input": "",
+      "output": "public class BST { \n  \n    /* Class containing left and right child of current node and key value*/\n    class Node { \n        int key; \n        Node left, right; \n  \n        public Node(int item) { \n            key = item; \n            left = right = null; \n        } \n    } \n  \n    // Root of BST \n    Node root; \n  \n    // Constructor \n    BST() {  \n        root = null;  \n    } \n  \n    // This method mainly calls insertRec() \n    void insert(int key) { \n       root = insertRec(root, key); \n    } \n  \n    // A recursive function to insert a new key in BST \n    Node insertRec(Node root, int key) { \n  \n        // If the tree is empty, return a new node \n        if (root == null) { \n            root = new Node(key); \n            return root; \n        } \n  \n        // Otherwise, recur down the tree \n        if (key < root.key) \n            root.left = insertRec(root.left, key); \n        else if (key > root.key) \n            root.right = insertRec(root.right, key); \n  \n        // return the (unchanged) node pointer \n        return root; \n    } \n  \n}"
+    },
+    {
+      "instruction": "Write a C program to output all odd numbers from 0 to 500.",
+      "input": "",
+      "output": "#include <stdio.h> \n \nint main() \n{ \n    int i = 0; \n  \n    // Iterate from 0 to 500 \n    while (i <= 500) { \n        if (i % 2 != 0) \n            printf(\"%d \", i); \n  \n        i++; \n    } \n  \n    return 0; \n}"
+    },
+    {
+      "instruction": "Suppose we have a dictionary with keys (1,2,3). Create a function to return the values of the dictionary.",
+      "input": "d = {1: \"one\", 2: \"two\", 3: \"three\"}",
+      "output": "def get_values(d):\n    return list(d.values())"
+    },
+    {
+      "instruction": "Create a program that prints a given 2D array in a spiral form.",
+      "input": "a = [[1,2,3],[4,5,6],[7,8,9]]",
+      "output": "def spiral_print(a):\n    m = len(a)\n    n = len(a[0])\n \n    t = 0   #top\n    b = m-1 #bottom\n    l = 0   #left\n    r = n-1 #right\n\n    dir = 0\n    while l<=r and t<=b:\n\n        if dir == 0:\n            for i in range(l, r+1):\n                print(a[t][i], end=\" \")\n            t += 1\n        elif dir == 1:\n            for i in range(t, b+1):\n                print(a[i][r], end=\" \")\n            r -= 1\n        elif dir == 2:\n            for i in range(r, l-1, -1):\n                print(a[b][i], end=\" \")\n            b -= 1\n        elif dir == 3:\n            for i in range(b, t-1, -1):\n                print(a[i][l], end=\" \")\n            l += 1\n\n        dir=(dir+1)%4"
+    },
+    {
+      "instruction": "Create an algorithm to compute the sum of all the numbers in a list",
+      "input": "list = [14, 37, 54, 20]",
+      "output": "list = [14, 37, 54, 20]\n\ndef compute_sum(list):\n    total_sum = 0\n    for number in list:\n        total_sum += number\n    return total_sum\n\nprint(compute_sum(list))"
+    },
+    {
+      "instruction": "You are given a list of numbers. Create a function that returns a new list with duplicates removed",
+      "input": "list_of_numbers = [3, 6, 5, 5, 7, 6, 3]",
+      "output": "def remove_duplicates(numbers):\n    new_list = []\n    for num in numbers:\n        if num not in new_list:\n            new_list.append(num)\n    return new_list"
+    },
+    {
+      "instruction": "Write a JavaScript function to convert an array of strings to a comma-separated string.",
+      "input": "arr = [\"this\", \"is\", \"a\", \"test\"]",
+      "output": "//Function to convert an array of strings to a comma-separated string\nfunction arr_to_csv(arr) {\n    return arr.join(\",\");\n}\n\n// Testing code\nconsole.log(arr_to_csv(arr));"
+    },
+    {
+      "instruction": "Implement a class in C++ that creates a stack.",
+      "input": "",
+      "output": "#include<iostream> \n#include<vector> \n  \nusing namespace std; \n\n\n// Class to represent a Stack \nclass Stack \n{\n    // container to store elements \n    vector<int> v;    \n    \npublic: \n    void push(int data); \n    bool empty(); \n    void pop(); \n    int top(); \n}; \n\nvoid Stack::push(int data) \n{ \n    // inserting an element \n    // on the top of the stack \n    v.push_back(data); \n} \n\nbool Stack::empty() \n{ \n    // checking if the stack is empty \n    return v.size() == 0; \n} \n\nvoid Stack::pop() \n{ \n    // removing element \n    // from the top of the stack \n    if (!empty()) \n    { \n        v.pop_back(); \n    } \n} \n\nint Stack::top() \n{ \n    // returns the top element \n    // of the stack \n    return v.back(); \n}"
+    },
+    {
+      "instruction": "Implement a function in JavaScript which checks whether a number is prime or not.",
+      "input": "",
+      "output": "function isPrime(num) {\n    if (num <= 1) { \n        return false; \n    }\n    \n    for (let i = 2; i < num; i++) {\n        if (num % i === 0) {\n            return false;\n        }\n    }\n    return true;\n}"
+    },
+    {
+      "instruction": "Create an R code to convert yes/no questions to binary input.",
+      "input": "Do you have a pet?",
+      "output": "question <- \"Do you have a pet?\"\n\nbinary_input <- ifelse(question == \"Do you have a pet?\", 1, 0)\n\nprint(binary_input) # prints 1"
+    },
+    {
+      "instruction": "Write a SQL query to retrieve all rows from the table 'movies' whose genre is 'comedy'",
+      "input": "",
+      "output": "SELECT * FROM movies WHERE genre = 'comedy';"
+    },
+    {
+      "instruction": "Implement a Java program that reads five integers and prints their sum.",
+      "input": "5, 8, 12, 1, 4",
+      "output": "import java.util.*;\n\npublic class Main {\n  public static void main(String[] args) {\n    Scanner sc = new Scanner(System.in);\n    int sum = 0;\n\n    // Read the integers\n    for (int i = 0; i < 5; i++) {\n      int x = sc.nextInt();\n      sum += x;\n    }\n\n    System.out.println(\"The sum is \" + sum);\n  }\n}"
+    },
+    {
+      "instruction": "Create a function in Python to generate all possible strings of length k from given lowercase characters.",
+      "input": "set = {'a', 'b', 'c'}\nk = 3",
+      "output": "def generate_strings(set, k): \n\tstrings = [] \n\tn = len(set) \n\t\n\tdef generate_strings_recur(sub, count): \n\t\t\n\t\t# Base cases \n\t\tif count == 0 : \n\t\t\tstrings.append(sub) \n\t\t\treturn\n\t\t\n\t\tfor i in range(n): \n\t\t\t\n\t\t\t# Next character of string to be \n\t\t\t# formed \n\t\t\tnew_sub = sub + set[i] \n\t\t\t\n\t\t\t# Recursion call \n\t\t\tgenerate_strings_recur(new_sub, \n\t\t\t\t\t\t\t\tcount-1) \n\t\n\tcount = k \n\tsub = \"\" \n\t\n\t# Call to generate all strings of length k \n\tgenerate_strings_recur(sub, count) \n\t\n\treturn strings"
+    },
+    {
+      "instruction": "Write a function in Python to encourage user input by prompting the user \"Please enter a valid email address.\"",
+      "input": "",
+      "output": "def get_email(): \n  email = input(\"Please enter a valid email address: \")\n  return email"
+    },
+    {
+      "instruction": "Create a new PostgreSQL table named 'employees' with appropriate columns for employee information.",
+      "input": "",
+      "output": "CREATE TABLE employees (\n    id SERIAL PRIMARY KEY,\n    first_name VARCHAR(50) NOT NULL,\n    last_name VARCHAR(50) NOT NULL,\n    job_title VARCHAR(100) NOT NULL,\n    age INTEGER NOT NULL,\n    salary DECIMAL NOT NULL\n);"
+    },
+    {
+      "instruction": "Given a dictionary, write a program to create a new dictionary where the values are the keys and the keys are the values.",
+      "input": "{\"apple\": 1, \"banana\": 2, \"carrot\": 3}",
+      "output": "def reverse_dict(d):\n    new_d = {v:k for k, v in d.items()}\n    return new_d\n\nd = {\"apple\": 1, \"banana\": 2, \"carrot\": 3}\nprint(reverse_dict(d))"
+    },
+    {
+      "instruction": "Write code in Java to create a linked list.",
+      "input": "",
+      "output": "class Node{\n    int data; \n    Node next; \n        \n    Node(int d){\n        data = d; \n        next = null; \n    } \n} \n\nclass LinkedList{ \n    Node head; \n        \n    public void insert(int data){ \n        Node node = new Node(data); \n        if (head == null) { \n            head = node; \n        } \n        else { \n            Node n = head; \n            while (n.next != null) { \n                n = n.next; \n            } \n            n.next = node; \n        } \n    } \n}"
+    },
+    {
+      "instruction": "Modify the Java program below so that it prints the sum of two given numbers.",
+      "input": "int num1 = 3;\nint num2 = 5;",
+      "output": "int num1 = 3;\nint num2 = 5;\nint sum = num1 + num2;\n\nSystem.out.println(\"Sum is: \" + sum);"
+    },
+    {
+      "instruction": "Create an algorithm to determine the maximum element in a given list.",
+      "input": "my_list = [3, 6, 4, 1]",
+      "output": "def find_max(my_list):\n    max_num = 0\n    for num in my_list:\n        if num > max_num:\n            max_num = num\n    return max_num"
+    },
+    {
+      "instruction": "Convert the following matrix into a list of lists in Python.",
+      "input": "[[1, 2, 3], [4, 5, 6], [7, 8, 9]]",
+      "output": "list_of_lists = [[1,2,3], [4,5,6], [7,8,9]]"
+    },
+    {
+      "instruction": "Create a C++ class called \"TV\".",
+      "input": "",
+      "output": "class TV {\npublic:\n  TV(); // Constructor\n  void turnOn();\n  void turnOff();\n  void switchChannel();\n};"
+    },
+    {
+      "instruction": "Create a function to identify leap years in JavaScript.",
+      "input": "",
+      "output": "function isLeapYear(year) {\n  return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));\n}"
+    },
+    {
+      "instruction": "Create a JavaScript function to convert a date string of the form \"DD/MM/YYYY\" to a different string format, \"Weekday, Month dd yyyy\".",
+      "input": "\"14/08/2020\"",
+      "output": "function formatDate(inputDate){ \n  let date = new Date(inputDate); \n  let weekday = [\"Sun\", \"Mon\", \"Tue\", \"Wed\",\"Thur\", \"Fri\",\"Sat\"];  \n  let day = weekday[date.getDay()];\n  let month = [\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\",\"Oct\", \"Nov\", \"Dec\"]; \n  let monthName = month[date.getMonth()]; \n  let year = date.getFullYear();\n  let dayNumber = date.getDate(); \n \n  let result = day + ', ' + monthName + ' ' + dayNumber + ' ' + year;\n  return result;\n}\nconsole.log(formatDate(\"14/08/2020\")); // Output: Wed, Aug 14 2020"
+    },
+    {
+      "instruction": "Create a for loop in Python that iterates through the list [1,2,3,4,5].",
+      "input": "",
+      "output": "for item in [1,2,3,4,5]:\n    print(item)"
+    },
+    {
+      "instruction": "Create a program which will take the user's name and output a custom message depending on the supplied name",
+      "input": "name = 'John'",
+      "output": "def greet_user(name):\n    \"\"\"\n    Greet the user with a custom message depending on the supplied name.\n    \"\"\"\n    if name == 'John':\n        print('Hey there John! Welcome back!')\n    elif name == 'Mary':\n        print('Good morning Mary! How are you doing today?')\n    else:\n        print('Hi there! Welcome to our service!')"
+    },
+    {
+      "instruction": "Create a program to solve a math equation given in a string.",
+      "input": "equation = \"6 + 3*2\"",
+      "output": "def solve_math_equation(equation):\n    return eval(equation)\n\nprint(solve_math_equation(equation))"
+    },
+    {
+      "instruction": "Create a function that takes two arguments, a string and a character, and replaces all occurrences of the character with the string in JavaScript.",
+      "input": "",
+      "output": "function replaceCharacter(str, char) { \n    return str.replace(new RegExp(char,\"g\"), str); \n} \n  \nlet str = \"Hello World\"; \nlet char = \"l\"; \nlet result = replaceCharacter(str, char); \n  \nconsole.log(result); // Output: Heooo Worod"
+    },
+    {
+      "instruction": "Create a HTML page that includes a table with 3 columns and 3 rows.",
+      "input": "",
+      "output": "<html>\n  <head>\n    <title>Table Example</title>\n  </head>\n  <body>\n    <table>\n      <tr>\n        <th>Column 1 Header</th>\n        <th>Column 2 Header</th>\n        <th>Column 3 Header</th>\n      </tr>\n      <tr>\n        <td>Row 1, Column 1</td>\n        <td>Row 1, Column 2</td>\n        <td>Row 1, Column 3</td>\n      </tr>\n      <tr>\n        <td>Row 2, Column 1</td>\n        <td>Row 2, Column 2</td>\n        <td>Row 2, Column 3</td>\n      </tr>\n      <tr>\n        <td>Row 3, Column 1</td>\n        <td>Row 3, Column 2</td>\n        <td>Row 3, Column 3</td>\n      </tr>\n    </table>\n  </body>\n</html>"
+    },
+    {
+      "instruction": "Edit the following JavaScript code so that it rounds a number to the nearest integer.",
+      "input": "function roundNumber(x) {\n return x + 0.5;\n}",
+      "output": "function roundNumber(x) {\n return Math.round(x);\n}"
+    },
+    {
+      "instruction": "Write an HTML page with a form to input the following information: name, age, gender.",
+      "input": "",
+      "output": "<html> \n  <head> \n    <title>Form Example</title>\n  </head>\n  <body>\n    <form>\n      <label for=\"name\">Name:</label>\n      <input type=\"text\" id=\"name\" name=\"name\">\n      <label for=\"age\">Age:</label>\n      <input type=\"number\" id=\"age\" name=\"age\">\n      <label for=\"gender\">Gender:</label>\n      <select id=\"gender\" name=\"gender\">\n        <option value=\"Male\">Male</option>\n        <option value=\"Female\">Female</option>\n      </select>\n      <input type=\"submit\">\n    </form>\n  </body>\n</html>"
+    },
+    {
+      "instruction": "Write a SQL query to get all employees' name and salary who are from department \"IT\"",
+      "input": "",
+      "output": "SELECT name, salary \nFROM Employees \nWHERE department = 'IT';"
+    },
+    {
+      "instruction": "Write a function that takes an array of integers and returns an array of the same size with each element equal to the product of all the elements in the original array except itself.",
+      "input": "[1, 2, 3]",
+      "output": "def product_array(arr):\n    res = []\n    product = 1\n    for i in range(len(arr)):\n        product *= arr[i]\n    for i in range(len(arr)):\n        res.append(int(product/arr[i]))\n    return res"
+    },
+    {
+      "instruction": "Write a Java program to convert a binary string to a decimal number.",
+      "input": "",
+      "output": "public class BinaryToDecimal { \n\n\tpublic static int binToDecimal(String binaryNumber)  \n\t{  \n\t\tint decimal = 0;  \n\t\tint power = 0;  \n\t\tfor(int i = binaryNumber.length() - 1; i >= 0; i--)  \n\t\t{   \n\t\t\tif (binaryNumber.charAt(i) == '1') \n\t\t\t\tdecimal += Math.pow(2, power); \n\t\t\tpower++; \n\t\t}  \n\t\treturn decimal;  \n\t}  \n\t\n}"
+    },
+    {
+      "instruction": "Write a function to flatten a given array of lists.",
+      "input": "[[1,2], [3,4], [5,6]]",
+      "output": "def flatten(arr):\n    output_list = []\n    for sublist in arr:\n        for item in sublist:\n            output_list.append(item)\n    return output_list"
+    },
+    {
+      "instruction": "Write a code snippet in HTML to include an external style sheet in web page.",
+      "input": "",
+      "output": "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" />"
+    },
+    {
+      "instruction": "Using the input as a guide, write code that prints out a copy of the 2d matrix with its elements transposed.",
+      "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]",
+      "output": "def transpose_matrix(matrix):\n    \"\"\"Function to transpose 2d list matrix\"\"\"\n    row = len(matrix) \n    col = len(matrix[0]) \n  \n    transpose = [[0 for j in range(row)] for i in range(col)] \n  \n    for i in range(row): \n        for j in range(col): \n            transpose[j][i] = matrix[i][j] \n  \n    for i in range(col): \n        print(transpose[i]) \n\nif __name__ == '__main__':\n    matrix = [[1,2,3],[4,5,6],[7,8,9]]\n    transpose_matrix(matrix)"
+    },
+    {
+      "instruction": "Design a function in JavaScript that takes two parameters and performs a multiplication between them.",
+      "input": "Number 1: 11\nNumber 2: 10",
+      "output": "function multiply(num1, num2) {\n    return num1 * num2;\n}"
+    },
+    {
+      "instruction": "Create a function to print all permutations of a string without duplicates.",
+      "input": "string = \"abc\"",
+      "output": "def permutations(string):\n    res = set()\n    if len(string) == 1:\n        res.add(string)\n    else:\n        for i, char in enumerate(string):\n            for perm in permutations(string[:i], string[i+1:]):\n                res.add(char + perm)\n    return res\n\n# Output\n{'abc', 'acb', 'bac', 'bca', 'cab', 'cba'}"
+    },
+    {
+      "instruction": "Convert a string to all uppercase.",
+      "input": "text = \"Hello World\"",
+      "output": "def to_uppercase(text):\n    return text.upper()\n\nif __name__ == '__main__':\n    text = \"Hello World\"\n    print(to_uppercase(text))"
+    },
+    {
+      "instruction": "Create an HTML page with a text input box, a submit button and a table to display the results.",
+      "input": "",
+      "output": "<html>\n    <head>\n        <title>Inputs</title>\n    </head>\n    <body>\n        <form>\n            <input type=\"text\" id=\"inputText\">\n            <input type=\"submit\" value=\"Submit\">\n        </form>\n        <table>\n            <thead>\n                <tr>\n                    <th>Input Text</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td id=\"displayValue\"></td>\n                </tr> \n            </tbody>\n        </table>\n    </body>\n</html>"
+    },
+    {
+      "instruction": "Write an algorithm that takes a set of numbers and returns the sum of all numbers in the set.",
+      "input": "my_set = {2, 3, 4, 5}",
+      "output": "def sum_set(my_set):\n    total = 0 # Initialize total\n    for num in my_set: \n        total += num\n    return total\n\nmy_set = {2, 3, 4, 5}\ntotal = sum_set(my_set)\nprint(total)  # Output 14"
+    },
+    {
+      "instruction": "Write a SQL query to retrieve the names of all products from the table 'Product' with a price greater than $100.",
+      "input": "Table name: Product\nAttributes: id (integer), name (string), price (integer)",
+      "output": "SELECT name FROM Product WHERE price > 100;"
+    },
+    {
+      "instruction": "Given the input string, remove extra whitespace from the string using Java.",
+      "input": "String s = \"     This     is    an example    string    \"",
+      "output": "String s = s.replaceAll(\"\\\\s+\",\" \");\nSystem.out.println(s); // This is an example string"
+    },
+    {
+      "instruction": "Create a function in Java that takes a string as a parameter and returns the string in lowercase letters.",
+      "input": "",
+      "output": "public static String LowerCase(String str) {\n  return str.toLowerCase();\n}"
+    },
+    {
+      "instruction": "Find the length of a given string using JavaScript.",
+      "input": "str = \"I'm a GPT model\"",
+      "output": "let str = \"I'm a GPT model\";\nlet length = str.length;\nconsole.log(length); // 16"
+    },
+    {
+      "instruction": "Create a function to detect if two given strings are anagrams or not.",
+      "input": "str1 = 'abc'\nstr2 = 'bac'",
+      "output": "def is_anagram(str1, str2):\n    word1 = ''.join(sorted(str1))\n    word2 = ''.join(sorted(str2))\n    if word1 == word2:\n        return True\n    return False\n\nresult = is_anagram(str1, str2)\nprint(\"Is anagram:\", result)"
+    },
+    {
+      "instruction": "Write an SQL query to get the employee details with the highest salary.",
+      "input": "",
+      "output": "SELECT * \nFROM employees \nORDER BY salary DESC \nLIMIT 1;"
+    },
+    {
+      "instruction": "Create a MySQL query to find all orders in the last month.",
+      "input": "Table: Order\n-   Date",
+      "output": "SELECT * FROM Order\nWHERE Date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+    },
+    {
+      "instruction": "Suppose you have an array of numbers like [2,5,3,7] and you have to find the sum of the elements of the array. Write a JavaScript program for this.",
+      "input": "",
+      "output": "function sumArray(arr) {\n  let sum = 0;\n  arr.forEach(element => {\n    sum += element;\n  });\n  return sum;\n}"
+    },
+    {
+      "instruction": "Go through the following code and make sure there is an appropriate return statement at the end.",
+      "input": "def add_two_numbers(num1, num2):\n    num3 = num1 + num2\n    print(num3)",
+      "output": "def add_two_numbers(num1, num2):\n    num3 = num1 + num2\n    print(num3)\n    return num3"
+    },
+    {
+      "instruction": "Write a function in JavaScript that takes in a number x and returns the pythagorean triplet whose sum is x.",
+      "input": "// Number x \nint x = 12;",
+      "output": "function getTripletsFromSum (x) { \n\tvar triplet = [];\n\tfor (var i = 1; i < x; i++) \n\t\tfor (var j = i; j < x; j++) \n\t\t\tfor (var k = j; k < x; k++) \n\t\t\t\tif (i*i + j*j === k*k && \n\t\t\t\t\t\ti + j + k === x) \n\t\t\t\t\ttriplet.push(i, j, k);\n\treturn triplet; \n} \n\nconsole.log(getTripletsFromSum(12));\n# Output: [3,4,5]"
+    },
+    {
+      "instruction": "Create a Java program that reads an array of integers from the console and prints out the largest number.",
+      "input": "",
+      "output": "import java.util.Scanner;\n\npublic class LargestNum {\n    public static void main(String[] args){\n        Scanner scanner = new Scanner(System.in);\n\n        System.out.print(\"Input the size of array: \");\n        int n = scanner.nextInt();\n\n        int[] arr = new int[n];\n        System.out.println(\"Input \"+n+\" elements in the array:\");\n        for(int i = 0; i < n; i++){\n            arr[i] = scanner.nextInt();\n        }\n\n        int max = arr[0];\n\n        for (int anArr : arr) {\n            if (anArr > max)\n                max = anArr;\n        }\n\n        System.out.println(\"Largest number in the array is \" + max);\n    }\n}"
+    },
+    {
+      "instruction": "Produce a SELECT query in PostgreSQL to search for all existing entries with a specified ID.",
+      "input": "Property ID: 15",
+      "output": "SELECT * FROM TableName WHERE PropertyID='15';"
+    },
+    {
+      "instruction": "Compose a SQL query to find the names of all professors in the department of Computer Science.",
+      "input": "",
+      "output": "SELECT name FROM professor WHERE department = 'Computer Science';"
+    },
+    {
+      "instruction": "Create a program in JavaScript to calculate the area of a triangle with given side lengths.",
+      "input": "side_1 = 10\nside_2 = 10\nside_3 = 8",
+      "output": "let side_1= 10;\nlet side_2= 10;\nlet side_3= 8;\n \n//calculate the permiter of triangle \nlet perimiter = (side_1 + side_2 + side_3)/2;\n \n//calculate the area of triangle using Heron's formula \nlet area = Math.sqrt(perimiter*(perimiter-side_1)*(perimiter-side_2)*(perimiter-side_3));\n \nconsole.log(area);"
+    },
+    {
+      "instruction": "Create a function in Python which takes an integer n and an unsorted list of numbers as input and returns the nth smallest number in the list.",
+      "input": "[5, 8, 1, 9, 4], 3",
+      "output": "def nth_smallest(nums, n):\n    sorted_nums = sorted(nums)\n    return sorted_nums[n-1]\n\nprint(nth_smallest([5, 8, 1, 9, 4], 3)) # Output: 5"
+    },
+    {
+      "instruction": "Write a Python program to test whether all elements of a given list are equal or not.",
+      "input": "[3,3,3]",
+      "output": "def all_elements_equal(lst):\n return lst[1:] == lst[:-1]"
+    },
+    {
+      "instruction": "Compose a python function to find the maximum element in a 2-dimensional array.",
+      "input": "array = [[2, 4, 7, 1], [8, 12, 9, 5]]",
+      "output": "def max_element(arr): \n    max_value = arr[0][0] \n    for i in range(len(arr)): \n        for j in range(len(arr[i])): \n            if arr[i][j] > max_value: \n                max_value = arr[i][j] \n    return max_value \n  \n# Driver code \narr = [[2, 4, 7, 1], [8, 12, 9, 5]] \nmax_val = max_element(arr) \nprint(\"The maximum element in 2-dimensional array is\",max_val)"
+    },
+    {
+      "instruction": "Convert the following SQL query to MongoDB.",
+      "input": "SELECT * FROM Customers WHERE age > 30",
+      "output": "db.customers.find({\"age\" : {\"$gt\": 30}})"
+    },
+    {
+      "instruction": "Write a SQL query that returns the names of people who have a higher salary than their manager",
+      "input": "",
+      "output": "SELECT e1.name\nFROM Employee e1\nJOIN Employee e2 ON e1.manager_id = e2.id \nWHERE e1.salary > e2.salary"
+    },
+    {
+      "instruction": "Create an algorithm that finds the maximum element of an array.",
+      "input": "[2, 3, 5, 1, 4]",
+      "output": "def find_max_element(arr):\n    \"\"\"This function takes an array and returns the maximum element\"\"\"\n    max_el = arr[0]\n    for el in arr:\n        if el > max_el:\n            max_el = el\n    return max_el"
+    },
+    {
+      "instruction": "Create a Python function and call it split_string that takes a string and a delimiter as arguments and returns a list containing the string split by the delimiter.",
+      "input": "my_string = \"hello, world\"\ndelimiter = ','",
+      "output": "def split_string(string, delimiter):\n    strList = string.split(delimiter)\n    return strList"
+    },
+    {
+      "instruction": "Write an SQL query to find the names and scores of the top 5 students in a class.",
+      "input": "Table Name: students\nTable Schema: id INT, name VARCHAR(20), score INT",
+      "output": "SELECT name, score FROM students ORDER BY score DESC LIMIT 5;"
+    },
+    {
+      "instruction": "Write an SQL query to find all the customers who've purchased an item in the last month.",
+      "input": "",
+      "output": "SELECT customers.*\nFROM customers\nJOIN orders \n  ON customers.customer_id = orders.customer_id\nWHERE orders.order_date > DATE_SUB(CURDATE(), INTERVAL 1 MONTH);"
+    },
+    {
+      "instruction": "Write a sql statement to retrieve the average salary of all employees",
+      "input": "",
+      "output": "SELECT AVG(salary) FROM employees"
+    },
+    {
+      "instruction": "Develop an R script that converts a given number from Fahrenheit to Celsius.",
+      "input": "Fahrenheit temperature = 100",
+      "output": "celsius_temperature = function(fahrenheit_temperature) {\n  celsius_temperature = (fahrenheit_temperature - 32) * 5 / 9\n  return(celsius_temperature)\n}\n\n# Test case\nprint(celsius_temperature(100)) # Output: 37.77778"
+    },
+    {
+      "instruction": "Write an SQL query to find the ten most popular books among the library readers.",
+      "input": "Table: library\nColumns: book_name, reader_name\nTable: readers\nColumns: reader_name, book_name",
+      "output": "SELECT book_name, COUNT(*) \nFROM library \nINNER JOIN readers \nON library.reader_name = readers.reader_name \nGROUP BY book_name \nORDER BY COUNT(*) \nDESC LIMIT 10;"
+    },
+    {
+      "instruction": "Write an HTML code to show all the items in a given list.",
+      "input": "list: [\"apple\", \"orange\", \"banana\", \"strawberry\"]",
+      "output": "<ul>\n   <li>apple</li>\n   <li>orange</li>\n   <li>banana</li>\n   <li>strawberry</li>\n</ul>"
+    },
+    {
+      "instruction": "What is the most efficient way to find the index of a given element in an unsorted array using JavaScript?",
+      "input": "",
+      "output": "The most efficient way to find the index of a given element in an unsorted array using JavaScript is by using the indexOf() method. This method returns the index of the first occurrence of a given element in the array, or -1 if it is not present."
+    },
+    {
+      "instruction": "Analyze a provided string of characters and return the number of occurrences of each character.",
+      "input": "input_string = \"HelloWorld\"",
+      "output": "def analyze_string(input_string):\n    '''This function analyzes a provided string of characters and \n    returns the number of occurrences of each character.'''\n    dict_count = {}\n    for char in input_string:\n        if char in dict_count:\n            dict_count[char] += 1\n        else:\n            dict_count[char] = 1\n    return dict_count"
+    },
+    {
+      "instruction": "Design a function to clean binary data (strings) by keeping only printable characters.",
+      "input": "binary_data = b'h\\x9Fl\\x04o'",
+      "output": "def clean_binary_data(binary_data):\n    return ''.join(map(lambda x:chr(x) if 32 <= x <= 126 else '', binary_data))"
+    },
+    {
+      "instruction": "Write a SQL query to update a value x in a column y in a table z.",
+      "input": "x = 5, y = 'amount' and z = 'payments'.",
+      "output": "UPDATE payments \nSET amount = 5 \nWHERE payments.amount IS NOT NULL;"
+    },
+    {
+      "instruction": "Complete the function below to make a list of n numbers and return the result.",
+      "input": "n = 5",
+      "output": "def create_list(n):\n  result = [] \n  for i in range(0,n): \n    result.append(i) \n  return result"
+    },
+    {
+      "instruction": "Generate a C program to encrypt a sentence using Caesar cipher.",
+      "input": "The quick brown fox jumps over the lazy dog",
+      "output": "#include <stdio.h> \n#include <string.h> \n\nchar encrypt(char ch, int key); \n\nint main() \n{ \n    char message[] = \"The quick brown fox jumps over the lazy dog\"; \n    int key;\n  \n    printf(\"Enter the key: \"); \n    scanf(\"%d\", &key);\n\n    char encrypted_message[100]; \n  \n    for (int i = 0; i < strlen(message); ++i) { \n        encrypted_message[i] = encrypt(message[i], key); \n    }\n\n    printf(\"Encrypted message: %s\\n\", encrypted_message); \n    return 0; \n} \n\nchar encrypt(char ch, int key) \n{ \n    if (ch >= 'a' && ch <= 'z') \n        return (char)('a' + (ch - 'a' + key) % 26); \n    else if (ch >= 'A' && ch <= 'Z') \n        return (char)('A' + (ch - 'A' + key) % 26); \n    else\n        return ch; \n}"
+    },
+    {
+      "instruction": "Write an SQL query that updates the values in the 'exampleTable' so that all the numbers in the 'number' column are increased by 10.",
+      "input": "",
+      "output": "UPDATE exampleTable\nSET number = number + 10;"
+    },
+    {
+      "instruction": "Create a JavaScript program to find the minimum of two numbers.",
+      "input": "",
+      "output": "function min(num1, num2) {\n  if (num1 < num2) {\n    return num1;\n  }\n  else {\n    return num2;\n  }\n}"
+    },
+    {
+      "instruction": "Write a JavaScript program to compute the sum of all the given values.",
+      "input": "values = [1, 2, 3, 4, 5]",
+      "output": "function sumValues(values) {\n    let sum = 0;\n    for (let i = 0; i < values.length; i++) {\n        sum += values[i] \n    }\n    return sum;\n}\n\nconsole.log(sumValues([1, 2, 3, 4, 5]));"
+    },
+    {
+      "instruction": "Construct a python list comprehension",
+      "input": "List of numbers from 2 to 8",
+      "output": "list_nums = [x for x in range(2, 9)]"
+    },
+    {
+      "instruction": "Write a PHP code to send an email notification to someone.",
+      "input": "",
+      "output": "<?php\n// Create a new PHP mailer instance\n$mail = new PHPMailer(true);\n\ntry {\n    // Set the mailer to use SMTP\n    $mail->isSMTP();\n\n    // Specify SMTP server details\n    $mail->Host = 'smtp.example.com';\n    $mail->SMTPAuth = true;\n    $mail->Username = 'username';\n    $mail->Password = 'password';\n    $mail->SMTPSecure = 'ssl';\n    $mail->Port = 465;\n\n    // Recipient's details\n    $mail->setFrom('from@example.com', 'From Name');\n    $mail->addAddress('to@example.com', 'To Name');\n\n    // Email content\n    $mail->isHTML(true);\n    $mail->Subject = 'Email Notification';\n    $mail->Body    = 'This is an email notification';\n\n    // Send the email\n    $mail->send();\n    echo 'Message has been sent';\n\n}\ncatch (Exception $e) {\n    echo \"Message could not be sent. Mailer Error: {$mail->ErrorInfo}\";\n}\n?>"
+    },
+    {
+      "instruction": "Write a Bash script for downloading a web page from the internet.",
+      "input": "",
+      "output": "#!/bin/bash\n\nif [ -z $1 ]; then\n  echo \"Please provide a URL as an argument\"\nelse\n  curl -O $1\nfi"
+    },
+    {
+      "instruction": "Develop a JavaScript function to reverse an array.",
+      "input": "[1, 2, 3]",
+      "output": "function reverseArray (arr) {\n    return arr.reverse();\n}\n\nreverseArray([1, 2, 3]); // => [3, 2, 1]"
+    },
+    {
+      "instruction": "Write a CSS rule to center align a div element with id=\"content\"",
+      "input": "",
+      "output": "#content {\n    margin: 0 auto;\n    width: 70%;\n    text-align: center;\n}"
+    },
+    {
+      "instruction": "Create a HTML form for entering first name and last name.",
+      "input": "",
+      "output": "<form> \n  <label>First name:</label> \n  <input type=\"text\" name=\"first_name\" /> \n  <br><br> \n  <label>Last name:</label> \n  <input type=\"text\" name=\"last_name\" /> \n  <br><br> \n  <input type=\"submit\" value=\"Submit\" /> \n</form>"
+    },
+    {
+      "instruction": "Create a Ruby code that prints out the median of a given array of numbers.",
+      "input": "nums = [1, 7, 3, 6]",
+      "output": "nums = [1, 7, 3, 6]\nsorted_nums = nums.sort\n\n# Calculation of median \nif sorted_nums.length % 2 == 0\n  mid_index = sorted_nums.length/2\n  median = (sorted_nums[mid_index] + sorted_nums[mid_index - 1])/2.to_f\nelse\n  mid_index = sorted_nums.length/2\n  median = sorted_nums[mid_index]\nend\n\nputs median"
+    },
+    {
+      "instruction": "Create a Python program to generate the Fibonacci series between 0 and 10.",
+      "input": "",
+      "output": "def FibonacciSequence():\n  a, b = 0, 1\n  for _ in range(10):\n    yield a\n    a, b = b, a + b\n\nfor num in FibonacciSequence():\n  print(num)"
+    },
+    {
+      "instruction": "Write a C program that creates an array of 4 elements in a structure and print it.",
+      "input": "",
+      "output": "#include<stdio.h>  \n#include<stdlib.h>  \n\nstruct array_struct {\n   int a[4];\n};\n\nint main() {\n  struct array_struct s;\n\n  s.a[0] = 13;\n  s.a[1] = 5;\n  s.a[2] = 17;\n  s.a[3] = 89;\n  \n  printf(\"s.a[0]: %d\\n\", s.a[0]);\n  printf(\"s.a[1]: %d\\n\", s.a[1]);\n  printf(\"s.a[2]: %d\\n\", s.a[2]);\n  printf(\"s.a[3]: %d\\n\", s.a[3]);\n}"
+    },
+    {
+      "instruction": "Write a Java program that takes an array of integers and prints the numbers that are divisible by 5",
+      "input": "[10, 20, 25, 15]",
+      "output": "// Create the array of integers\nint[] numbers = {10, 20, 25, 15};\n \n// Iterate over array and print numbers divisible by 5\nfor (int number : numbers) {\n  if (number % 5 == 0) {\n    System.out.println(number);\n  }\n}\n \n// Output: 10 20 25"
+    },
+    {
+      "instruction": "Create a SQL query to find the customer with the last name \"Smith\".",
+      "input": "",
+      "output": "SELECT * FROM customers WHERE last_name = 'Smith';"
+    },
+    {
+      "instruction": "Write a Ruby function that reverses a string.",
+      "input": "",
+      "output": "def reverse_string(str)\n    return str.reverse\nend"
+    },
+    {
+      "instruction": "Write a Ruby program that takes user input and checks if the input is a prime number.",
+      "input": "",
+      "output": "def is_prime?(num)\n  (2..Math.sqrt(num)).each { |n| return false if num % n == 0 }\n  true\nend"
+    },
+    {
+      "instruction": "Given a string, write a code that checks it for palindrome",
+      "input": "str = \"abba\"",
+      "output": "def is_palindrome(str):\n    return str == str[::-1]"
+    },
+    {
+      "instruction": "Edit the following C code so it runs correctly.",
+      "input": "#include <stdio.h>\n\nint main(){\n    int score = 80;\n\n    printf(\"Your final score is: %i;\n\nreturn 0;\n}",
+      "output": "#include <stdio.h>\n\nint main(){\n    int score = 80;\n\n    printf(\"Your final score is: %i\", score);\n\n    return 0;\n}"
+    },
+    {
+      "instruction": "Create an HTML form that contains a text box and a submit button.",
+      "input": "",
+      "output": "<form>\n <input type=\"text\" name=\"inputText\">\n <input type=\"submit\" value=\"Submit\">\n</form>"
+    },
+    {
+      "instruction": "Create a C# class to serialize a JSON object",
+      "input": "",
+      "output": "[DataContract]\npublic class SampleObject\n{\n    [DataMember(Name = \"name\")]\n    public string Name { get; set; }\n\n    [DataMember(Name = \"age\")]\n    public int Age { get; set; }\n}\n\npublic static string SerializeObject(SampleObject obj)\n{  \n    DataContractJsonSerializer serializer = new DataContractJsonSerializer(obj.GetType());  \n \n    MemoryStream ms = new MemoryStream();  \n    serializer.WriteObject(ms, obj);  \n    string json = Encoding.Default.GetString(ms.ToArray());  \n    ms.Close();  \n \n    return json;\n}"
+    },
+    {
+      "instruction": "Write an SQL query to calculate the average order price for each product category in the \"orders\" table.",
+      "input": "",
+      "output": "SELECT category, AVG(price) as \"Average Order Price\"\nFROM orders\nGROUP BY category;"
+    },
+    {
+      "instruction": "Create a JavaScript class that represents a person and ouputs their name and age to the console.",
+      "input": "",
+      "output": "class Person {\n    constructor(name, age) {\n        this.name = name;\n        this.age = age;\n    }\n\n    outputInfo() {\n        console.log(`Name: ${this.name}, Age: ${this.age}`);\n    }\n}"
+    },
+    {
+      "instruction": "Create a function in JavaScript that takes an array of integers and returns the largest number.",
+      "input": "",
+      "output": "function findMax(arr) {\n    let max = arr[0];\n    for (let i = 1; i < arr.length; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}"
+    },
+    {
+      "instruction": "Write an SQL query to find all the records in a given table that have a price greater than $1000.",
+      "input": "Table name: Orders\nFields: price (decimal), item_name (string)",
+      "output": "SELECT *\nFROM Orders\nWHERE price > 1000;"
+    },
+    {
+      "instruction": "Write a query in SQL to find all customers with email addresses starting with 'Simon'.",
+      "input": "",
+      "output": "SELECT * FROM Customers WHERE Email LIKE 'Simon%';"
+    },
+    {
+      "instruction": "Write a bash script to find the sum of two integers.",
+      "input": "",
+      "output": "#!/bin/bash\n\na=$1\nb=$2\nsum=$((a + b)) \necho $sum"
+    },
+    {
+      "instruction": "Create a Python program to calculate the product of a list of integers.",
+      "input": "",
+      "output": "def calculate_product(numbers):\n    product = 1\n    for num in numbers:\n        product *= num\n    return product\n\nif __name__ == \"__main__\":\n    print(calculate_product([1,2,3,4,5]))"
+    },
+    {
+      "instruction": "How do you implement depth-first search in Python?",
+      "input": "",
+      "output": "def depth_first_search(graph, start):\n    explored = [] # List of already explored nodes\n    stack = [start] # Stack of nodes to explore\n\n    while stack:\n        node = stack.pop() # Pop the next node from stack\n        if node not in explored:\n            explored.append(node) # Add the node to explored\n            neighbors = graph[node] # List of neighbors of node\n            for neighbor in neighbors:\n                stack.append(neighbor) # Add neighbors to stack\n    \n    return explored"
+    },
+    {
+      "instruction": "Write an algorithm to identify below number is prime or not.",
+      "input": "7",
+      "output": "# Function to check for prime number \ndef isPrime(n): \n      \n    # Corner cases \n    if n <= 1: \n        return False\n  \n    # Check from 2 to n-1 \n    for i in range(2, n): \n        if n % i == 0: \n            return False\n  \n    return True\n\n# Driver Program \nif isPrime(7):\n    print(\"YES! It is a prime number\")\nelse:\n    print(\"No! It is not a prime number\")"
+    },
+    {
+      "instruction": "Write a function that converts a number to its corresponding month name.",
+      "input": "4",
+      "output": "def numToMonth(num):\n    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']\n    return months[num-1]\n\nnumToMonth(4) # output: April"
+    },
+    {
+      "instruction": "Create a CSS class which defines a black border with a red background color.",
+      "input": "",
+      "output": ".blackBorder {\n    border: 1px solid black;\n    background-color: red;\n}"
+    },
+    {
+      "instruction": "Rewrite the following Java code using a for loop instead of a for-each loop.",
+      "input": "List<Integer> someList = new ArrayList<>();\nfor (Integer i : someList) {\n    System.out.println(i);\n}",
+      "output": "List<Integer> someList = new ArrayList<>();\nfor (int i=0; i < someList.size(); i++) { \n    System.out.println(someList.get(i));\n}"
+    },
+    {
+      "instruction": "Write a JavaScript program that takes an array as input and prints its contents.",
+      "input": "['Hello','World','!']",
+      "output": "let inputArray = ['Hello', 'World', '!'];\n\nfor (let i = 0; i < inputArray.length; i++) {\n    console.log(inputArray[i])\n}"
+    },
+    {
+      "instruction": "Create a SQL query to update the 'name' on table 'employees' with the value 'User 1' where the id is 1.",
+      "input": "",
+      "output": "UPDATE employees\nSET name = 'User 1'\nWHERE id = 1;"
+    },
+    {
+      "instruction": "Write an algorithm to split a given list into two sublists with equal sums",
+      "input": "[1, 4, 2, 5, 3]",
+      "output": "def find_sublist(lst):\n    total_sum = sum(lst)\n    half = total_sum//2\n    taken = [False]*len(lst)\n    curr_sum = lst[0]\n    taken[0] = True\n    idx = 0\n    flag = False\n    for i in range(1, len(lst)):\n        if curr_sum < half:\n            taken[i] = True\n            curr_sum += lst[i]\n            flag = True\n        else:\n            if not flag:\n                taken[i] = True\n                curr_sum += lst[i]\n                flag = True\n            continue\n    list1 = list2 = []\n\n    for k in range(len(lst)):\n        if taken[k]:\n            list1.append(lst[k])\n        else:\n            list2.append(lst[k])\n    return list1, list2"
+    },
+    {
+      "instruction": "Write a code snippet that prints out the number of times each character appears in a given string.",
+      "input": "Given string = \"welcome\"",
+      "output": "def char_frequency(string):\n    freq = {}\n    for c in string:\n        if c in freq:\n            freq[c] += 1\n        else:\n            freq[c] = 1\n    for c, count in freq.items():\n        print('{0} : {1}'.format(c, count))"
+    },
+    {
+      "instruction": "Create a JavaScript object literal for a student with properties (name, age, grade).",
+      "input": "",
+      "output": "let student = {\n    name: \"John\",\n    age: 25,\n    grade: \"A\"\n};"
+    },
+    {
+      "instruction": "Create a function that takes in a dictionary and returns a new dictionary with the values squared.",
+      "input": "my_dict = {1:5, 2:6, 3:7}",
+      "output": "def squared_values(my_dict):\n    \"\"\"This function takes in a dictionary as an argument,\n    and returns a new dictionary containing the values of the\n    original dictionary squared.\n    \n    Parameters\n    ----------\n    my_dict : dict\n        The input dictionary.\n    Returns\n    -------\n    A new dictionary with the values of the original\n    dictionary squared.\n    \"\"\"\n    \n    return {k : v**2 for k, v in my_dict.items()}"
+    },
+    {
+      "instruction": "Create a python generator that prints fibonacci numbers from n to 2*n-1.",
+      "input": "n = 10",
+      "output": "def fibonacci_generator(n):\n    a, b = 0, 1\n    while a < 2 * n - 1:\n        yield a\n        a, b = b, a + b"
+    },
+    {
+      "instruction": "Improve the following HTML structure.",
+      "input": "<div>\n<h2>Welcome!</h2>\n<p>This is my website.</p>\n</div>",
+      "output": "<div>\n <h2>Welcome!</h2>\n <p>Hello and welcome to my website. Here, you can find all the information you need to know about me.</p>\n</div>"
+    },
+    {
+      "instruction": "Write a C++ program that displays the following text.",
+      "input": "",
+      "output": "#include<iostream>\n\nint main(){ \n  std::cout << \"Hello GPT Community!\"<< std::endl;\n  return 0;\n}"
+    },
+    {
+      "instruction": "Compare two dictionaries for equality and return the result.",
+      "input": "a = {1:4, 2:5, 3:6} \nb = {2:5, 3:6, 1:4}",
+      "output": "def compare_dicts(a, b): \n\t# Check key-value pairs in both dicts \n\tif a.items() == b.items(): \n\t\treturn True\n\telse: \n\t\treturn False\n\n# Output \nprint(compare_dicts(a, b))"
+    },
+    {
+      "instruction": "Create a function to merge two lists and remove duplicates.",
+      "input": "list1 = [1, 3, 5, 7] \nlist2 = [2, 3, 8, 10]",
+      "output": "def merge_lists(list1, list2):\n  merged_list = list1 + list2\n  return list(dict.fromkeys(merged_list))"
+    },
+    {
+      "instruction": "Need to write a function to encrypt a message using the caesar cipher, which takes the key as an argument.",
+      "input": "message = \"Hello World\"\nkey = 3",
+      "output": "def encrypt_caesar_cipher(message, key):\n    encrypted_message = \"\"\n    for char in message: \n        if not char.isalpha():\n            encrypted_message += char\n        else:\n            encrypted_char = chr((ord(char) + key - 97) % 26 + 97)\n            encrypted_message += encrypted_char\n    return encrypted_message\n\nprint(encrypt_caesar_cipher(message, key))"
+    },
+    {
+      "instruction": "Using the given information, write a function to calculate a 5-digit ISBN number.",
+      "input": "Author name: Bob Smith\nTitle of Book: Learn Programming\nPublisher: Aztec Publishing\nYear Published: 2020",
+      "output": "def calculate_isbn(authorname, title, publisher, yearpublished):\n    authorname_string = authorname.replace(' ', '')\n    title_string = title.replace(' ', '')\n    publisher_string = publisher.replace(' ', '')\n\n    isbn_total = 0\n\n    for letter in authorname_string:\n        isbn_total += ord(letter)\n\n    for letter in title_string:\n        isbn_total += ord(letter)\n\n    for letter in publisher_string:\n        isbn_total += ord(letter) \n\n    isbn_total += yearpublished\n\n    while isbn_total > 9999:\n        isbn_total = isbn_total % 10000\n\n    isbn_string = str(isbn_total).zfill(5)\n\n    return isbn_string"
+    },
+    {
+      "instruction": "Create an HTML form to allow a user to enter their contact information.",
+      "input": "Fields requested: Name, Email, Phone number",
+      "output": "<form action=\"contactinfo.php\" method=\"POST\">\n  <label>Name</label>\n  <input type=\"text\" name=\"name\" />\n \n  <label>Email</label>\n  <input type=\"text\" name=\"email\" />\n  \n  <label>Phone Number</label>\n  <input type=\"text\" name=\"phone\" />\n  \n  <input type=\"submit\" value=\"Submit\" />\n</form>"
+    },
+    {
+      "instruction": "Create a Java 8 Stream to filter a list of objects by a given field.",
+      "input": "[\n    {'name': 'John', 'age': 20},\n    {'name': 'Smith', 'age': 30},\n    {'name': 'Bill', 'age': 40}\n]",
+      "output": "List<Object> list = Arrays.asList({\n    {'name': 'John', 'age': 20},\n    {'name': 'Smith', 'age': 30},\n    {'name': 'Bill', 'age': 40}\n});\n\nStream<Object> stream = list.stream();\n\n// Filter records whose age greater than 25\nstream.filter(record -> (int) record.get(\"age\") > 25).forEach(System.out::println);"
+    },
+    {
+      "instruction": "Write a C# program to filter the entities from a given array.",
+      "input": "Array = [0, \"Apple\", 1, \"Orange\", 2, \"Banana\", 3, \"Mango\"].\nCondition = Entity should be a number",
+      "output": "int[] entities = Array.OfType<int>().ToArray();"
+    },
+    {
+      "instruction": "Write a Python program to output an array with dimensions [N, M] filled with random numbers between 0 and 1",
+      "input": "N = 5\nM = 4",
+      "output": "import numpy as np\nnp.random.seed(0)\nnums=np.random.rand(N,M)\nprint(nums)"
+    },
+    {
+      "instruction": "Find the 5th element of the list in Python.",
+      "input": "list = [12, 34, 87, 90, 80, 21]",
+      "output": "element = list[4]\nprint(element) # 80"
+    },
+    {
+      "instruction": "Create a filter to remove all integers from an array of mixed data types.",
+      "input": "[\"Hello\", 3, 5.4, \"World\", 6]",
+      "output": "def removeInts(arr): \n    return [x for x in arr if type(x) is not int] \n\nprint(removeInts([\"Hello\", 3, 5.4, \"World\", 6])) \n\n# output\n['Hello', 5.4, 'World']"
+    },
+    {
+      "instruction": "Write a Java code to find the maximum of two numbers a and b.",
+      "input": "int a = 3;\nint b = 4;",
+      "output": "int max;\n\nif (a > b) {\n max = a;\n} else {\n max = b;\n}"
+    },
+    {
+      "instruction": "Create a function to register a new user using a given username, email and password.",
+      "input": "username: angelina \nemail: angelina@example.com\npassword: abc12345",
+      "output": "\"\"\"\nFunction register: Registers a new user using a given username, email and password\n\"\"\"\n\ndef register(username, email, password):\n    # initialize user database\n    user_db = {}\n    # add user info to database\n    user_db[username] = {\n        'email': email,\n        'password': password\n    }\n    # return user database\n    return user_db\n\nif __name__ == '__main__':\n    username = 'angelina'\n    email = 'angelina@example.com'\n    password = 'abc12345'\n    print(register(username, email, password))"
+    },
+    {
+      "instruction": "Write a JavaScript code to reverse the following string.",
+      "input": "\"Hello World!\"",
+      "output": "let str = \"Hello World!\";\nlet reversedStr = str.split(\"\").reverse().join(\"\");\nconsole.log(reversedStr);"
+    },
+    {
+      "instruction": "Create a MySQL query to list the names of employees working in the company who are under the age of 25.",
+      "input": "Table: employees\nColumns: name, age",
+      "output": "SELECT name FROM employees WHERE age < 25;"
+    },
+    {
+      "instruction": "Write a MySQL query to find the last four digit of the customer ID from the customer table.",
+      "input": "customer table\n| customer_id | customer_name | address |\n--------------------------------------------\n| 000001 | John Doe | Street 1 |\n| 000002 | Jane Doe | Street 2 |\n| 000003 | John Smith | Street 3 |",
+      "output": "SELECT RIGHT(customer_id, 4) FROM customer;"
+    },
+    {
+      "instruction": "Write a JavaScript program to extract the first word of a given string.",
+      "input": "str = \"Hello World!\"",
+      "output": "function firstWord(str) {\n return str.split(\" \")[0]\n}\n \nstr = \"Hello World!\"\nconsole.log(firstWord(str)) // \"Hello\""
+    },
+    {
+      "instruction": "Design a program in Python for searching for a given item in a list.",
+      "input": "list_items = ['apple', 'banana', 'cake', 'orange']\nitem_to_search = 'cake'",
+      "output": "def search_item(list_items, item_to_search): \n    for item in list_items: \n        if item == item_to_search: \n            return True \n    return False \n\nlist_items = ['apple', 'banana', 'cake', 'orange']\nitem_to_search = 'cake'\n\nprint(search_item(list_items, item_to_search))"
+    },
+    {
+      "instruction": "Create a function that will return the total number of specific items in a list.",
+      "input": "[1, 1, 2, 3, 3, 3]",
+      "output": "def count_items(lst, item):\n    '''This function will return the total number of specific items in a list.'''\n    return len([x for x in lst if x == item])"
+    },
+    {
+      "instruction": "Write a Python program to compare two given lists and return True if their contents are the same.",
+      "input": "list1 = [1, 3, 8, 9]\nlist2 = [1, 3, 8, 9]",
+      "output": "def compare_lists(list1, list2):\n    return list1 == list2"
+    },
+    {
+      "instruction": "Write a SQL query to group salary data by job type",
+      "input": "Table Employee:\n+----+----------+-----------+-----------+\n| ID | Name     | Job       | Salary    |\n+----+----------+-----------+-----------+\n| 1  | John     | Manager   | 150000    |\n| 2  | Tom      | Engineer  | 80000     |\n| 3  | Nick     | Manager   | 120000    |\n| 4  | Alice    | Engineer  | 87500     |\n| 5  | Steve    | Designer  | 50000     |\n| 6  | Mary     | Designer  | 62500     |\n+----+----------+-----------+-----------+",
+      "output": "SELECT Job, AVG(Salary)\nFROM Employee\nGROUP BY Job"
+    },
+    {
+      "instruction": "Create a SQL query to sort a table by its numerical contents.",
+      "input": "Table: \n\n+-----------+-----------+\n| Name      | Score     |\n+-----------+-----------+\n| John      |     90    |\n| Mary      |     80    |\n| Miguel    |     75    |\n| Fanny     |     99    |\n+-----------+-----------+",
+      "output": "SELECT * \nFROM table \nORDER BY Score;"
+    },
+    {
+      "instruction": "Write a python code to generate permutations of an input string.",
+      "input": "\"abc\"",
+      "output": "def permutations(string): \n    if len(string) == 0: \n        return [] \n  \n    if len(string) == 1: \n        return [string] \n  \n    l = [] \n    for i in range(len(string)): \n       m = string[i] \n       rem_string = string[:i] + string[i+1:] \n       for p in permutations(rem_string): \n           l.append(m + p) \n    return l"
+    },
+    {
+      "instruction": "Create a function in Java that finds the difference between the largest and the smallest elements in a given array.",
+      "input": "[1, 5, 10, 20]",
+      "output": "public static int arrayMaxMinDiff(int[] arr) {\n\t\n\t// Initialize greatest and smallest\n  \tint max = arr[0]; \n  \tint min = arr[0]; \n  \n \t// Iterate the array and find the max & min\n  \tfor (int i = 0; i < arr.length; i++) {\n    \t\tif (arr[i] > max) \n      \t\t\tmax = arr[i]; \n    \t\tif (arr[i] < min) \n      \t\t\tmin = arr[i]; \n  \t}\n  \n  \t// Calculate & return the difference\n  \tint diff = max - min; \n  \treturn diff; \n}\n// Driver Code \nint[] arr = {1, 5, 10, 20}; \nint diff = arrayMaxMinDiff(arr); \nSystem.out.println(\"Difference between largest & smallest elements = \" + diff); \n# Output\nDifference between largest & smallest elements = 19"
+    },
+    {
+      "instruction": "Given two strings, write a Python function that finds the common letters between them.",
+      "input": "String 1: apple\nString 2: oranges",
+      "output": "def find_common_letters(s1, s2):\n    letters = set()\n\n    for letter in s1:\n        if letter in s2:\n            letters.add(letter)\n    return letters\n\n# Example\ns1 = 'apple'\ns2 = 'oranges'\nprint(find_common_letters(s1, s2))\n# Output: {'a', 'e'}"
+    },
+    {
+      "instruction": "Create a Python program that'll take two lists and return a combined list.",
+      "input": "list_1 = [2, 4, 6]\nlist_2 = [3, 5, 7]",
+      "output": "def combine_lists(list_1, list_2):\n    return list_1 + list_2\n\nlist_1 = [2, 4, 6]\nlist_2 = [3, 5, 7]\n\nprint(combine_lists(list_1, list_2))"
+    },
+    {
+      "instruction": "Create a program that ciphers a given text using the caesar cipher.",
+      "input": "text = \"This is a secret message\"\nkey = 3",
+      "output": "def caesar_cipher(text, key):\n    \"\"\"Cipher a given text using the Caesar Cipher.\"\"\"\n    ciphertext = \"\"\n    for char in text: \n        if not char.isalpha():\n            ciphertext += char\n            continue\n        offset = ord('a') if char.islower() else ord('A')\n        new_char = (ord(char) - offset + key) % 26\n        ciphertext += chr(offset + new_char)\n    return ciphertext"
+    },
+    {
+      "instruction": "Write a function which prints out odd numbers from a given list",
+      "input": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+      "output": "def print_odd_num(my_list):\n    for num in my_list:\n        if num % 2 != 0:\n            print(num)"
+    },
+    {
+      "instruction": "Parse the given string and return a list of words.",
+      "input": "string = \"this is a test string\"",
+      "output": "def parse_string(string):\n    words = string.split()\n    return words"
+    },
+    {
+      "instruction": "Write a function to delete a given character from a string.",
+      "input": "string = \"GPT MODEL\"\ncharacter = 'M'",
+      "output": "def delete_char(string, character):\n    new_string = \"\"\n    for char in string:\n        if char != character:\n            new_string += char\n    return new_string"
+    },
+    {
+      "instruction": "Write a JavaScript code to calculate the sum of two numbers and return the result.",
+      "input": "num1 = 5;\nnum2 = 7;",
+      "output": "let result = num1 + num2;\nreturn result; // 12"
+    },
+    {
+      "instruction": "Calculate the sum of the following 2-dimensional array in Python.",
+      "input": "arr = [[1, 2], [3, 4], [5, 6]]",
+      "output": "def sum_2d_array(arr):\n result = 0\n for row in arr:\n  for num in row:\n   result += num\n return result\n \nprint(sum_2d_array([[1, 2], [3, 4], [5, 6]]))"
+    },
+    {
+      "instruction": "Write a JavaScript program to compute the difference between two dates in days.",
+      "input": "Two dates- \"2021/07/26\" and \"2022/06/01\"",
+      "output": "const dateOne = new Date(\"2021/07/26\");\nconst dateTwo = new Date(\"2022/06/01\");\nconst timeDifference = dateTwo.getTime() - dateOne.getTime();\nconst daysDifference = timeDifference / (1000 * 3600 * 24);\nconsole.log(daysDifference);"
+    },
+    {
+      "instruction": "Create a program in Python to generate a random string using the given characters.",
+      "input": "characters = 'abcdefghijklmnopqrstuvwxyz'",
+      "output": "import random\n\ndef generate_random_string(characters):\n    random_string = \"\"\n    for i in range(10):\n        random_string += random.choice(characters)\n    return random_string\n\ncharacters = 'abcdefghijklmnopqrstuvwxyz'\nprint(generate_random_string(characters))"
+    },
+    {
+      "instruction": "Write a JavaScript function to capitalize the first letter of each word in a string.",
+      "input": "String: \"This is an example\".",
+      "output": "function capitalizeFirstLetter(str) {\n    return str.replace(/\\w\\S*/g, function(txt) {\n        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();\n    });\n}\ncapitalizeFirstLetter('This is an example');"
+    },
+    {
+      "instruction": "Given an array of objects, write a function that sorts the array in ascending order of its \"price\" property.",
+      "input": "[\n  {'name': 'Laptop', 'price': 1200},\n  {'name': 'Monitor', 'price': 500},\n  {'name': 'Mouse', 'price': 50}\n]",
+      "output": "def sort_by_price(arr):\n    arr.sort(key=lambda item: item['price'])\n    return arr\n\n# Output: [{'name': 'Mouse', 'price': 50}, {'name': 'Monitor', 'price': 500}, {'name': 'Laptop', 'price': 1200}]"
+    },
+    {
+      "instruction": "Modify the given Ruby program to find the sum of all odd numbers between a given range",
+      "input": "1, 10",
+      "output": "def sum_odd_numbers(start, finish)\n  total = 0\n  (start..finish).each do |number|\n    total += number if number % 2 == 1 \n  end\n  total\nend\n\np sum_odd_numbers(1, 10)"
+    },
+    {
+      "instruction": "Write a C++ code snippet to search for a given value (45) in an array.",
+      "input": "arr = [12, 4, 17, 6, 21, 45, 33]",
+      "output": "int value = 45;\nbool found = false;\n\nfor(int i = 0; i < arr.length; i++){\n    if(arr[i] == value){\n        found = true;\n        break;\n    }\n}\n\nif(found)\n   cout << \"Value found in the array\" << endl;\nelse\n   cout << \"Value not found in the array\" << endl;"
+    },
+    {
+      "instruction": "Create an example Word Cloud from the given text.",
+      "input": "Text: Machine Learning is an area of computer science that gives computers the ability to learn without explicit programming.",
+      "output": "import matplotlib.pyplot as plt\nfrom wordcloud import WordCloud\n\n# Generate a word cloud image\ntext = \"Machine Learning is an area of computer science that gives computers the ability to learn without explicit programming.\"\nwordcloud = WordCloud().generate(text)\n\n# Show the generated image\nplt.imshow(wordcloud, interpolation='bilinear') \nplt.axis(\"off\") \nplt.show()"
+    },
+    {
+      "instruction": "Implement the following pseudocode in C language.",
+      "input": "sum = 0\nfor i = 0 to n inclusive\n sum += i^2\nend",
+      "output": "int sum=0;\nfor (int i=0; i<=n; ++i)\n    sum += pow(i,2);\nend"
+    },
+    {
+      "instruction": "You need to write an algorithm to find the third largest value in a Binary Search Tree.",
+      "input": "8 \n      /   \\\n     3     10\n    / \\     \\\n   1   6     14\n      / \\    /\n     4   7  13",
+      "output": "def third_largest(root):\n    if root is None:\n        return None\n \n    queue = []\n    queue.append(root)\n    while len(queue):\n        curr = queue.pop(0)\n \n        if curr.right:\n            queue.append(curr.right)\n        if curr.left:\n            queue.append(curr.left)\n \n    if len(queue)>1:\n        return queue[1].val\n    else:\n        return root.val"
+    },
+    {
+      "instruction": "Write a function in SQL to find the maximum value in a table",
+      "input": "Table name: scores",
+      "output": "SELECT MAX(score) \n  FROM scores;"
+    },
+    {
+      "instruction": "Write a function to swap the entries in a list.",
+      "input": "[10, 20, 30, 40]",
+      "output": "def swap(List): \n    temp = List[0] \n    List[0] = List[3] \n    List[3] = temp\n    return List \n  \nList = [10, 20, 30, 40]\nprint(swap(List))"
+    },
+    {
+      "instruction": "Create a function in JavaScript to convert a given string to a positive integer.",
+      "input": "str = \"323\"",
+      "output": "const convertStringToInteger = str => {\n  return  parseInt(str, 10);\n}"
+    },
+    {
+      "instruction": "Using Python, create a function that takes a string as an argument and returns a updated string where each character is repeated twice.",
+      "input": "inputValue = \"Hello\"",
+      "output": "def repeatCharacters(inputValue):\n  outputValue = \"\"\n  for char in inputValue: \n    outputValue += char * 2 \n  return outputValue"
+    },
+    {
+      "instruction": "Modify the following JavaScript code to return the result \"Hello World!\":",
+      "input": "let x = 'Hello';\nlet y = 'World';\n\nconsole.log(x + ' ' + y);",
+      "output": "let x = 'Hello';\nlet y = 'World!';\n\nconsole.log(x + ' ' + y);"
+    },
+    {
+      "instruction": "Create a program that can filter out words of a string that contain a specific character.",
+      "input": "string = \"This is a sentence\"\ncharacter = 's'",
+      "output": "def filter_string(string, character):\n    \"\"\"Filter out words of a string that contain a specific character.\"\"\"\n    words = string.split(' ')\n    filtered_words = []\n    for word in words:\n        if character not in word:\n            filtered_words.append(word)\n    return ' '.join(filtered_words)"
+    },
+    {
+      "instruction": "Given a list of grocery items, write a code to generate 1 list containing only the fruits in the list.",
+      "input": "items =[\"apple\",\"banana\",\"grapes\",\"rice\",\"onion\"]",
+      "output": "def filter_fruits(items):\n    \"\"\"This function takes a list of grocery items and generates a list containing only the fruits.\"\"\"\n    fruits = []\n    for item in items:\n        if item in [\"apple\", \"banana\", \"grapes\"]:\n            fruits.append(item)\n    return fruits\n\nif __name__ == '__main__':\n    items =[\"apple\",\"banana\",\"grapes\",\"rice\",\"onion\"]\n    fruits = filter_fruits(items)\n    print(fruits)"
+    },
+    {
+      "instruction": "Update the code to return a different string depending on the value of the variable test",
+      "input": "var test = 3\ndef change(test):\n  #TODO",
+      "output": "def change(test):\n    if test==1:\n        return \"One\"\n    elif test==2:\n        return \"Two\"\n    elif test==3:\n        return \"Three\"\n    else:\n        return \"Not Found\""
+    },
+    {
+      "instruction": "Implement a function that calculates the greatest common divisor of two integers.",
+      "input": "n1 = 15\nn2 = 10",
+      "output": "def cal_gcd(n1, n2): \n   if n2 == 0: \n       return n1 \n   else: \n       return cal_gcd(n2, n1 % n2) \n \ngcd = cal_gcd(n1, n2) \nprint (\"GCD of \" + str(n1) + \" and \" + str(n2) + \" is \" + str(gcd))"
+    },
+    {
+      "instruction": "Convert a given JSON string to a JavaScript object.",
+      "input": "'{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}'",
+      "output": "# Convert given JSON string to JavaScript object\nlet obj = JSON.parse('{\"name\":\"John\",\"age\":30,\"city\":\"New York\"}');\n\nconsole.log(obj);\n// Output: {name: \"John\", age: 30, city: \"New York\"}"
+    },
+    {
+      "instruction": "Write a code to parse a JSON string into Python objects.",
+      "input": "json_string = '{\"name\": \"John Doe\", \"age\": 42 }'",
+      "output": "import json\n\njson_string = '{\"name\": \"John Doe\", \"age\": 42 }'\ndata = json.loads(json_string)\n\nprint(data['name']) # John Doe\nprint(data['age']) # 42"
+    },
+    {
+      "instruction": "Create a SQL query to find the highest grossing movie.",
+      "input": "Table Name: \"Movies\"\nColumns: \"MovieName\", \"BoxOfficeGross\"",
+      "output": "SELECT MovieName\nFROM Movies\nORDER BY BoxOfficeGross DESC\nLIMIT 1;"
+    },
+    {
+      "instruction": "Write a JavaScript function to greet a user, given the user's name.",
+      "input": "name = 'John'",
+      "output": "function greetUser(name){\n  return \"Hello, \" + name + \"!\";\n}"
+    },
+    {
+      "instruction": "Find the volume of a 3D cube in JavaScript.",
+      "input": "length = 10",
+      "output": "let length = 10;\nlet volume = length * length * length;\nconsole.log(volume); // Output: 1000"
+    },
+    {
+      "instruction": "Write an R script to generate a chart to compare the sales between the current month and the previous month.",
+      "input": "data1 = c(10,15,3,4,7,10,12)\ndata2 = c(23,20,21,19,15,8,11)",
+      "output": "library(ggplot2)\n\ndf <- data.frame(Current=data1, Previous=data2)\n\nggplot(df, aes(x=rownames(df))) + \ngeom_col(aes(y=Current, fill=\"Current Month\"), position=position_dodge(), width=0.5, color=\"black\") +\ngeom_col(aes(y=Previous, fill=\"Previous Month\"), position=position_dodge(), width=0.5, color=\"black\") +\nlabs(fill = \"Sales\") +\nylab(\"Sales\")"
+    },
+    {
+      "instruction": "Create a new data structure to store the following information and write an algorithm to access it.",
+      "input": "Key: \"B\"\n Value: \"Blue\"",
+      "output": "data_structure = {\n    \"B\": \"Blue\"\n}\n\ndef access_data_structure(key):\n    return data_structure.get(key)"
+    },
+    {
+      "instruction": "Write a JavaScript function for finding the biggest element in an array.",
+      "input": "[2, 4, 5, 6, 8, 10]",
+      "output": "function findMax(arr) { \n  let max = arr[0];\n  for (let i = 0; i < arr.length; i++) { \n    if (arr[i] > max) \n      max = arr[i]; \n  } \n  return max; \n}"
+    },
+    {
+      "instruction": "Design a program to find the occurrence of a given character in a given string.",
+      "input": "Given string: \"Hello World!\"\nCharacter to find: o",
+      "output": "def occurance_count(str, char):\n    count = 0\n    for c in str:\n        if c == char:\n            count += 1\n    \n    return count"
+    },
+    {
+      "instruction": "Create a function in python that takes a string as an argument and prints out two copies of the string.",
+      "input": "string = \"Hello World!\"",
+      "output": "def print_twice(string):\n    print(string)\n    print(string)\n    \nprint_twice(string)"
+    },
+    {
+      "instruction": "Write a function in C that minimizes the cost of a given parameter using gradient descent.",
+      "input": "The parameter is w(t+1) = w(t) - alpha * Le(w)\nHere, alpha= 0.3 and Le(w) = 14w^2 + 8 * w - 7",
+      "output": "#include<stdio.h>\n \n//Function to calculate L(w)\ndouble Fun(double w){\n    double Le = 14 * (w * w) + 8 * w - 7;\n    return Le;\n} \n\n//Function to calculate w(t+1) using Gradient descent\ndouble GradientDescent(double w, double alpha){\n    double w_next;\n    w_next = w - alpha * Fun(w);\n    return w_next;\n}\n\nint main(){\n   //Initialise values\n   double alpha=0.3 , w=0.0 , w_next;\n   \n   //Calculate new value of weights\n   w_next = GradientDescent(w, alpha);\n   \n   //Print new value of weights\n   printf(\"New Value of w = %0.3f\\n \", w_next);\n \n   return 0;\n}"
+    },
+    {
+      "instruction": "Write an SQL script to list all items with a price greater than 10$.",
+      "input": "Table Name = Item",
+      "output": "SELECT * FROM Item WHERE price > 10;"
+    },
+    {
+      "instruction": "Given a string and an int n, write a function to extract the subsequence of length n from the string.",
+      "input": "s = \"hello world\", n = 6",
+      "output": "def extractString(string, n): \n    return string[:n]"
+    },
+    {
+      "instruction": "Write an SQL query to find the maximum salary of an employee in the same department as the given employee.",
+      "input": "Employee name: ‘John Doe’\nDepartment: ‘Finance’",
+      "output": "SELECT MAX(salary)\nFROM employees\nWHERE department = 'Finance'\nAND NOT employee_name = 'John Doe';"
+    },
+    {
+      "instruction": "Parse the following HTML string and return the list of id's.",
+      "input": "<form> \n  <input name=\"user_id\" type=\"text\" id=\"user_id\" value=\"123456\"> \n  <input name=\"name\" type=\"text\" id=\"name\" value=\"John Doe\"> \n  <input name=\"email\" type=\"text\" id=\"email\" value=\"john@example.com\"> \n  <input name=\"password\" type=\"password\" id=\"password\" value=\"password123\">\n</form>",
+      "output": "import lxml.html\n\ninput_html = '''\n<form> \n  <input name=\"user_id\" type=\"text\" id=\"user_id\" value=\"123456\"> \n  <input name=\"name\" type=\"text\" id=\"name\" value=\"John Doe\"> \n  <input name=\"email\" type=\"text\" id=\"email\" value=\"john@example.com\"> \n  <input name=\"password\" type=\"password\" id=\"password\" value=\"password123\">\n</form>\n'''\n\ndef get_id_list(html):\n    root = lxml.html.fromstring(html)\n    ids = root.xpath('//*[@id]')\n    return [id.attrib['id'] for id in ids]\n\nif __name__ == '__main__':\n    print(get_id_list(input_html))"
+    },
+    {
+      "instruction": "Write a JavaScript function to find the number of matching items in two arrays.",
+      "input": "arr1 = [1, 2, 3, 4]\narr2 = [3, 4, 5, 6]",
+      "output": "function countMatchingItems(arr1, arr2) {\n return arr1.filter(num => arr2.includes(num)).length;\n}\n\ncount = countMatchingItems(arr1, arr2); \nconsole.log(count); // Output: 2"
+    },
+    {
+      "instruction": "Analyze the given list and return the index of the first occurrence of the number 7.",
+      "input": "numbers = [1, 2, 3, 5, 4, 7, 9, 8, 7]",
+      "output": "numbers = [1, 2, 3, 5, 4, 7, 9, 8, 7]\n\ndef find_index(lst):\n    \"\"\"\n    This function takes a list of numbers as a parameter and returns the index of the first occurrence of the number 7.\n    \"\"\"\n    for i in range(len(lst)):\n        if lst[i] == 7:\n            return i\n        \nprint(find_index(numbers)) # prints 5"
+    },
+    {
+      "instruction": "Create an HTML page with a table containing the name and age of 5 people.",
+      "input": "Name       Age\nJohn       25\nLisa       22\nEmily      19\nGeorge     21\nSamuel     20",
+      "output": "<html>\n  <head>\n    <title>People Age Table</title>\n  </head>\n \n  <body>\n    <table>\n      <tr>\n        <th>Name</th>\n        <th>Age</th>\n      </tr>\n      \n      <tr>\n        <td>John</td>\n        <td>25</td>\n      </tr>\n      <tr>\n        <td>Lisa</td>\n        <td>22</td>\n      </tr>\n      <tr>\n        <td>Emily</td>\n        <td>19</td>\n      </tr>\n      <tr>\n        <td>George</td>\n        <td>21</td>\n      </tr>\n      <tr>\n        <td>Samuel</td>\n        <td>20</td>\n      </tr>\n    </table>\n  </body>\n</html>"
+    },
+    {
+      "instruction": "Write a code to filter out all the words from a input list of strings, containing the letter 'a'.",
+      "input": "words = ['apple', 'book', 'zebra', 'banana', 'ball']",
+      "output": "def filter_words_with_letter_a(words):\n    filtered_words = []\n    for word in words:\n        if 'a' in word:\n            filtered_words.append(word)\n    return filtered_words\n\nwords = ['apple', 'book', 'zebra', 'banana', 'ball']\nresult = filter_words_with_letter_a(words)\nprint(result)"
+    },
+    {
+      "instruction": "You are given a string containing upper and lowercase letters, write a program to check it is Palindrome or not.",
+      "input": "racecar",
+      "output": "def check_palindrome(string): \n    return string == string[::-1] \n  \nresult = check_palindrome('racecar')\nprint(result)"
+    },
+    {
+      "instruction": "Return the \"name\" field of the JSON object given below.",
+      "input": "{\n\t\"name\": \"John Doe\",\n\t\"age\": 28,\n\t\"country\": \"United States\"\n}",
+      "output": "import json\n\ninput_json = {\n        \"name\": \"John Doe\",\n        \"age\": 28,\n        \"country\": \"United States\"\n}\n\ndef get_name(json):\n    json_dict = json.loads(json)\n    name = json_dict['name']\n    return name\n\nif __name__ == '__main__':\n    print(get_name(input_json))"
+    },
+    {
+      "instruction": "Write a code that takes a number and prints it out in words.",
+      "input": "25",
+      "output": "def number_to_word(n):\n    tens_words = {\n        0: '',\n        2: 'twenty',\n        3: 'thirty',\n        4: 'forty',\n        5: 'fifty',\n        6: 'sixty',\n        7: 'seventy',\n        8: 'eighty',\n        9: 'ninety',\n    }\n    ones_words = {\n        1: 'one',\n        2: 'two',\n        3: 'three',\n        4: 'four',\n        5: 'five',\n        6: 'six',\n        7: 'seven',\n        8: 'eight',\n        9: 'nine',\n    }\n\n    tens = n // 10\n    ones = n % 10\n\n    return tens_words[tens] + ' ' + ones_words[ones]\n\nprint(number_to_word(25))"
+    },
+    {
+      "instruction": "Create a Swift code that show the number of days in the given month.",
+      "input": "int month = 5",
+      "output": "let month = 5\nlet daysEndingInth = [3, 0, 3, 2, 3, 2, 3, 3, 2, 3, 2, 3]\nlet daysInMonth = daysEndingInth[month - 1] \nprint(\"The number of days in the month of \\(month) is \\(daysInMonth).\")"
+    },
+    {
+      "instruction": "Create a JavaScript program to provide real-time search results for a given list of elements.",
+      "input": "list = [“Apple”, “Banana”, “Orange”]",
+      "output": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n\t<title>Real-time Search Results</title>\n\t<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js\"></script>\n\t<script>\n\t\tfunction search() {\n\t\t  var input = document.getElementById('search_box').value;\n\t\t  var list = [\"Apple\",\"Banana\",\"Orange\"];\n\t\t  var output = \"\";\n\t\t  \n\t\t  for (i=0; i<list.length; i++) {\n\t\t    if (list[i].includes(input)) {\n\t\t      output+=\"<li>\" +  list[i] + \"</li>\";\n\t\t    }\n\t\t  }\n\t\t  if (output == \"\") {\n\t\t    document.getElementById(\"search_results\").innerHTML = \"No results found\";\n\t\t  } else {\n\t\t    document.getElementById(\"search_results\").innerHTML = output;\n\t\t  }\n\t\t}\n\t</script>\n</head>\n<body>\n\t<input type=\"text\" id=\"search_box\" onkeyup=\"search()\" />\n\t<ul id=\"search_results\" > </ul>\n</body>\n</html>"
+    },
+    {
+      "instruction": "Modify the JavaScript code given below to return the sum of all numbers from 0 to 10 (inclusive).",
+      "input": "function sum_(start, end) {\n    // TODO\n    return 0;\n}",
+      "output": "function sum_(start, end) {\n    let sum = 0;\n\n    // iterate over the range and add the elements\n    // to the 'sum' variable\n    for (let i = start; i <= end; i++) {\n        sum += i;\n    }\n\n    return sum;\n}"
+    },
+    {
+      "instruction": "Create a program in Python which takes any string as an input and prints the number of each of its characters",
+      "input": "hello",
+      "output": "character_count = {'h':1, 'e':1, 'l':2, 'o':1}"
+    },
+    {
+      "instruction": "Write a code in Python to find the subsequence of a given sequence.",
+      "input": "sequence = [1, 6, 2, 4, 3, 7]",
+      "output": "def findSubsequence(sequence): \n    subSeq = [] \n    maxLen = 1\n  \n    # looping through the sequence \n    for i in range(len(sequence)): \n        j = i + 1\n        while j < len(sequence): \n            # checking for non decreasing sequence \n            if sequence[j] >= sequence[i]: \n                subSeq.append(sequence[j]) \n                i = j \n                j += 1\n  \n            # checking for the subsequence with the max length \n            if len(subSeq) > maxLen: \n                maxLen = len(subSeq) \n  \n            # reset subSeq for the next subsequence if current element is starting of new subsequence \n            else: \n                subSeq = [] \n  \n    # return-1 when there is no subsequence  \n    if maxLen == 1: \n        return -1\n    else: \n        return maxLen \n  \n# Driver Code \nsequence = [1, 6, 2, 4, 3, 7] \nprint(\"LCS is \", findSubsequence(sequence))"
+    },
+    {
+      "instruction": "Parse an XML document and return a JSON object containing the data.",
+      "input": "<book>\n  <title>Cat in the Hat</title>\n  <author>Dr. Seuss</author>\n  <year>1957</year>\n</book>",
+      "output": "\"\"\"\nParse an XML document and return a JSON object containing the data\n\"\"\"\nimport xml.etree.ElementTree as ET\nimport json\n\ndef parse_xml(xml_string):\n  root = ET.fromstring(xml_string)\n  \n  book = {}\n  for child in root:\n    book[child.tag] = child.text\n    \n  return json.dumps(book)\n  \nif __name__ == '__main__':\n    print(parse_xml('<book><title>Cat in the Hat</title><author>Dr. Seuss</author><year>1957</year></book>'))"
+    },
+    {
+      "instruction": "For the given HTML page, create an array of all the h2 elements on the page.",
+      "input": "<html>\n    <body>\n        <h1>This is a Heading</h1>\n        <h2>This is a Sub Heading</h2>\n        <h2>This is another Sub Heading</h2>\n    </body>\n</html>",
+      "output": "\"\"\"\nGet an array of all the h2 elements on a page\n\"\"\"\n\nfrom bs4 import BeautifulSoup\n\n# Input HTML\nhtml = \"\"\"\n<html>\n    <body>\n        <h1>This is a Heading</h1>\n        <h2>This is a Sub Heading</h2>\n        <h2>This is another Sub Heading</h2>\n    </body>\n</html>\n\"\"\"\n\n# Parse the HTML and create a beautiful soup document\nsoup = BeautifulSoup(html, 'html.parser')\n\n# Get all h2 elements on the page\nh2_elements = soup.find_all('h2')\n\n# Create an array of h2 elements\nh2_elements_array = [element.text for element in h2_elements]\n\nprint(h2_elements_array)\n\n\"\"\"\nOutput: ['This is a Sub Heading', 'This is another Sub Heading']\n\"\"\""
+    },
+    {
+      "instruction": "Debug the following Java program to get the output \"Can you try again?",
+      "input": "public class TryAgain {\n  public static void main (String[] args) {\n     x = 4;\n     System.out.println(x = 4);\n  }\n}",
+      "output": "public class TryAgain {\n  public static void main (String[] args) {\n     int x = 4;\n     System.out.println(\"Can you try again?\");\n  }\n}"
+    },
+    {
+      "instruction": "Create a function that calculates the area of a circle when provided with its radius.",
+      "input": "radius = 5",
+      "output": "def calculate_area(radius):\n    return 3.14 * radius * radius"
+    },
+    {
+      "instruction": "Create a Python script to scrape all links from a web page.",
+      "input": "<link to web page>",
+      "output": "import requests\nfrom bs4 import BeautifulSoup\n\npage = requests.get('<link to web page>')\nsoup = BeautifulSoup(page.text, 'html.parser')\n\nlinks = []\nfor link in soup.find_all('a'):\n    links.append(link.get('href'))\n\n# Usage\nprint(links)"
+    },
+    {
+      "instruction": "Given an array of numbers, write a prototype JavaScript function to find the average value of all numbers in the array",
+      "input": "[6, 5, 8, 10]",
+      "output": "function findAverage(numbers) {\n  let sum = 0;\n  for (number of numbers) {\n    sum += number;\n  }\n  return sum / numbers.length;\n}"
+    },
+    {
+      "instruction": "Design a Java method to retrieve the maximum value from an array.",
+      "input": "[2, 3, 5, 9, 6, 11]",
+      "output": "public static int getMax(int[] arr) { \n        int max = Integer.MIN_VALUE; \n        for (int i = 0; i < arr.length; i++) { \n            if (arr[i] > max) \n                max = arr[i]; \n        } \n        return max; \n    }"
+    },
+    {
+      "instruction": "Write a HTML structure using semantic tags to list the skills of a web developer.",
+      "input": "HTML, CSS, JavaScript, React",
+      "output": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n <meta charset=\"UTF-8\">\n <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n <title>Web Developer Skills</title>\n</head>\n<body>\n <h1>Web Developer Skills</h1>\n <ul>\n  <li>HTML</li>\n  <li>CSS</li>\n  <li>JavaScript</li>\n  <li>React</li>\n </ul>\n</body>\n</html>"
+    },
+    {
+      "instruction": "Write an HTML page from scratch to display a user's contact information.",
+      "input": "name: John Doe;\nage: 46;\nphone: +1 (312) 555-4879;\nemail: john.doe@example.com;",
+      "output": "<!DOCTYPE html>\n<html>\n<head>\n    <title>John Doe's Contact Information</title>\n</head>\n<body>\n    <h2>John Doe</h2>\n    <p>Age: 46</p>\n    <p>Phone: +1 (312) 555-4879</p>\n    <p>Email: john.doe@example.com</p>\n</body>\n</html>"
+    },
+    {
+      "instruction": "Write an algorithm to find the missing number in an array of n consecutive integers in Python.",
+      "input": "arr = [1, 2, 3, 5, 6, 7, 8]",
+      "output": "def find_missing_num(arr):\n    missing = 0\n    for i in range(arr[0], arr[-1] + 1):\n        if i not in arr:\n            missing = i\n    return missing  # 4"
+    },
+    {
+      "instruction": "Create a Java program to delete an element for a given position in an array.",
+      "input": "[1, 3, 5, 6, 8], position=2",
+      "output": "public static int[] deleteElement(int[] arr, int pos) {\n int n = arr.length;\n int i;\n \n // Removing the element at a given position\n for (i = pos; i < n - 1; i++)\n  arr[i] = arr[i+1];\n \n // Returning the resulting array\n return arr;\n}\n\npublic static void main(String[] args) {\n int[] arr = {1, 3, 5, 6, 8};\n int pos = 2;\n int[] new_arr = deleteElement(arr, pos);\n \n System.out.println(\"Array after deletion:\");\n for(int i=0; i<new_arr.length; i++)\n  System.out.print(new_arr[i]+\" \");\n}"
+    },
+    {
+      "instruction": "Create a script in Python that plots a bar chart showing the count of beers sold in a bar in a particular week.",
+      "input": "beer_sales = [200, 500, 600, 100, 800]",
+      "output": "import matplotlib.pyplot as plt\n\nweek = [1, 2, 3, 4, 5]\nplt.bar(week,beer_sales)\nplt.xlabel('Week')\nplt.ylabel('Number of beers sold')\nplt.show()"
+    },
+    {
+      "instruction": "Design a Swift program to determine the number of days between two dates.",
+      "input": "date1 = Date(year: 2019, month: 10, day: 15)\ndate2 = Date(year: 2020, month: 5, day: 1)",
+      "output": "func daysBetween(date1: Date, date2: Date) -> Int {\n    let components = Calendar.current.dateComponents([.day], from: date1, to: date2)\n    return components.day!\n}"
+    },
+    {
+      "instruction": "Implement a method that verifies whether an array of numbers is in increasing order.",
+      "input": "arr = [2, 3, 5, 10, 15]",
+      "output": "def is_increasing_order(arr):\n    for i in range(len(arr)-1):\n        if arr[i+1] <= arr[i]:\n            return False\n    return True"
+    },
+    {
+      "instruction": "Write a C++ program for calculating the power of a number.",
+      "input": "Base = 5;\nExponent = 2;",
+      "output": "#include <iostream>\n \ndouble power(double base, int exponent)\n{\n    double result = 1;\n\n    for(int i = 0; i < exponent; i++)\n    {\n        result *= base;\n    }\n\n    return result;\n}\n \nint main()\n{\n    double base;\n    int exponent;\n\n    base = 5.0;\n    exponent = 2;\n\n    std::cout << power(base, exponent) << std::endl;\n\n    return 0;\n}"
+    },
+    {
+      "instruction": "Write a Python script to validate the following input",
+      "input": "Validate a Date type field with the following format: YYYY/MM/DD",
+      "output": "# Import the required datetime module\nimport datetime\n\ndef validate_date(date):\n    # Check if the date matches with the given format\n    try:\n       datetime.datetime.strptime(date, '%Y/%m/%d')\n       return True\n    except ValueError:\n        return False"
+    },
+    {
+      "instruction": "Write a PHP script that inserts a given value into an array at a given index.",
+      "input": "array: [1, 2, 3, 4] \nindex: 2 \nvalue: 5",
+      "output": "<?php\n\n$array = [1, 2, 3, 4];\n$index = 2;\n$value = 5;\n\narray_splice($array, $index, 0, $value);\n\necho \"<pre>\";\nprint_r($array);\necho \"</pre>\";\n?>"
+    },
+    {
+      "instruction": "Write code in Python to calculate the area of a triangle given 3 sides.",
+      "input": "side1 = 12\nside2 = 15\nside3 = 10",
+      "output": "def areaTriangle( side1, side2, side3): \n    # calculate the semi-perimeter \n    s = (side1 + side2 + side3) / 2\n    \n    # calculate the area \n    area = (s*(s-side1)*(s-side2)*(s-side3)) ** 0.5\n    return area \n\n# Driver code \nside1 = 12\nside2 = 15\nside3 = 10\n\n# calculate area \narea = areaTriangle(side1, side2, side3) \n\n# print\nprint(\"Area of a triangle is :{0:0.2f}\".format(area))"
+    },
+    {
+      "instruction": "Write a function to check if the parentheses in given expression are balanced or not.",
+      "input": "expression = \"((A+B)-C)*D+((E-F)*G\"",
+      "output": "def is_balanced(expression):\n\topen_paratheses = 0\n\tfor char in expression:\n\t\tif char == '(':\n\t\t\topen_paratheses += 1\n\t\telif char == ')':\n\t\t\topen_paratheses -= 1\n\t\tif open_paratheses < 0:\n\t\t\treturn False\n\treturn open_paratheses == 0\n\nexpression = \"((A+B)-C)*D+((E-F)*G\""
+    },
+    {
+      "instruction": "Write a function in PHP that takes one parameter and checks if it is a valid email address.",
+      "input": "email_address = \"hello@example.com\"",
+      "output": "function validateEmail($email_address) {\n  if (filter_var($email_address, FILTER_VALIDATE_EMAIL)) {\n    return true;\n  } else {\n    return false;\n  }\n}\n\nvalidateEmail(email_address) // returns true"
+    },
+    {
+      "instruction": "Given two integers, implement a function in C to swap their values.",
+      "input": "int a = 3\nint b = 5",
+      "output": "void swap(int *a, int *b){\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nswap(&a, &b);"
+    },
+    {
+      "instruction": "Create a C++ function to search for a given item in the given array.",
+      "input": "myArray = [10, 11, 12, 15, 17], x = 12",
+      "output": "#include <iostream>\n \nusing namespace std;\n \n// Function to search an element in the array\n// arr[]  = array to search\n// x      = element to search\n// n      = size of array\nbool search(int arr[], int n, int x)\n{\n  int i;\n  for (i = 0; i < n; i++)\n    if (arr[i] == x)\n      return true;\n  return false;\n}\n \nint main()\n{\n  int arr[] = {10, 11, 12, 15, 17};\n  int x = 12;\n  int n = sizeof(arr) / sizeof(arr[0]);\n \n  // Calling the search function\n  if (search(arr, n, x) == true)\n    cout << \"Element found\\n\"; \n  else\n    cout << \"Element not found\\n\"; \n \n  return 0;\n}"
+    },
+    {
+      "instruction": "Create a python script to determine whether a number is odd or even.",
+      "input": "15",
+      "output": "number = 15 \nif (number % 2 == 0): \n    print(\"even\") \nelse: \n    print(\"odd\")"
+    },
+    {
+      "instruction": "Suggest a completion for the following to convert a date string to datetime format.",
+      "input": "import datetime \n\ndef convert_date_string(date_string):",
+      "output": "import datetime \n\ndef convert_date_string(date_string):\n   return datetime.datetime.strptime(date_string, \"%d-%m-%y\")"
+    },
+    {
+      "instruction": "Write a java code to calculate the sum of two numbers provided as input.",
+      "input": "int num1 = 25;\nint num2 = 24;",
+      "output": "int result = num1 + num2; \nSystem.out.println(result);"
+    },
+    {
+      "instruction": "Create a function in Python which takes in a list of numbers and returns the sum of all numbers.",
+      "input": "[1,2,3,4,5]",
+      "output": "def list_sum(num_list): \n \n    # initialize sum\n    Sum = 0\n \n    # traverse through all numbers\n    for num in num_list: \n        Sum += num \n  \n    # return Sum\n    return Sum \n  \n# test the above code\nlist1 = [1,2,3,4,5] \nprint(list_sum(list1)) \n\n# Output:\n15"
+    },
+    {
+      "instruction": "Write a class and its constructor in Python for a vehicle object that has the fields 'type', 'make', 'model' and 'color'.",
+      "input": "Car, Toyota, Camry, Red",
+      "output": "class Vehicle:\n    def __init__(self, vehicle_type, make, model, color):\n        self.type = vehicle_type\n        self.make = make\n        self.model = model\n        self.color = color\n\ncar = Vehicle(\"Car\", \"Toyota\", \"Camry\", \"Red\")"
+    },
+    {
+      "instruction": "Design a JavaScript function named \"calculate\" that calculates the mean of a given array.",
+      "input": "Array: [1, 5, 8, 9, 10]",
+      "output": "function calculate(array) {\n  let sum = 0;\n  for (let i = 0; i < array.length; i++) {\n    sum += array[i];\n  }\n  let mean = sum / array.length; \n  return mean;\n}"
+    },
+    {
+      "instruction": "Write Python code to merge two given dictionaries into a single dictionary.",
+      "input": "Dictionary 1: {'A':1, 'B':2} \nDictionary 2: {'C':3, 'D':4}",
+      "output": "def merge_dicts(dic1, dic2): \n    res = {**dic1, **dic2} \n    return res"
+    },
+    {
+      "instruction": "Write a code in C# to convert a decimal number to binary format with or without bitwise operators.",
+      "input": "15",
+      "output": "public static class Program\n{\n  public static string DecimalToBinary(int n)\n  {\n    string binary = \"\";\n    int remainder;\n    //without using bitwise operators\n    while (n != 0)\n    {\n      remainder = n % 2;\n      n /= 2;\n      binary = remainder + binary; \n    }\n    return binary;\n  }\n \n  public static void Main() \n  {\n    string binary = DecimalToBinary(15);\n    Console.WriteLine(binary);\n  }\n}"
+    },
+    {
+      "instruction": "Given a list of numbers, implement a quick sort algorithm.",
+      "input": "[7, 4, 5, 9, 1]",
+      "output": "def quick_sort(arr):\n    if len(arr) < 2:\n        return arr\n \n    pivot = arr[0]\n    less = [i for i in arr[1:] if i <= pivot]\n    greater = [i for i in arr[1:] if i > pivot]\n \n    return quick_sort(less) + [pivot] + quick_sort(greater)\n\nif __name__ == '__main__':\n    arr = [7, 4, 5, 9, 1]\n    print(quick_sort(arr)) # Output:[1, 4, 5, 7, 9]"
+    },
+    {
+      "instruction": "Can you create a PHP function to remove all the special characters in a given string?",
+      "input": "string = \"Hello World!@#$%\"",
+      "output": "function removeSpecialCharacters($string) { \n  $pattern = '/[^A-Za-z0-9]/';\n  return preg_replace($pattern, '', $string); \n} \n\necho removeSpecialCharacters($string);"
+    },
+    {
+      "instruction": "Design a key-value database with Python for storing course information.",
+      "input": "The database should contain the following fields: Course Name, Course ID, Course Description and Course Instructor.",
+      "output": "import sqlite3\n\nconn = sqlite3.connect('database.db')\nc = conn.cursor()\n\n# Create table\nc.execute('CREATE TABLE Course (course_name TEXT, course_id TEXT, course_description TEXT, course_instructor TEXT)')\n\n# Save (commit) the changes\nconn.commit()\n\n# Close the connection\nconn.close()"
+    },
+    {
+      "instruction": "Create a C program that prints all distinct combinations of characters from two given strings.",
+      "input": "Strings: ab and cd",
+      "output": "#include <stdio.h>\n#include <string.h>\n\nint main(){\n  char str1[] = \"ab\";\n  char str2[] = \"cd\";\n  int i, j;\n  for(i=0; i<strlen(str1); i++){\n    for(j=0; j<strlen(str2); j++){\n      printf(\"%c%c \", str1[i], str2[j]);\n    }\n  }\n  printf(\"\\n\");\n  return 0;\n}\n\nOutput:\nac ad bc bd"
+    },
+    {
+      "instruction": "Create a function to print the multiples of an integer up to a limit.",
+      "input": "let number = 3 \nlet limit = 10",
+      "output": "let printMultiples = (num, limit) => {\n    for (let i = num; i <= limit; i += num) {\n        console.log(i);\n    }\n};\n\nprintMultiples(number, limit); // prints 3, 6, 9"
+    },
+    {
+      "instruction": "Given a string, write a Python program to find the first non-repeating character in it.",
+      "input": "input_str = \"aaaaabbbbccc\"",
+      "output": "def first_non_repeating_char(input_str): \n \n    char_count = {}\n \n    for ch in input_str: \n \n        if ch in char_count: \n \n            char_count[ch] += 1\n \n        else: \n \n            char_count[ch] = 1\n \n    for ch in input_str: \n \n        if char_count[ch] == 1: \n            return ch \n \n    return None\n\nprint(first_non_repeating_char(input_str))"
+    },
+    {
+      "instruction": "Implement a code to print the indices of all occurrences of a number x in an array arr.",
+      "input": "x = 5\narr = [1, 5, 2, 8, 5, 10]",
+      "output": "def print_indices(x, arr):\n    indices = []\n    for i in range(len(arr)):\n        if arr[i] == x:\n            indices.append(i)\n    return indices\n\nprint(print_indices(x, arr))  # [1, 4]"
+    },
+    {
+      "instruction": "Design a program to find out how many times a pattern occurs in a given string.",
+      "input": "Find the number of times “quick” occurs in “The quick brown fox jumps over the lazy dog.”",
+      "output": "def count_pattern(sentence, pattern):\n    count = 0\n    words = sentence.split(' ')\n    for word in words:\n        if word == pattern:\n            count += 1\n    return count\n\nif __name__ == \"__main__\":\n    sentence = \"The quick brown fox jumps over the lazy dog.\"\n    pattern = \"quick\"\n    print(count_pattern(sentence, pattern))"
+    },
+    {
+      "instruction": "Create a function to generate the nth term in the Fibonacci sequence.",
+      "input": "n = 3",
+      "output": "def get_fib_term(n): \n    if n <= 1: \n        return n \n    else: \n        return get_fib_term(n-1) + get_fib_term(n-2)\n  \nprint(get_fib_term(3))"
+    },
+    {
+      "instruction": "Write a comprehensive SQL query that returns all the female students who are over 18 years old.",
+      "input": "Table Students\n| id  | gender | age |\n|-----|--------|-----| \n| 1   | female | 20  |\n| 2   | male   | 21  |\n| 3   | female | 17  |\n| 4   | female | 19  |",
+      "output": "SELECT * FROM Students \nWHERE gender = 'female' AND age >= 18"
+    },
+    {
+      "instruction": "Create a SQL query to print names starting with a certain letter.",
+      "input": "Letter: A",
+      "output": "SELECT name FROM table WHERE name LIKE 'A%';"
+    },
+    {
+      "instruction": "Explain the following piece of JavaScript code.",
+      "input": "let arr1 = [1,2,3,4];\nlet arr2 = [...arr1];",
+      "output": "This code creates a new array, arr2, which contains the same elements as the original array, arr1. The spread operator (...) is used to unpack the elements of arr1, and copy them into the newly created arr2."
+    },
+    {
+      "instruction": "Write a SQL query to convert a column to uppercase.",
+      "input": "Table: Employees\nTable Fields: id, first_name, last_name",
+      "output": "SELECT id, UPPER(first_name) AS first_name, UPPER(last_name) AS last_name FROM Employees"
+    },
+    {
+      "instruction": "Using a list comprehension, create a function to give only the even numbers in a given list.",
+      "input": "arr = [1, 2, 3, 4, 5, 6, 7, 8]",
+      "output": "def only_even(arr):\n    return [ num for num in arr if num % 2 == 0 ]"
+    },
+    {
+      "instruction": "Create a HashMap in Java which contains the name of fruits and their corresponding prices.",
+      "input": "Mango - $2.4, Orange - $1.4, Apple - $3.2",
+      "output": "import java.util.HashMap; \n\npublic class FruitMap \n{ \n    public static void main(String args[]) \n    { \n  \n        // Creating a HashMap of fruit name \n        // and their corresponding prices \n        HashMap<String, Double> fruitMap = new HashMap<>(); \n  \n        // Mapping string values to double \n        fruitMap.put(\"Mango\", 2.4); \n        fruitMap.put(\"Orange\", 1.4); \n        fruitMap.put(\"Apple\", 3.2); \n  \n        // Displaying the HashMap \n        System.out.println(fruitMap); \n    } \n}"
+    },
+    {
+      "instruction": "Implement a function that takes in a number n and deletes all the even numbers in an array of integers first n numbers.",
+      "input": "arr = [2, 3, 4, 5, 6, 7]\nn = 6",
+      "output": "def delete_even(arr, n): \n    # initialise a list \n    odd_list =[]\n    # loop over the array\n    for i in range(n): \n        # if the number is odd \n        if arr[i] % 2 != 0:\n            # add it to the list \n            odd_list.append(arr[i])\n    # return the list of odd numbers\n    return odd_list"
+    },
+    {
+      "instruction": "Write code to find the powers of two in a given range.",
+      "input": "Range:  0 to 20",
+      "output": "def powers_of_two(start, end):\n    powers = []\n    current_power = 1\n    while current_power < end:\n        if current_power >= start: \n            powers.append(current_power)\n        current_power *= 2\n    return powers"
+    },
+    {
+      "instruction": "Create a program to generate all possible pairs of a given list of numbers",
+      "input": "[1, 2, 3]",
+      "output": "\"\"\"\nCreate a program to generate all possible pairs of a given list of numbers\n\"\"\"\n\ndef generate_pairs(nums):\n    pairs = []\n    for i in range(len(nums)):\n        for j in range(i+1, len(nums)):\n            pairs.append((nums[i], nums[j]))\n    return pairs\n\nif __name__ == '__main__':\n    print(generate_pairs([1, 2, 3]))"
+    },
+    {
+      "instruction": "Create a function that takes an array of strings and returns an array of their lengths.",
+      "input": "[‘Hello’, ‘World’]",
+      "output": "def array_length(arr):\n    return [len(s) for s in arr]\n\nif __name__ == '__main__':\n    arr = ['Hello', 'World']\n    print(array_length(arr))"
+    },
+    {
+      "instruction": "Write a function to check whether a given number can be expressed as the power of some other number",
+      "input": "Number: 8",
+      "output": "\"\"\"\ndef is_power_of(x):\n    # Initializing the counter\n    i = 0\n  \n    # Iterating through possible exponents\n    while (x > 1):\n        if (x % 2 == 0): \n            x /= 2\n        else: \n            return False\n        i += 1\n        \n    return True\n\n# Function call\nprint(is_power_of(8))\n\"\"\"\n\nOutput: True"
+    },
+    {
+      "instruction": "Implement the function with input parameters, described below.",
+      "input": "Parameters: a, b (both of type int)",
+      "output": "def add(a, b):\n    \"\"\"\n    Parameters: a, b (both of type int)\n    Returns: the sum of two input parameters, a+b (int)\n    \"\"\"\n    return a + b"
+    },
+    {
+      "instruction": "Given a 2D array, write a program to find the maximum path sum.",
+      "input": "test_array = [[5, 6, 1],\n              [4, 2, 3],\n              [7, 8, 9]]",
+      "output": "def max_path_sum(test_array): \n    row = max_row = len(test_array) \n    col = max_col = len(test_array[0]) \n\n    for row in range(max_row - 1, -1, -1): \n        for col in range(max_col): \n            if (row == max_row - 1): \n                test_array[row][col] \n            else: \n           # Choose the route with maximum sum \n                test_array[row][col] += max(test_array[row + 1][col], test_array[row + 1][col + 1]); \n    # Displays the maximum sum \n    print(test_array[0][0]);"
+    },
+    {
+      "instruction": "Create classes to represent a credit card and account holder.",
+      "input": "No input.",
+      "output": "class CreditCard:\n    def __init__(self, card_number):\n        self.card_number = card_number\n\nclass AccountHolder:\n    def __init__(self):\n        self.cards = []\n    def add_card(self, card):\n        self.cards.append(card)"
+    },
+    {
+      "instruction": "Write a JavaScript function to create an array with given size and filled with the characters given in second argument.",
+      "input": "3, \"*\"",
+      "output": "```\nfunction createArray(size, character) {\n    let arr = []; \n    for (let i = 0; i < size; i++) { \n        arr[i] = character; \n    } \n    return arr; \n};\n```"
+    },
+    {
+      "instruction": "Write a Python program to compute the gravitational force between two masses.",
+      "input": "m1 = 5 kg, m2 = 10 kg",
+      "output": "def calc_grav_force(m1, m2):\n    G = 6.67 * 10 ** -11 # gravitational constant\n    force = G * m1 * m2 / (4 * 3.14 ** 2)\n    return force"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+.superpowers/
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.log
+*.tmp
+
+# Local Unsloth compilation artifacts
+unsloth_compiled_cache/
+
+# Training checkpoints and local rollback/candidate adapters
+models/**/checkpoint-*/
+models/adapter_candidate/
+models/adapter_v1_backup/
+
+# Large intermediate curation review files; summarized reports remain tracked
+results/**/audit.jsonl
+results/**/candidates_for_review.jsonl
