@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-19T12:44:37.4742690Z",
+  "status": "active_provisional",
+  "base_model": "unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit",
+  "adapter": {
+    "active_path": "models/adapter",
+    "sha256": "d4bc84884c6d94a561e698ec64dba202471a100813007712274f7d093959e7db",
+    "weights_bytes": 73911112,
+    "lora_rank": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "rollback_adapter": {
+    "path": "models/adapter_v1_backup",
+    "sha256": "be2575a348dc400670f8ec515c99837173a75eb4f4c5470eb45dd892279ddfda",
+    "weights_bytes": 73911112
+  },
+  "dataset": {
+    "path": "data/processed/verified_dataset.json",
+    "sha256": "f32dca850e2eb2a3ec9d9c13c7cf51d27b8ce928949ea196e7d31aafd7ff773a",
+    "train_examples": 1000,
+    "validation_examples": 100,
+    "language_counts": {
+      "python": 500,
+      "javascript": 388,
+      "java": 111,
+      "go": 1
+    },
+    "quality_scope": "structural and syntax/compile screening only; semantic correctness is not certified"
+  },
+  "training": {
+    "script": "src/train.py",
+    "script_sha256": "0c43bf0431da7f8136b81f96f0a6255b4630c55235bf59f90f9c04cedd5323d4",
+    "curation_script": "src/verified_curation.py",
+    "curation_script_sha256": "51be6a48d521e8c1d92033e428ac37c3010a036323120ba803bf978e4ae2edf9",
+    "max_sequence_length": 512,
+    "epochs": 2,
+    "optimizer_steps": 250,
+    "learning_rate": 0.00005,
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "completion_only_loss": true,
+    "best_validation_loss": 0.3921625912
+  },
+  "development_regression": {
+    "prompt_count": 11,
+    "source": "data/test/test.json",
+    "usage_warning": "Used for model selection; this is not an unbiased final test.",
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 256,
+      "max_sequence_length": 512
+    },
+    "responses_path": "results/candidate_v2_responses.json",
+    "responses_sha256": "7b69eeeaf612ad73e7699476eb47d9d6212e2579b7e8cfe131595da202ed3489",
+    "report_path": "results/finetuned_vs_baseline.md",
+    "report_sha256": "3579b27f52c24ce9ca3a14df65201641368c79c4e09e4d2aac600e2933e5fc8d",
+    "scores": {
+      "baseline": 74,
+      "previous_adapter": 70,
+      "v2_adapter": 78,
+      "maximum": 88
+    }
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "number": 1,
+    "question": "How would you create a class in Java and add a field, constructor and method?",
+    "response": "public class MyClass {\n    private int myField;\n\n    public MyClass(int myField) {\n        this.myField = myField;\n    }\n\n    public void myMethod() {\n        System.out.println(\"My Method\");\n    }\n}"
+  },
+  {
+    "number": 2,
+    "question": "Create an Oracle SQL statement for finding the average cost of a product.",
+    "response": "SELECT AVG(cost) \nFROM products;"
+  },
+  {
+    "number": 3,
+    "question": "In Python, how can we calculate the mean of a numerical data set?",
+    "response": "def mean(data):\n    return sum(data) / len(data)\n\n# Example usage:\ndata = [10, 20, 30, 40]\nprint(mean(data)) # Output: 25.0"
+  },
+  {
+    "number": 4,
+    "question": "Create a CSS stylesheet and include styles for basic elements such as headings, paragraphs, and links.",
+    "response": "body {\n  font-family: Arial, sans-serif;\n}\n\nh1 {\n  color: #333;\n  text-align: center;\n}\n\np {\n  margin-bottom: 20px;\n}\n\na {\n  color: #007bff;\n  text-decoration: none;\n}"
+  },
+  {
+    "number": 5,
+    "question": "Write a C++ program to print out the sum of the first 100 integers.",
+    "response": "#include <iostream>\n\nint main() {\n    int sum = 0;\n    for (int i = 1; i <= 100; ++i) {\n        sum += i;\n    }\n    std::cout << \"The sum of the first 100 integers is: \" << sum << std::endl;\n    return 0;\n}"
+  },
+  {
+    "number": 6,
+    "question": "Create a bash script that generates a random 3 letter string with no duplicates in it.",
+    "response": "#!/bin/bash\n\n# Generate a random 3 letter string with no duplicates\nrandom_string() {\n    # Create an array of all possible letters\n    letters=(\"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\" \"k\" \"l\" \"m\" \"n\" \"o\" \"p\" \"q\" \"r\" \"s\" \"t\" \"u\" \"v\" \"w\" \"x\" \"y\" \"z\")\n\n    # Initialize an empty string to store the result\n    result=\"\"\n\n    # Loop until we have generated 3 unique letters\n    while [ ${#result} -lt 3 ]; do\n        # Randomly select a letter from the array\n        letter=${letters[$((RANDOM % ${#letters[@]}))]}\n\n        # If the letter is not already in the result, add it\n        if [[ ! $result == *$letter* ]]; then\n            result+=$letter\n        fi\n    done\n\n    echo \"$result\"\n}\n\n# Call the function and print the result\necho $(random_string)"
+  },
+  {
+    "number": 7,
+    "question": "Create a JavaScript function to check if an integer n is a perfect square.",
+    "response": "function isPerfectSquare(n) {\n  let root = Math.sqrt(n);\n  return root * root === n;\n}"
+  },
+  {
+    "number": 8,
+    "question": "Design a C code to accept two integers from the user and find the greatest among them.",
+    "response": "#include <stdio.h>\n\nint main() {\n    int num1, num2;\n    \n    printf(\"Enter two numbers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    \n    if (num1 > num2) {\n        printf(\"%d is greater than %d\\n\", num1, num2);\n    } else {\n        printf(\"%d is greater than %d\\n\", num2, num1);\n    }\n    \n    return 0;\n}"
+  },
+  {
+    "number": 9,
+    "question": "Create a C# class to serialize a JSON object.",
+    "response": "using System;\nusing Newtonsoft.Json;\n\npublic class JsonSerializer\n{\n    public static string Serialize(object obj)\n    {\n        return JsonConvert.SerializeObject(obj);\n    }\n}"
+  },
+  {
+    "number": 10,
+    "question": "Write a Java program to calculate the sum of the series 1^3+2^3+3^3+.....+n^3.",
+    "response": "public class SumOfSeries {\n    public static void main(String[] args) {\n        int n = 5;\n        int sum = 0;\n        for (int i = 1; i <= n; i++) {\n            sum += Math.pow(i, 3);\n        }\n        System.out.println(\"Sum of series: \" + sum);\n    }\n}"
+  },
+  {
+    "number": 11,
+    "question": "Write a C# program to remove all adjacent duplicates from a string.\n\nInput:\nstring str = \"azxxzy\";",
+    "response": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        string str = \"azxxzy\";\n        string result = RemoveAdjacentDuplicates(str);\n        Console.WriteLine(result); // azxy\n    }\n\n    static string RemoveAdjacentDuplicates(string str)\n    {\n        char[] arr = str.ToCharArray();\n        int i = 0;\n        for (int j = 1; j < arr.Length; j++)\n        {\n            if (arr[i] != arr[j])\n            {\n                arr[++i] = arr[j];\n            }\n        }\n        return new string(arr, 0, i + 1);\n    }\n}"
+  }
+]
