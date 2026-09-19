@@ -20,11 +20,6 @@
       "down_proj"
     ]
   },
-  "rollback_adapter": {
-    "path": "models/adapter_v1_backup",
-    "sha256": "be2575a348dc400670f8ec515c99837173a75eb4f4c5470eb45dd892279ddfda",
-    "weights_bytes": 73911112
-  },
   "dataset": {
     "path": "data/processed/verified_dataset.json",
     "sha256": "f32dca850e2eb2a3ec9d9c13c7cf51d27b8ce928949ea196e7d31aafd7ff773a",
@@ -64,10 +59,9 @@
     "responses_path": "results/candidate_v2_responses.json",
     "responses_sha256": "7b69eeeaf612ad73e7699476eb47d9d6212e2579b7e8cfe131595da202ed3489",
     "report_path": "results/finetuned_vs_baseline.md",
-    "report_sha256": "f40df00b7f19e34add4f6d42d746c58b89700113440c5adaf2a6c4417d53a01a",
+    "report_sha256": "9ebb46d38ed3b5e2b39aaf70a5da543cc1723a2d43087237a20e307a5930554a",
     "scores": {
       "baseline": 74,
-      "previous_adapter": 70,
       "v2_adapter": 78,
       "maximum": 88
     }

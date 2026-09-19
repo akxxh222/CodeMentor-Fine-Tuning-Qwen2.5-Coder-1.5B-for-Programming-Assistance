@@ -1,4 +1,5 @@
 .superpowers/
+docs/superpowers/
 .venv/
 __pycache__/
 .pytest_cache/
@@ -13,7 +14,12 @@ unsloth_compiled_cache/
 models/**/checkpoint-*/
 models/adapter_candidate/
 models/adapter_v1_backup/
+results/v1/
 
 # Large intermediate curation review files; summarized reports remain tracked
 results/**/audit.jsonl
 results/**/candidates_for_review.jsonl
+results/curation-final/
+results/curation-postreview/
+results/curation-verified/
+results/curation-selected/*.jsonl

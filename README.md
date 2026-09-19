@@ -17,7 +17,7 @@ The final solution combines:
 - deterministic baseline-versus-adapter evaluation; and
 - a Flask workbench with session-scoped conversations and instant model switching.
 
-The active V2 adapter produced the best aggregate score in the project's 11-question development regression evaluation: **78/88 (88.64%)**, compared with **74/88 (84.09%)** for baseline Qwen and **70/88 (79.55%)** for the previous adapter.
+The active V2 adapter produced the best aggregate score in the project's 11-question development regression evaluation: **78/88 (88.64%)**, compared with **74/88 (84.09%)** for baseline Qwen.
 
 > The 11 questions were used to select V2, so these results are development evidence rather than an unbiased final benchmark. The curated examples are structurally and syntactically screened, but semantic correctness is not guaranteed.
 
@@ -33,7 +33,6 @@ The active V2 adapter produced the best aggregate score in the project's 11-ques
 - Deterministic generation with `do_sample=False`.
 - Conservative dataset validation without executing dataset programs.
 - Reproducible selection and splitting with seed `3407`.
-- V1 adapter backup for immediate rollback.
 - Automated tests for the API, conversation store, runtime, frontend contract, curation, and training configuration.
 
 ## Architecture
@@ -139,7 +138,7 @@ V2 uses a more conservative subset rather than all 6,000 training examples:
 
 The V2 filter found 3,240 acceptable candidates inside the 6,000-example training pool and selected 1,000. Syntax or compilation success is not proof that the solution implements the requested behavior; this limitation is preserved in the evaluation report and manifest.
 
-Detailed filter documentation is available in [DATASET_CURATION_FILTERS.md](DATASET_CURATION_FILTERS.md).
+Complete filter documentation is available in [CURATION.md](CURATION.md).
 
 ## Training Configuration
 
@@ -174,7 +173,7 @@ Completion-only loss masks user-prompt tokens and optimizes the assistant respon
 
 ## Evaluation Methodology
 
-Baseline Qwen, adapter V1, and adapter V2 were evaluated on the same 11 programming prompts. Each prompt was generated independently using deterministic decoding:
+Baseline Qwen and the active V2 adapter were evaluated on the same 11 programming prompts. Each prompt was generated independently using deterministic decoding:
 
 - `do_sample=False`;
 - maximum 256 new tokens for the recorded comparison;
@@ -197,16 +196,15 @@ With four criteria across 11 questions, the maximum score is 88.
 | Model | Correctness | Relevance | Completeness | Code validity | Total | Percentage |
 |---|---:|---:|---:|---:|---:|---:|
 | Baseline Qwen | 18/22 | 22/22 | 18/22 | 16/22 | 74/88 | 84.09% |
-| Previous adapter V1 | 15/22 | 22/22 | 18/22 | 15/22 | 70/88 | 79.55% |
 | **Fine-tuned adapter V2** | **18/22** | **22/22** | **19/22** | **19/22** | **78/88** | **88.64%** |
 
-V2 improved by **4 points, or 4.55 percentage points, over baseline Qwen** and by **8 points, or 9.09 percentage points, over V1**. V2 tied baseline correctness, retained full relevance, and improved aggregate completeness and code validity.
+V2 improved by **4 points, or 4.55 percentage points, over baseline Qwen**. It tied baseline correctness, retained full relevance, and improved aggregate completeness and code validity.
 
-The active adapter is stored at `models/adapter`. The previous adapter is preserved at `models/adapter_v1_backup`. Artifact hashes, exact settings, and provenance are recorded in [results/adapter-v2-manifest.json](results/adapter-v2-manifest.json).
+The active adapter is stored at `models/adapter`. Artifact hashes, exact settings, and provenance are recorded in [results/adapter-v2-manifest.json](results/adapter-v2-manifest.json).
 
 ### Interpretation
 
-The project goal was achieved on the recorded development regression sample: V2 outperformed both the unmodified baseline and the previous fine-tuned adapter. It is not yet valid to claim universal superiority because:
+The project goal was achieved on the recorded development regression sample: V2 outperformed the unmodified baseline overall. It is not yet valid to claim universal superiority because:
 
 - the evaluation contains only 11 questions;
 - those questions influenced the promotion decision;
@@ -398,12 +396,11 @@ CodeMentor/
 │   ├── processed/verified_dataset.json
 │   └── test/test.json
 ├── models/
-│   ├── adapter/               # Active V2 adapter
-│   └── adapter_v1_backup/     # Previous adapter rollback
+│   └── adapter/               # Active V2 adapter
 ├── results/
 │   ├── finetuned_vs_baseline.md
 │   ├── adapter-v2-manifest.json
-│   ├── v1/                    # Historical V1 full-evaluation outputs
+│   ├── candidate_v2_responses.json
 │   └── verified-curation/report.json
 ├── src/
 │   ├── data_preparation.py
@@ -414,14 +411,13 @@ CodeMentor/
 │   ├── inference.py
 │   └── evaluate.py
 ├── tests/
-├── DATASET_CURATION_FILTERS.md
 ├── requirements.txt
 └── README.md
 ```
 
 ## Reproducibility and Limitations
 
-- The active V2 and rollback V1 adapter hashes are recorded in `results/adapter-v2-manifest.json`.
+- The active V2 adapter hash is recorded in `results/adapter-v2-manifest.json`.
 - The dataset, training scripts, generated responses, evaluation report, and adapter weights are tied together with SHA-256 hashes.
 - The raw data and model are downloaded from Hugging Face but inference is performed locally.
 - Dataset programs are parsed or compiled where possible; they are never executed by the filtering pipeline.

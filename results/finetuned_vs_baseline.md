@@ -7,10 +7,9 @@ The active V2 adapter achieved the highest combined score on this 11-prompt deve
 | Model | Correctness (/22) | Relevance (/22) | Completeness (/22) | Code validity (/22) | Total (/88) | Percentage |
 |---|---:|---:|---:|---:|---:|---:|
 | Baseline Qwen | 18 | 22 | 18 | 16 | 74 | 84.09% |
-| Previous adapter V1 | 15 | 22 | 18 | 15 | 70 | 79.55% |
 | **Fine-tuned adapter V2** | **18** | **22** | **19** | **19** | **78** | **88.64%** |
 
-Fine-tuned V2 achieved **88.64%**, compared with **84.09%** for baseline Qwen and **79.55%** for adapter V1. That is an improvement of **4.55 percentage points** over the baseline and **9.09 percentage points** over V1. Its correctness score ties the baseline while code validity and completeness exceed it. This is evidence of improvement on this sample, not proof of general superiority.
+Fine-tuned V2 achieved **88.64%**, compared with **84.09%** for baseline Qwen. That is an improvement of **4.55 percentage points**. Its correctness score ties the baseline while code validity and completeness exceed it. This is evidence of improvement on this sample, not proof of general superiority.
 
 These 11 prompts were selected from `data/test/test.json` and used for the promotion decision. They must therefore be treated as development regression prompts, not as an unbiased final test. A future final evaluation must use fresh prompts or exclude these 11 prompts from the existing 500-example test set.
 
@@ -25,7 +24,6 @@ These 11 prompts were selected from `data/test/test.json` and used for the promo
 - Learning rate: `5e-5`
 - Best/final validation loss: `0.3921625912`
 - Promoted V2 path: `models/adapter`
-- Previous adapter rollback path: `models/adapter_v1_backup`
 
 ## Dataset-quality limitations
 
@@ -166,7 +164,7 @@ random_string() {
 echo $(random_string)
 ```
 
-**Assessment:** Correctly terminates with three distinct lowercase letters. This fixes the previous V1 adapter's non-terminating `/dev/urandom | sort` pipeline.
+**Assessment:** Correctly terminates with three distinct lowercase letters.
 
 ### 7. JavaScript perfect square
 
@@ -270,6 +268,6 @@ class Program
 
 ## Promotion decision and scope
 
-The candidate outperformed the previous adapter on this development sample: total score increased from 70 to 78 and correctness from 15 to 18. Compared with baseline, total score increased from 74 to 78 and code validity from 16 to 19 while correctness tied at 18.
+Compared with baseline, V2 increased the total score from 74 to 78 and code validity from 16 to 19 while correctness tied at 18.
 
-V2 was promoted to `models/adapter` under a development rule requiring correctness non-regression plus gains in completeness, code validity, and total score. The previous adapter remains at `models/adapter_v1_backup`. Promotion is reversible and provisional because the sample is small, was used for model selection, and does not establish broad semantic correctness.
+V2 is the active adapter at `models/adapter`. Its result remains provisional because the sample is small, was used for model selection, and does not establish broad semantic correctness.
