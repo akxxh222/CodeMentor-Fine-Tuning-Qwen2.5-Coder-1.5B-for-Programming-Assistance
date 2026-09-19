@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>CodeMentor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body data-model-state="loading">
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Conversation sessions">
+        <a class="brand" href="/" aria-label="CodeMentor home">
+          <span class="brand-mark" aria-hidden="true">CM</span>
+          <span class="brand-name">CodeMentor</span>
+        </a>
+
+        <button id="new-session" class="new-session" type="button">
+          <span aria-hidden="true">+</span>
+          <span class="new-session-label">New session</span>
+        </button>
+
+        <p class="sidebar-label">Sessions</p>
+        <nav id="session-list" class="session-list" aria-label="Saved sessions"></nav>
+
+        <div class="sidebar-status">
+          <i class="state-dot" aria-hidden="true"></i>
+          <span id="model-status-message">Loading local model</span>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="workspace-header">
+          <div class="session-heading">
+            <h1 id="session-title">New mentoring session</h1>
+            <p>Context from this session only</p>
+          </div>
+          <div class="header-actions">
+            <label class="model-picker" for="model-select">
+              <span>Model</span>
+              <select id="model-select" aria-label="Comparison model">
+                <option value="finetuned">Fine-tuned</option>
+                <option value="baseline">Baseline</option>
+              </select>
+            </label>
+            <button id="clear-session" class="quiet-button" type="button">Clear</button>
+            <div id="model-status" class="model-status" role="status" aria-live="polite">
+              <i class="state-dot" aria-hidden="true"></i>
+              <span>Loading</span>
+            </div>
+          </div>
+        </header>
+
+        <section id="thread" class="thread" aria-live="polite">
+          <div id="empty-state" class="empty-state">
+            <span class="empty-mark" aria-hidden="true">CM</span>
+            <p class="eyebrow">Local programming assistant</p>
+            <h2>What are you working through?</h2>
+            <p class="empty-copy">Ask for a concept explanation, paste code for review, or work through an error.</p>
+            <div class="suggestions" aria-label="Example questions">
+              <button type="button" data-suggestion="Explain recursion with a simple Python example.">Explain a concept</button>
+              <button type="button" data-suggestion="Review this function for bugs and edge cases:\n\n">Review my code</button>
+              <button type="button" data-suggestion="Help me understand this error:\n\n">Debug an error</button>
+            </div>
+          </div>
+        </section>
+
+        <p id="context-notice" class="context-notice" hidden>
+          Older messages were omitted to fit the model context.
+        </p>
+
+        <section class="model-unavailable" aria-live="assertive">
+          <div>
+            <strong>Model unavailable</strong>
+            <p id="unavailable-message">The local model could not be loaded.</p>
+          </div>
+          <button id="retry-model" type="button">Retry loading</button>
+        </section>
+
+        <form id="chat-form" class="composer">
+          <label class="sr-only" for="prompt">Programming question</label>
+          <textarea id="prompt" rows="1" maxlength="12000" placeholder="Ask a follow-up or paste code…" disabled></textarea>
+          <div class="composer-footer">
+            <span>Enter to send · Shift + Enter for a new line</span>
+            <button id="send-button" type="submit" disabled aria-label="Send question">
+              <span aria-hidden="true">↑</span>
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
