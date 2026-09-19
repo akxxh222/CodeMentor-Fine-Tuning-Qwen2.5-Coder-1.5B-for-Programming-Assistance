@@ -1,4 +1,6 @@
-# Correctness-First Adapter V2 Implementation Plan
+# Historical Adapter V2 Implementation Plan
+
+> **Status:** Implemented and promoted with documented deviations. The active V2 uses 1,000 training and 100 validation examples from `data/processed/verified_dataset.json` and is stored at `models/adapter`. The 11-prompt promotion comparison is development regression evidence, not a held-out final benchmark. Mechanical validation did not certify semantic correctness. This file preserves the pre-implementation plan; current facts are in `README.md`, `CURATION.md`, and `results/finetuned_vs_baseline.md`.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 

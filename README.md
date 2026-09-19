@@ -327,7 +327,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-`requirements.txt` contains the lightweight Flask and test dependencies. Training and GPU inference additionally require compatible installations of PyTorch with CUDA, Unsloth, Transformers, Datasets, TRL, PEFT, bitsandbytes, Triton, and xFormers. Their versions must be selected together for the installed CUDA/Python environment.
+`requirements.txt` lists the direct application, training, and test dependencies. Install a CUDA-compatible PyTorch build for the local driver before or alongside these packages. Unsloth may install additional platform-specific dependencies such as Triton and xFormers; all GPU packages must be compatible with the installed Python and CUDA environment.
 
 ## Running the Application
 
@@ -403,6 +403,7 @@ CodeMentor/
 ├── results/
 │   ├── finetuned_vs_baseline.md
 │   ├── adapter-v2-manifest.json
+│   ├── v1/                    # Historical V1 full-evaluation outputs
 │   └── verified-curation/report.json
 ├── src/
 │   ├── data_preparation.py

@@ -1,7 +1,7 @@
 ---
 base_model: unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit
 library_name: peft
-model_name: adapter_candidate
+model_name: codementor-qwen2.5-coder-v2
 tags:
 - base_model:adapter:unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit
 - lora
@@ -9,32 +9,32 @@ tags:
 - transformers
 - trl
 - unsloth
-licence: license
 pipeline_tag: text-generation
 ---
 
-# Model Card for adapter_candidate
+# CodeMentor Qwen2.5-Coder V2 Adapter
 
-This model is a fine-tuned version of [unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit](https://huggingface.co/unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit).
-It has been trained using [TRL](https://github.com/huggingface/trl).
+This is the active CodeMentor V2 LoRA adapter for [unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit](https://huggingface.co/unsloth/qwen2.5-coder-1.5b-instruct-bnb-4bit). It was trained locally with Unsloth and TRL on 1,000 syntax/compile-screened programming examples, using 100 validation examples and completion-only loss.
+
+The training data is not semantically certified. See the repository-level `README.md`, `CURATION.md`, and `results/finetuned_vs_baseline.md` for evaluation scope and limitations.
 
 ## Quick start
 
 ```python
-from transformers import pipeline
+from unsloth import FastLanguageModel
 
-question = "If you had a time machine, but could only go to the past or the future once and never return, which would you choose and why?"
-generator = pipeline("text-generation", model="None", device="cuda")
-output = generator([{"role": "user", "content": question}], max_new_tokens=128, return_full_text=False)[0]
-print(output["generated_text"])
+model, tokenizer = FastLanguageModel.from_pretrained(
+    model_name="models/adapter",
+    max_seq_length=512,
+    load_in_4bit=True,
+)
+FastLanguageModel.for_inference(model)
 ```
 
 ## Training procedure
 
  
-
-
-This model was trained with SFT.
+This adapter was trained with QLoRA supervised fine-tuning for 2 epochs, a learning rate of `5e-5`, LoRA rank/alpha of 16/16, and assistant-completion-only loss. Its best recorded validation loss was `0.3921625912`.
 
 ### Framework versions
 

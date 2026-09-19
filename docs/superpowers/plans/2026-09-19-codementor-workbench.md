@@ -1,5 +1,7 @@
 # CodeMentor Workbench Implementation Plan
 
+> **Status:** Implemented. This file is retained as the historical build plan. The current application is documented in `README.md`; the repository is now a Git repository and the active adapter is V2 at `models/adapter`.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build a professional Flask-based CodeMentor workbench that starts independently of the model, reports model availability honestly, and supports bounded in-memory conversational inference with the fine-tuned Qwen adapter.

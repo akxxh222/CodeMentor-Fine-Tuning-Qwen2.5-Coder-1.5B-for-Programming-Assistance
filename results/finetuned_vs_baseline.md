@@ -2,7 +2,7 @@
 
 ## Development-regression outcome
 
-The candidate adapter achieved the highest combined score on this 11-prompt development-regression sample.
+The active V2 adapter achieved the highest combined score on this 11-prompt development-regression sample.
 
 | Model | Correctness (/22) | Relevance (/22) | Completeness (/22) | Code validity (/22) | Total (/88) | Percentage |
 |---|---:|---:|---:|---:|---:|---:|
@@ -35,7 +35,7 @@ An independent audit found incorrect targets that still pass those mechanical ch
 
 Language coverage is also narrow: Python (500), JavaScript (388), Java (111), and Go (1). C, C++, C#, Bash, SQL, and CSS were excluded because the conservative curation pipeline had no configured validator for them. This limits conclusions about multilingual improvement.
 
-## Candidate score table
+## V2 score table
 
 | # | Correctness (0-2) | Relevance (0-2) | Completeness (0-2) | Code validity (0-2) | Total |
 |---:|---:|---:|---:|---:|---:|
@@ -52,7 +52,7 @@ Language coverage is also narrow: Python (500), JavaScript (388), Java (111), an
 | 11 | 1 | 2 | 2 | 2 | 7 |
 | **Total** | **18** | **22** | **19** | **19** | **78/88** |
 
-## Verbatim candidate responses
+## Verbatim V2 responses
 
 ### 1. Java class
 
@@ -166,7 +166,7 @@ random_string() {
 echo $(random_string)
 ```
 
-**Assessment:** Correctly terminates with three distinct lowercase letters. This fixes the current adapter's non-terminating `/dev/urandom | sort` pipeline.
+**Assessment:** Correctly terminates with three distinct lowercase letters. This fixes the previous V1 adapter's non-terminating `/dev/urandom | sort` pipeline.
 
 ### 7. JavaScript perfect square
 

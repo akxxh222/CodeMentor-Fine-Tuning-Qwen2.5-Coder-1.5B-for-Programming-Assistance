@@ -1,88 +1,95 @@
-# Local dataset quality audit
+# CodeMentor dataset curation status
 
-The existing `python src/data_preparation.py` summary remains available.
-The new `--audit` mode uses exact local Arrow and tokenizer snapshot paths:
+This file identifies the dataset artifacts used by the current CodeMentor V2 adapter. The project has two separate curation stages; the 7,000-example artifact is an intermediate development split, not the dataset passed directly to V2 training.
+
+## Current source of truth
+
+| Artifact | Contents | Current role |
+|---|---:|---|
+| `data/raw/codealpaca.json` | 20,022 examples | Local snapshot of the source dataset |
+| `data/processed/dataset.json` | 6,000 train + 500 validation | General curated development split |
+| `data/test/test.json` | 500 test | General held-out test partition |
+| `data/processed/verified_dataset.json` | 1,000 train + 100 validation | **Actual dataset used to train V2** |
+| `results/verified-curation/report.json` | V2 filter report | Authoritative V2 selection counts |
+| `results/adapter-v2-manifest.json` | Dataset/model hashes and settings | V2 provenance |
+
+The active adapter is `models/adapter`. `src/train.py` defaults to `data/processed/verified_dataset.json` and writes new runs to `models/adapter_candidate`, preventing accidental replacement of the active adapter.
+
+## Stage 1: general 7,000-example split
+
+The original local audit processes all 20,022 CodeAlpaca rows through `src/curation_report.py`, `src/curation.py`, `src/selection.py`, and `src/select_splits.py`.
+
+It checks schema, required content, text integrity, Qwen chat length, programming relevance, placeholders, code-fence balance, Python parsing, narrow factual contradictions, exact duplicates, conflicting answers, reused answers, and lexical similarity groups. Eligible recognized-language records are ranked deterministically and capped so no language exceeds 50% of the selected set.
+
+The selected 7,000 records are divided with seed `3407`:
+
+- 6,000 training records;
+- 500 validation records; and
+- 500 test records.
+
+Detected duplicate/similarity groups stay within one partition. This is heuristic lexical isolation, not proof that semantic paraphrases never cross splits.
+
+The cached local Qwen judge reviewed 13,120 candidates but failed calibration with four false passes across seven controls. Its judgments were retained as audit evidence and were **not** used for selection.
+
+## Stage 2: V2 training subset
+
+`src/verified_curation.py` starts from the 6,000-record Stage 1 training partition. It uses the original validation and test prompts only to prevent leakage; it never selects test examples for training.
+
+The V2 pass:
+
+1. validates the `instruction`, `input`, and `output` schema;
+2. normalizes and hashes instruction/input prompts;
+3. rejects training prompts that overlap validation or test prompts;
+4. removes duplicate training prompts;
+5. requires a code-generation action in the instruction;
+6. rejects empty, placeholder, unusually short/long, or incomplete output;
+7. checks balanced parentheses, brackets, braces, and code fences;
+8. parses Python and runs available local syntax/compile tools for JavaScript, Java, Bash, Go, and C#;
+9. never executes dataset programs; and
+10. selects deterministically with seed `3407` and a 50% per-language cap.
+
+Recorded V2 selection results:
+
+| Measure | Count |
+|---|---:|
+| Stage 1 training records considered | 6,000 |
+| V2 candidates passing mechanical checks | 3,240 |
+| V2 training records selected | 1,000 |
+| V2 validation records selected | 100 |
+
+V2 training-language distribution:
+
+| Language | Examples |
+|---|---:|
+| Python | 500 |
+| JavaScript | 388 |
+| Java | 111 |
+| Go | 1 |
+
+Although Bash and C# validators were available locally, no examples in those languages entered the final 1,000 after all filters and balancing. C, C++, SQL, CSS, and other unsupported languages were excluded from the V2 subset.
+
+## Correctness boundary
+
+Neither stage certifies semantic correctness for every answer. Parsing or compilation can detect malformed code but cannot establish algorithmic behavior, edge-case handling, dependency availability, explanation accuracy, or compliance with the instruction.
+
+Independent review found semantically incorrect targets inside the 1,000-example V2 set despite their passing mechanical checks. The dataset must therefore be described as **syntax/compile-screened**, not correctness-verified.
+
+The 11 questions used to compare baseline, V1, and V2 were also used in the V2 promotion decision. They are development regression prompts, not an unbiased final test. See `results/finetuned_vs_baseline.md` for the exact scores and limitations.
+
+## Reproducing the datasets
+
+Run the original cached audit with explicit local Arrow and tokenizer paths:
 
 ```powershell
-python src/data_preparation.py --audit --arrow 'C:\path\to\code-alpaca-20k-train.arrow' --tokenizer 'C:\path\to\tokenizer\snapshot' --output-dir results/curation
-python -m unittest discover -s tests -v
+python src/data_preparation.py --audit --arrow 'C:\path\to\code-alpaca-20k-train.arrow' --tokenizer 'C:\path\to\tokenizer\snapshot' --output-dir results/curation-new
 ```
 
-To include the real-tokenizer regression test, set
-`$env:CODEMENTOR_TEST_TOKENIZER = 'C:\path\to\tokenizer\snapshot'` before
-running the tests. Without this variable that one integration test is skipped.
-The test verifies that long conversations exceed 512 tokens and prevents
-counting dictionary fields instead of token IDs across Transformers versions.
+After the 6,000/500/500 files exist, rebuild the V2 subset:
 
-The strengthened completed run is in `results/curation-postreview/`. The earlier
-`results/curation-verified/` run remains as pre-review evidence, and the
-`results/curation-final/` run is explicitly marked invalid due to a token-count
-bug and must not be used.
+```powershell
+python src/verified_curation.py
+```
 
-## Selected dataset
+Outputs should be written to new locations when preserving previous reports. Exact hashes for the promoted V2 artifacts are stored in `results/adapter-v2-manifest.json`.
 
-The final deterministic selection contains 7,000 unique source examples:
-
-- `data/processed/dataset.json`: 6,000 training and 500 validation examples.
-- `data/test/test.json`: 500 test examples.
-- `results/curation-selected/report.json`: counts, language distribution,
-  calibration result, seed, and exact source indices for every split.
-
-Selection requires an empty post-review audit-reason list, a recognized
-programming language, no more than 512 complete chat tokens, and successful
-Python static compilation when the language is Python. The Python audit also
-flags unresolved bare names. Narrow validators reject the known incorrect
-prime-factor, binary explanation, Java debugging, and LCS interface patterns.
-Rows are ranked by deterministic structural quality signals and capped so one
-language cannot exceed half of the selection. Seed 3407 assigns each detected
-review group to one split. This is heuristic group isolation: lexical
-similarity can miss paraphrases and code clones.
-
-The cached Qwen 0.5B model reviewed 13,120 candidates. Its seven-control
-calibration produced four false passes, so its scores are saved for audit and
-are not used for selection. The selected files are provisional, locally
-curated candidates, not independently approved answers. Establishing that
-stronger status requires task-specific tests or human review of every row.
-
-The audit requires the already-installed `datasets` and `transformers` packages.
-It sets Hugging Face offline flags and uses `local_files_only=True`. No paid
-services, model downloads, GPU, or execution of dataset code are involved.
-Output directories must be new so previous reports are preserved.
-
-## Interpretation
-
-- `reject`: invalid schema, missing required content, damaged characters,
-  excess tokens, exact duplicate, or a narrowly established factual error.
-  A rejection such as excess tokens is eligibility-related, not proof that the
-  answer is wrong.
-- `review`: semantic correctness remains unverified. Flags may additionally
-  identify syntax problems/fragments, placeholders, conflicting answers,
-  shared answers, or similar prompts.
-- `candidates_for_review.jsonl`: review rows with no detected flags. These are
-  candidates, not approved training examples.
-- `accepted.json`: only complete answers independently verified by the narrow
-  binary-conversion or largest-prime-factor validators, passing all other checks.
-  Syntax or length alone cannot promote a row. These math tasks do not establish
-  programming-language coverage or usefulness for a coding mentor.
-- `audit.jsonl`: every original row, stable content hash, source index, token
-  count, heuristic language, review group, and all applicable reasons.
-- `report.json`: aggregate counts, token percentiles, source/tokenizer/code
-  hashes, package versions, and limitations.
-
-The 512-token limit counts the entire user/assistant conversation using the
-cached Qwen chat template, including its default system text and role markers.
-No content is truncated or rewritten. Future training must use the same format
-or repeat the token audit with its final format.
-
-Only Python has a static parser/compiler check. Passing it does not verify
-runtime behavior or fulfill the instruction. Other languages stay eligible for
-review but their syntax is not asserted valid. Lexical token-set Jaccard
-similarity at 0.85 and identical outputs create connected review groups. This
-can overgroup unrelated tasks and miss paraphrases; it is not semantic
-deduplication. A reviewer must resolve conflicts before any future split.
-
-For a correctness-certified release, the next stage needs independently checked
-expected behavior/test cases or human review of each instruction, input,
-answer, and explanation. A small local language model cannot certify
-correctness. Keep only independently approved examples even if that produces
-fewer than 7,000.
+For filter-by-filter implementation details, see `DATASET_CURATION_FILTERS.md`.

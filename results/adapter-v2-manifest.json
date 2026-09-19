@@ -40,7 +40,7 @@
   },
   "training": {
     "script": "src/train.py",
-    "script_sha256": "0c43bf0431da7f8136b81f96f0a6255b4630c55235bf59f90f9c04cedd5323d4",
+    "script_sha256": "05d222f193782b2acca8da4cc91c74198cefa76fe9bb64b747454ba4f88a1965",
     "curation_script": "src/verified_curation.py",
     "curation_script_sha256": "51be6a48d521e8c1d92033e428ac37c3010a036323120ba803bf978e4ae2edf9",
     "max_sequence_length": 512,
@@ -64,7 +64,7 @@
     "responses_path": "results/candidate_v2_responses.json",
     "responses_sha256": "7b69eeeaf612ad73e7699476eb47d9d6212e2579b7e8cfe131595da202ed3489",
     "report_path": "results/finetuned_vs_baseline.md",
-    "report_sha256": "3579b27f52c24ce9ca3a14df65201641368c79c4e09e4d2aac600e2933e5fc8d",
+    "report_sha256": "f40df00b7f19e34add4f6d42d746c58b89700113440c5adaf2a6c4417d53a01a",
     "scores": {
       "baseline": 74,
       "previous_adapter": 70,

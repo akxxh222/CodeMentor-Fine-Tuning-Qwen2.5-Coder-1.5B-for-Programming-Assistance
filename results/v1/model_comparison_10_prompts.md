@@ -1,4 +1,6 @@
-# Baseline vs Fine-Tuned Model Comparison
+# Historical Baseline vs. Adapter V1 Comparison
+
+> This report contains the previous V1 adapter evaluation. It is retained for provenance and does not describe the active V2 adapter. For the current comparison, see `../finetuned_vs_baseline.md`.
 
 ## Evaluation setup
 
@@ -647,7 +649,7 @@ public static string RemoveAdjacentDuplicates(string str) {     StringBuilder sb
 ## Overall result
 
 - Baseline: **74/88 (84.09%)**
-- Fine-tuned: **70/88 (79.55%)**
+- Previous adapter V1: **70/88 (79.55%)**
 - Difference: baseline leads by **4 points** on this 11-prompt sample.
 
 Both modes performed strongly on straightforward code generation. Shared weaknesses include equal-input handling in question 8 and the exclusive upper bound in question 10. The fine-tuned model's largest failures include the non-terminating Bash pipeline in question 6 and its incorrect duplicate-removal method in question 11. The baseline response for question 11 uses the correct algorithm but needs a closing class brace, while its question 9 C# response is truncated and non-compilable.

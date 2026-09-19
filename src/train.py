@@ -11,7 +11,7 @@ OUTPUT_DIR = Path("models/adapter_candidate")
 
 
 def load_data(train_file=TRAIN_FILE):
-    """Load train and validation data from dataset.json."""
+    """Load train and validation records from the configured dataset file."""
 
     from datasets import Dataset
 

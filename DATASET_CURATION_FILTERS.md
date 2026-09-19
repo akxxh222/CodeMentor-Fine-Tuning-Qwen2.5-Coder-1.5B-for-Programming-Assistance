@@ -1,15 +1,21 @@
-# Dataset curation: 20,022 source examples to 7,000 training candidates
+# Dataset curation: CodeAlpaca source to the V2 training subset
 
-This document records the deterministic, local filtering used to turn the CodeAlpaca source dataset (20,022 examples) into the final 7,000-example training set. The resulting records are **curated candidates**, not a mathematical guarantee that every natural-language answer is correct.
+This document records both deterministic local curation stages used by the current project. Stage 1 turns the 20,022 CodeAlpaca source examples into a general 7,000-record development dataset. Stage 2 selects the stricter 1,000-training/100-validation subset actually used for the active V2 adapter. Neither stage guarantees semantic correctness.
 
-The final files are:
+The Stage 1 files are:
 
 - `data/processed/dataset.json` — 6,000 training and 500 validation examples.
 - `data/test/test.json` — 500 held-out test examples.
 - `results/curation-postreview/` — audit outputs for the original 20,022 rows.
 - `results/curation-selected/report.json` — selection, language, provenance, and split metadata for the final 7,000 rows.
 
-## Pipeline overview
+The current V2 files are:
+
+- `data/processed/verified_dataset.json` — **1,000 V2 training and 100 V2 validation examples**.
+- `results/verified-curation/report.json` — V2 validator availability, selection, language, and rejection counts.
+- `results/adapter-v2-manifest.json` — hashes tying the promoted adapter to its dataset and configuration.
+
+## Complete pipeline overview
 
 ```text
 CodeAlpaca Arrow cache (20,022)
@@ -26,11 +32,18 @@ CodeAlpaca Arrow cache (20,022)
                     +-- 7,000 selected candidates
                             |
                             +-- 6,000 train / 500 validation / 500 test
+                                    |
+                                    +-- src/verified_curation.py
+                                            +-- prompt leakage exclusion
+                                            +-- local syntax/compile checks
+                                            +-- deterministic balanced selection
+                                                    |
+                                                    +-- 1,000 V2 train / 100 V2 validation
 ```
 
-The counts above are from `results/curation-postreview/report.json` and `results/curation-selected/report.json`.
+The Stage 1 counts are from `results/curation-postreview/report.json` and `results/curation-selected/report.json`. The V2 counts are from `results/verified-curation/report.json` and the generated dataset itself.
 
-## Source loading and audit controls
+## Stage 1: source loading and audit controls
 
 | Category | What is checked | File and named block | Result when triggered |
 | --- | --- | --- | --- |
@@ -38,7 +51,7 @@ The counts above are from `results/curation-postreview/report.json` and `results
 | Reproducibility metadata | Records source, tokenizer, code hashes, library versions, token distribution, and reason counts. | `src/curation_report.py` — `sha256_file()` and the `report` dictionary in `main()` | Makes the audit traceable and repeatable. |
 | Chat-format token length | Counts tokens after applying the Qwen chat template to the complete user prompt and assistant answer. Maximum is 512. | `src/curation.py` — `conversation_tokens()`; `src/curation_report.py` — `--max-tokens`; `src/curation.py` — `inspect_row()` | Rejects `token_limit` or `token_count_unavailable`. |
 
-## Per-example quality filters
+## Stage 1: per-example quality filters
 
 All filters below are applied by `src/curation.py` in `inspect_row()`. A row with an applicable reason is not eligible for final selection because `src/selection.py` `candidate_score()` requires an empty `reasons` list.
 
@@ -58,7 +71,7 @@ All filters below are applied by `src/curation.py` in `inspect_row()`. A row wit
 | Java debug explanation | Detects a known Java assignment-operator error pattern when the explanation incorrectly identifies the operator. | Flags `incorrect_debug_explanation`. |
 | Exact binary conversion | For the exact binary-to-decimal task format, converts the provided binary input independently. | Flags `incorrect_binary_conversion`; records `verified_exact_binary_answer` if correct; marks non-numeric explanations `binary_explanation_requires_review`. |
 
-## Duplicate, conflict, and similarity controls
+## Stage 1: duplicate, conflict, and similarity controls
 
 `src/curation.py` `audit_duplicates(rows, records, threshold=0.85)` runs after all per-row checks.
 
@@ -69,7 +82,7 @@ All filters below are applied by `src/curation.py` in `inspect_row()`. A row wit
 | Reused answer | Groups identical stripped outputs: `shared_answer`. | Avoids repeatedly training on the same response. |
 | Near-duplicate prompt group | Builds deterministic connected groups for prompts with lexical Jaccard similarity of at least 0.85: `similarity_group_requires_review`. | Reduces obvious prompt duplication and supplies a group ID for split isolation. It can miss paraphrases and code clones, so it is not a proof of no leakage. |
 
-## Eligibility and 7,000-item selection
+## Stage 1: eligibility and 7,000-item selection
 
 `src/selection.py` `candidate_score(record)` applies the final eligibility gate. A selected record must have all of the following:
 
@@ -90,7 +103,7 @@ The function then assigns a deterministic ranking score based on useful length, 
 | Eligible recognized-language candidates | 12,883 |
 | Final selected candidates | 7,000 |
 
-## Split isolation and output files
+## Stage 1: split isolation and output files
 
 `src/selection.py` `allocate_sizes()` produces 6,000 training, 500 validation, and 500 test rows when at least 7,000 candidates are available.
 
@@ -103,18 +116,72 @@ The function then assigns a deterministic ranking score based on useful length, 
 
 For provenance without adding source identifiers to model training records, the original indices for every final row are stored in `results/curation-selected/report.json` under `source_indices`.
 
-## Local Qwen review: evaluated, not used as a filter
+## Stage 1: local Qwen review, evaluated but not used as a filter
 
 `src/local_review.py` can load a cached local Qwen causal-language model using `load_local_model()` and score the next-token probabilities for `PASS` versus `FAIL`. Its review prompt is created by `src/selection.py` `build_judge_prompt()`.
 
 The local judge was calibrated with seven known controls by `src/selection.py` `calibration_summary()`. Its results were 3 correct, 4 false passes, and 0 false fails. Because calibration failed, `src/select_splits.py` explicitly sets `local_judge_used_for_selection` to `false`. Therefore, no model verdict was used to claim correctness or choose the final 7,000 rows.
 
+## Stage 2: V2 syntax/compile-screened selection
+
+`src/verified_curation.py` is the source of truth for the dataset used by `src/train.py`. It consumes only the Stage 1 training partition for training selection. Validation and test records contribute prompt fingerprints for leakage prevention but are never added to V2 training.
+
+### V2 filters
+
+| Category | Check | Result when triggered |
+|---|---|---|
+| Schema | Requires string `instruction`, `input`, and `output` fields. | `invalid_schema` |
+| Required content | Requires non-empty instruction and output. | `empty_required_field` |
+| Leakage | Normalizes and SHA-256 hashes instruction/input; excludes hashes found in Stage 1 validation or test. | `held_out_prompt` |
+| Duplicate prompt | Keeps one normalized instruction/input prompt in the training candidate pool. | `duplicate_prompt` |
+| Task type | Requires code-generation action wording such as write, create, implement, function, class, script, query, or program. | `not_code_generation` |
+| Output length | Requires 20 through 4,000 output characters. | `output_length` |
+| Completeness | Requires balanced code fences, parentheses, brackets, and braces. | `incomplete_output` |
+| Placeholder | Rejects `TODO`, `FIXME`, `your code here`, `implementation goes here`, and `not implemented`. | `placeholder` |
+| Validator availability | Requires a configured local parser/compiler for the detected language. | `validator_unavailable` |
+| Syntax/compilation | Parses or compiles extracted code without running the program. | `syntax_failed` |
+
+### V2 language validators
+
+| Language | Local check |
+|---|---|
+| Python | `ast.parse()` followed by Python compilation |
+| JavaScript | `node --check` |
+| Java | `javac -proc:none` |
+| Bash | `bash -n` |
+| Go | `gofmt -e` |
+| C# | Temporary .NET 8 project and `dotnet build` |
+
+Validators are discovered from locally installed executables, so rerunning the selector in a different environment may change the available candidate pool. Dataset programs are not executed.
+
+### V2 deterministic selection
+
+Passing training candidates are sorted by prompt fingerprint, shuffled with seed `3407`, and selected up to a limit of 1,000. When multiple languages are available, no language may occupy more than 50% of the selected set. The final records are sorted again by prompt fingerprint for stable output.
+
+| V2 measure | Count |
+|---|---:|
+| Stage 1 training records considered | 6,000 |
+| Candidates passing V2 mechanical checks | 3,240 |
+| V2 training records selected | 1,000 |
+| V2 validation records selected | 100 |
+
+| V2 training language | Count |
+|---|---:|
+| Python | 500 |
+| JavaScript | 388 |
+| Java | 111 |
+| Go | 1 |
+
+The recorded environment discovered Python, JavaScript, Java, Bash, Go, and C# validators. Bash and C# nevertheless contributed no examples to the final 1,000 after all filters and selection constraints. Languages without an available V2 validator, including the C/C++/SQL/CSS examples in this run, were excluded from V2 training.
+
 ## Important limitations
 
-- Python parse/compile success does not prove runtime behavior, dependencies, edge cases, task compliance, or explanation accuracy.
-- Other languages do not receive a compiler/interpreter check in this pipeline.
+- Stage 1 applies a static parser/compiler only to Python; its other languages remain structurally screened candidates.
+- Stage 2 applies the language validators listed above, but parse/compile success does not prove runtime behavior, dependencies, edge cases, task compliance, or explanation accuracy.
 - The exact factual checks cover only deliberately narrow task formats.
 - Similarity grouping is lexical and heuristic.
 - No source dataset code is executed; the pipeline remains local and does not require paid services.
+- Independent review found semantically incorrect answers in the V2 dataset despite their passing mechanical checks. Do not call it correctness-certified.
+- The 11-question V2 comparison was used for promotion and is a development regression sample, not an unbiased final benchmark.
 
-For the authoritative machine-readable audit and limitations, see `results/curation-postreview/report.json` and `results/curation-selected/report.json`.
+For authoritative machine-readable counts and limitations, see `results/curation-postreview/report.json`, `results/curation-selected/report.json`, `results/verified-curation/report.json`, and `results/adapter-v2-manifest.json`.
